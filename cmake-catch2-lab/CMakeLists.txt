@@ -12,7 +12,7 @@ FetchContent_Declare(
  GIT_TAG v3.6.0)
  FetchContent_MakeAvailable(Catch2)
 
- add_executable(unit_tests/math_tests.cpp src/math_functions.cpp)
+ add_executable(unit_tests tests/math_tests.cpp src/math_functions.cpp)
  target_link_libraries(unit_tests PRIVATE Catch2::Catch2WithMain)
  target_include_directories(unit_tests PUBLIC include)
 
