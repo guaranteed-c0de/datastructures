@@ -15,9 +15,12 @@ FetchContent_Declare(
  add_executable(unit_tests tests/math_tests.cpp src/math_functions.cpp)
  target_link_libraries(unit_tests PRIVATE Catch2::Catch2WithMain)
  target_include_directories(unit_tests PUBLIC include)
-
+ 
+ add_executable(unit_tests tests/math_tests.cpp)
  list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
  include(CTest)
  include(Catch)
  catch_discover_tests(unit_tests)
  add_library(Math STATIC src/math_functions.cpp)
+ target_link_libraries(MathApp PRIVATE MathLib)
+ add_executable(unit_tests tests/math_tests.cpp)
