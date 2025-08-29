@@ -9,3 +9,7 @@ TEST_CASE("Square root of positive numbers", "[math]") {
 TEST_CASE("Square root of negative numbers", "[math]") {
   REQUIRE(compute_sqr_root(-1.0) == -1.0); //Apparently, this refers to the actual function.
 }
+
+TEST_CASE("Square root of non-perfect square") {
+  REQUIRE(compute_sqr_root(2.0) == Catch2::Approx(1.41421356237).epsilon(0.001));
+}
