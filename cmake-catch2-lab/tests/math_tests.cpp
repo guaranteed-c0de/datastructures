@@ -11,6 +11,6 @@ TEST_CASE("Square root of negative numbers", "[math]") {
 }
 
 TEST_CASE("Square root of non-perfect square") {
-  REQUIRE(compute_sqr_root(2.0) == Catch2::Approx(1.41421356237).epsilon(0.001));
+  REQUIRE(compute_sqr_root(2.0) == Catch::Approx(1.41421356237).epsilon(0.001));
 }
 
