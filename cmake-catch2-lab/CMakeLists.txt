@@ -20,4 +20,4 @@ FetchContent_Declare(
  include(CTest)
  include(Catch)
  catch_discover_tests(unit_tests)
- 
+ add_library(Math STATIC src/math_functions.cpp)
