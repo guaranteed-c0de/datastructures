@@ -6,4 +6,6 @@ TEST_CASE("Square root of positive numbers", "[math]") {
   REQUIRE(compute_square_root(0.0) == 0.0);
 }
 
-TEST_CASE("Square root of positive numbers",negative
+TEST_CASE("Square root of negative numbers", "[math]") {
+  REQUIRE(compute_square_root(-1.0) == -1.0);
+}
