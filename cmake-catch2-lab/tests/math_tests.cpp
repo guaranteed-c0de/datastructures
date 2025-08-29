@@ -1,4 +1,4 @@
-#include <catch2/catch_test_marcos.hpp>
+#include <catch2/catch_all>
 #include "math_functions.h"
 
 TEST_CASE("Square root of positive numbers", "[math]") {
