@@ -23,7 +23,6 @@ FetchContent_Declare(
  target_link_libraries(unit_tests PRIVATE Catch2::Catch2WithMain)
 
  
- add_executable(unit_tests tests/math_tests.cpp)
  list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
  include(CTest)
  include(Catch)
