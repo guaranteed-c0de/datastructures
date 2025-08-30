@@ -8,7 +8,6 @@ add_library(Math STATIC src/math_functions.cpp)
 target_link_libraries(MathApp PRIVATE MathLib)
 
 add_executable(MathApp src/main.cpp src/math_functions.cpp)
-target_include_directories(MathApp PUBLIC include)
 enable_testing()
 include(FetchContent)
 
