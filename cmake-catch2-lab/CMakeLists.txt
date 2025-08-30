@@ -4,10 +4,12 @@ project(MathLibProject VERSION 1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_library(Math STATIC src/math_functions.cpp)
+add_library(MathLib STATIC src/math_functions.cpp)
+target_include_directories(MathLib PUBLIC include)
+
+add_executable(MathApp src/main.cpp)
 target_link_libraries(MathApp PRIVATE MathLib)
 
-add_executable(MathApp src/main.cpp src/math_functions.cpp)
 enable_testing()
 include(FetchContent)
 
