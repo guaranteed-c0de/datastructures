@@ -9,6 +9,7 @@ target_include_directories(MathLib PUBLIC include)
 
 add_executable(MathApp src/main.cpp)
 target_link_libraries(MathApp PRIVATE MathLib)
+install(TARGETS MathApp)
 
 enable_testing()
 include(FetchContent)
@@ -27,3 +28,5 @@ FetchContent_Declare(
  include(CTest)
  include(Catch)
  catch_discover_tests(unit_tests)
+
+ include(CPack)
