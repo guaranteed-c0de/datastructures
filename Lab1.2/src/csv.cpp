@@ -1,8 +1,10 @@
 #include "csv.hpp"
-using namespace std; 
 #include <span>
-string make_csv(std::span<const Person*> people)
- { //people is the name of the parameter.
+#include <string>
+
+using namespace std; 
+
+string make_csv(span<const Person*> people){ //people is the name of the parameter.
     string out;
 
     

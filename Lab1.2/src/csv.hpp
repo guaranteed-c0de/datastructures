@@ -2,7 +2,8 @@
 #include <string>
 #include <algorithm>
 #include <span>
-
+#include <vector>
+#include "person.hpp"
 
 inline std::string csv_escape(std::string s) {
   bool need_quotes = s.find_first_of(",\"\n") != std::string::npos;
@@ -13,3 +14,4 @@ inline std::string csv_escape(std::string s) {
   }
   return s;
 }
+std::string make_csv(std::span<const Person*> people);

@@ -6,16 +6,16 @@
 #include <csv.hpp>
 
 int main() {
-  std::vector<const Person*> raw_people;
-for (const auto& p : people) raw_people.push_back(p.get());
+  
 
-std::cout << "\nCSV (Superset):\n";
-std::cout << make_csv(raw_people) << "\n";
+
   try {
     std::vector<std::unique_ptr<Person>> people;
     people.emplace_back(std::make_unique<Student>(1,"Ada","ada@uni.edu",2026, std::vector<std::string>{"CS101","MATH200"}));
     people.emplace_back(std::make_unique<Instructor>(2,"Grace","grace@uni.edu","Room 314", std::vector<std::string>{"CS101"}));
 
+    std::vector<const Person*> raw_people;
+    for (const auto& p : people) raw_people.push_back(p.get());
     // Serialize to JSON array
     nlohmann::json j = nlohmann::json::array();
     for (const auto& p : people) j.push_back(p->to_json());
@@ -32,6 +32,9 @@ std::cout << make_csv(raw_people) << "\n";
     std::cout << tmpS.csv_header() << "\n";
     std::cout << static_cast<Student&>(*people[0]).csv_row() << "\n";
 
+     std::cout << "\nCSV (Superset):\n";
+    std::cout << make_csv(std::span<const Person*>{raw_people}) << "\n";
+
     std::cout << "\nCSV (Instructor):\n";
     Instructor tmpI(98,"TmpI","tmpI@uni.edu","Room 1");
     std::cout << tmpI.csv_header() << "\n";
@@ -46,5 +49,6 @@ std::cout << make_csv(raw_people) << "\n";
     std::cerr << "Unhandled std::exception: " << e.what() << "\n";
     return 1;
   }
+ 
   return 0;
 }

@@ -33,6 +33,7 @@ add_library(core
   src/person.cpp
   src/student.cpp
   src/instructor.cpp
+  src/csv.cpp
 )
 target_include_directories(core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_link_libraries(core PUBLIC nlohmann_json::nlohmann_json yaml-cpp)

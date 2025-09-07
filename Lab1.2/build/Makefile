@@ -621,6 +621,30 @@ Catch2WithMain/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build
 .PHONY : Catch2WithMain/fast
 
+src/csv.o: src/csv.cpp.o
+.PHONY : src/csv.o
+
+# target to build an object file
+src/csv.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/src/csv.cpp.o
+.PHONY : src/csv.cpp.o
+
+src/csv.i: src/csv.cpp.i
+.PHONY : src/csv.i
+
+# target to preprocess a source file
+src/csv.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/src/csv.cpp.i
+.PHONY : src/csv.cpp.i
+
+src/csv.s: src/csv.cpp.s
+.PHONY : src/csv.s
+
+# target to generate assembly for a file
+src/csv.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/src/csv.cpp.s
+.PHONY : src/csv.cpp.s
+
 src/instructor.o: src/instructor.cpp.o
 .PHONY : src/instructor.o
 
@@ -788,6 +812,9 @@ help:
 	@echo "... yaml-cpp-parse"
 	@echo "... yaml-cpp-read"
 	@echo "... yaml-cpp-sandbox"
+	@echo "... src/csv.o"
+	@echo "... src/csv.i"
+	@echo "... src/csv.s"
 	@echo "... src/instructor.o"
 	@echo "... src/instructor.i"
 	@echo "... src/instructor.s"

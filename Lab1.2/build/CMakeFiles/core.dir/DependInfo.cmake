@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/workspaces/DataStructures/Lab1.2/src/csv.cpp" "CMakeFiles/core.dir/src/csv.cpp.o" "gcc" "CMakeFiles/core.dir/src/csv.cpp.o.d"
   "/workspaces/DataStructures/Lab1.2/src/instructor.cpp" "CMakeFiles/core.dir/src/instructor.cpp.o" "gcc" "CMakeFiles/core.dir/src/instructor.cpp.o.d"
   "/workspaces/DataStructures/Lab1.2/src/person.cpp" "CMakeFiles/core.dir/src/person.cpp.o" "gcc" "CMakeFiles/core.dir/src/person.cpp.o.d"
   "/workspaces/DataStructures/Lab1.2/src/student.cpp" "CMakeFiles/core.dir/src/student.cpp.o" "gcc" "CMakeFiles/core.dir/src/student.cpp.o.d"
