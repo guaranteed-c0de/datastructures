@@ -5,6 +5,11 @@
 #include <vector>
 
 int main() {
+  std::vector<const Person*> raw_people;
+for (const auto& p : people) raw_people.push_back(p.get());
+
+std::cout << "\nCSV (Superset):\n";
+std::cout << make_csv(raw_people) << "\n";
   try {
     std::vector<std::unique_ptr<Person>> people;
     people.emplace_back(std::make_unique<Student>(1,"Ada","ada@uni.edu",2026, std::vector<std::string>{"CS101","MATH200"}));
