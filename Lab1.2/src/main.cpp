@@ -3,6 +3,7 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include <csv.hpp>
 
 int main() {
   std::vector<const Person*> raw_people;

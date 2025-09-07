@@ -530,7 +530,7 @@ MEMORYCHECK_COMMAND:FILEPATH=/usr/bin/valgrind
 MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
 
 //Name of the computer/site where compile is being run
-SITE:STRING=codespaces-4dfe9d
+SITE:STRING=codespaces-0c1ebe
 
 //Value Computed by CMake
 SerializationLab_BINARY_DIR:STATIC=/workspaces/DataStructures/Lab1.2/build

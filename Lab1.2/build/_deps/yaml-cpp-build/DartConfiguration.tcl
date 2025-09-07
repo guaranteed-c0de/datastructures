@@ -11,7 +11,7 @@ BuildDirectory: /workspaces/DataStructures/Lab1.2/build/_deps/yaml-cpp-build
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: codespaces-4dfe9d
+Site: codespaces-0c1ebe
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-c++

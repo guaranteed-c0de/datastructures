@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
 #include <algorithm>
-std::string make_csv(std::span<const Person*> people);
+#include <span>
+
+
 inline std::string csv_escape(std::string s) {
   bool need_quotes = s.find_first_of(",\"\n") != std::string::npos;
   if (need_quotes) {
