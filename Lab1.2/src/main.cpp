@@ -20,7 +20,15 @@ int main() {
     nlohmann::json j = nlohmann::json::array();
     for (const auto& p : people) j.push_back(p->to_json());
     std::cout << "JSON:\n" << j.dump(2) << "\n\n";
-
+    nlohmann::json R = {
+  {"role", "Instructor"}
+  {"id", 30},
+  {"name", "Jasmine"}
+  {"email", "Jasmine@mit.edu"}
+  {"office", "Room 111"}
+  {"teaches", "CSC 410"}
+}
+Instructor i = Instructor::from_json
     // Serialize to YAML sequence
     YAML::Node y;
     for (const auto& p : people) y.push_back(p->to_yaml());

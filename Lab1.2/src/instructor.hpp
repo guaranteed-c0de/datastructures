@@ -52,4 +52,6 @@ public:
            csv_escape(name_) + "," + csv_escape(email_) + "," +
            csv_escape(office_) + "," + csv_escape(joined);
   }
+  static Instructor from_json(const nlohmann::json& j);
+
 };

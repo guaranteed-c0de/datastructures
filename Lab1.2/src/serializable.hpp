@@ -9,4 +9,5 @@ struct Serializable {
   virtual YAML::Node     to_yaml() const = 0;
   virtual std::string    csv_header() const = 0;
   virtual std::string    csv_row() const = 0;
+  
 };

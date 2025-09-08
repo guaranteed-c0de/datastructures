@@ -52,4 +52,6 @@ public:
            csv_escape(name_) + "," + csv_escape(email_) + "," +
            std::to_string(grad_year_) + "," + csv_escape(joined);
   }
+  static Student from_json(const nlohmann :: json& j);
 };
+
