@@ -7,8 +7,7 @@ using namespace std;
    int main()
    { 
     bool found;
-    ofstream list_x_file;
-    std::ofstream outputFile("list_x_file"); 
+    ofstream outputFile("list_x_file.txt");
     if (outputFile.is_open()) {
         // File opened successfully, proceed to write
     } else {
@@ -21,7 +20,8 @@ using namespace std;
     {
         itemx.Initialize(i);
         list_x.PutItem(itemx);
-       
+        itemx.Print(cout);
+       itemx.Print(outputFile);
         
         cout << endl;
     }
