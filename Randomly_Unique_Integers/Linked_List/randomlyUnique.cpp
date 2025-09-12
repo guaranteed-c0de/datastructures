@@ -24,8 +24,8 @@ using namespace std;
             outputFile << endl;
         }
         
-         int randomNumber = rand() % 100;
-        itemx.Initialize(randomNumber); //Gives the node the number of the value of i.
+         int randomNumber = rand() % 100; //Modular arithmetic. The number can be between 0 and 99.
+        itemx.Initialize(randomNumber); //Gives the node the number the randomly generated number.
         list_x.PutItem(itemx); //Puts the item in the list.
         itemx.Print(cout); //Prints the number out TO THE CONSOLE.
        itemx.Print(outputFile); //Prints the number out TO THE OUTPUT FILE ("list_x_file.txt")
