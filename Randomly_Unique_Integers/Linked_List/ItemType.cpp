@@ -27,5 +27,5 @@ void ItemType::Print(std::ostream& out) const
 // pre:  out has been opened.
 // post: value has been sent to the stream out.
 {
-  out << value << endl; 
+  out << value; 
 }
