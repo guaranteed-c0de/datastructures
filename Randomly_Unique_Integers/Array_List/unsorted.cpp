@@ -4,7 +4,7 @@
 
 UnsortedType::UnsortedType()
 {
-  length = 0;
+  length = 0; //length is in
 }
 bool UnsortedType::IsFull() const
 {
@@ -27,14 +27,14 @@ ItemType UnsortedType::GetItem(ItemType item, bool& found)
 
   moreToSearch = (location < length);
 
-  while (moreToSearch && !found) 
+  while (moreToSearch && !found) //While the program is not at the end of the array, and there is no value.
   {
     switch (item.ComparedTo(info[location]))
     {
       case LESS    : 
-      case GREATER : location++;
-                     moreToSearch = (location < length);
-                     break;
+      case GREATER : location++; //location moves to the next index.
+                     moreToSearch = (location < length); 
+                     break; //gets out of the while loop.
       case EQUAL   : found = true;
                      item = info[location];
                      break;
@@ -82,4 +82,4 @@ ItemType UnsortedType::GetNextItem()
   currentPos++;
   return info[currentPos];
 }
-
+//End of unsorted.cpp.

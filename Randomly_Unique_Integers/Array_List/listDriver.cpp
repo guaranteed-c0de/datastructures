@@ -7,8 +7,8 @@
 
 #include "unsorted.h"
 
-using namespace std;
-void PrintList(ofstream& outFile, UnsortedType& list);
+using namespace std; 
+void PrintList(ofstream& outFile, UnsortedType& list); //The ampersand means that one would still pass the objects of the data types, but it'll hold onto the addresses as the value is passed to the function.
 
 int main()
 {
@@ -98,10 +98,10 @@ int main()
   inFile.close();
   outFile.close();
   return 0;
-};
+}; //End of function main. Why is there a semi-colon?
 
 
-void PrintList(ofstream& dataFile, UnsortedType& list)
+void PrintList(ofstream& dataFile, UnsortedType& list) //Not to be confused with the function Print() from ItemType.cpp and ItemType.h.
 // Pre:  list has been initialized.      
 //       dataFile is open for writing.   
 // Post: Each component in list has been written to dataFile.
@@ -120,5 +120,5 @@ void PrintList(ofstream& dataFile, UnsortedType& list)
       item = list.GetNextItem();
       item.Print(dataFile);
     }
-  dataFile << endl;
-}
+  dataFile << endl; 
+} //End of listDriver.cpp
