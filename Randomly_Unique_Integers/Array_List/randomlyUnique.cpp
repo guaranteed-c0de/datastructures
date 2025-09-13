@@ -3,12 +3,12 @@
 #include <bits/stdc++.h>  //Includes a variety of libraries, including <cstlib>, which allows us to use srand().
 #include <iostream>
 using namespace std;
-UnsortedType list_y; //Hardly a justified reason for this declaration to included with the libraries and the namespace, but it's so this object is out of the way.
+UnsortedType list_y; //This is included like this so this object is out of the way from the rest of the program.
 
 
 int main()
 {
-    int i = 1; //This will be the index. It will be useful for counting through to make
+    int i = 1; //This will be the index. It will be useful for counting through to make sure each value in the array is accounted for.
     bool found;
     ofstream outputFile("list_y_file.txt");
     srand(time(0));
