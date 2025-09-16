@@ -68,9 +68,9 @@ public:
   //       item is a copy of element at current position.
 
 
-private:
+private: //private members for unsorted.h
   int length;
-  ItemType info[MAX_ITEMS];
+  ItemType info[MAX_ITEMS]; //Why is the value of the matrix an ItemType?
   int currentPos;
-};
+}; //End of class definition.
 

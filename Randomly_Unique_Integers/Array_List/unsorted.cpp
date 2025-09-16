@@ -1,16 +1,16 @@
 // Implementation file for Unsorted.h
 
-#include "unsorted.h"
+#include "unsorted.h" //unsorted.h has ItemType.h, so it isn't necessary for unsorted.cpp to include it too.
 
-UnsortedType::UnsortedType()
+UnsortedType::UnsortedType() //This is a default constructor for legnth.
 {
-  length = 0;
+  length = 0; //But for arrays, length will eventually become the MAX_ITEMS.
 }
 bool UnsortedType::IsFull() const
 {
-  return (length == MAX_ITEMS);
+  return (length == MAX_ITEMS); 
 }
-int UnsortedType::GetLength() const
+int UnsortedType::GetLength() const //This is an accessor for length.
 {
   return length;
 }
@@ -23,18 +23,18 @@ ItemType UnsortedType::GetItem(ItemType item, bool& found)
 {
   bool moreToSearch;
   int location = 0;
-  found = false;
+  found = false; //Starts as false. Ideally we want it to remain false, so we can isolate the conditions where the boolean can change to true.
 
   moreToSearch = (location < length);
 
-  while (moreToSearch && !found) 
+  while (moreToSearch && !found) //While the program is not at the end of the array, and there is no value.
   {
     switch (item.ComparedTo(info[location]))
     {
       case LESS    : 
-      case GREATER : location++;
-                     moreToSearch = (location < length);
-                     break;
+      case GREATER : location++; //location moves to the next index.
+                     moreToSearch = (location < length); 
+                     break; //gets out of the while loop.
       case EQUAL   : found = true;
                      item = info[location];
                      break;
@@ -60,16 +60,16 @@ void UnsortedType::DeleteItem(ItemType item)
 {
   int location = 0;
 
-  while (item.ComparedTo(info[location]) != EQUAL)
+  while (item.ComparedTo(info[location]) != EQUAL) //In this case, location will only increase.
     location++;
 
-  info[location] = info[length - 1];
-  length--;
+  info[location] = info[length - 1]; //At this point, the location of the index is at the desired spot where an item will be deleted.
+  length--; //This deletes the item by putting the second to last item in its place. The length of the array is decreased by 1.
 }
 void UnsortedType::ResetList()
 // Post: currentPos has been initialized.
 {
-  currentPos = -1;
+  currentPos = -1; //-1 is the value because it is invalid. 
 }
 
 ItemType UnsortedType::GetNextItem()
@@ -82,4 +82,4 @@ ItemType UnsortedType::GetNextItem()
   currentPos++;
   return info[currentPos];
 }
-
+//End of unsorted.cpp.

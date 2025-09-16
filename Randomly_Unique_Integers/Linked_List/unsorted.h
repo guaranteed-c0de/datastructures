@@ -72,5 +72,5 @@ private:
   NodeType* listData;
   int length;
   NodeType* currentPos;
-};
+};  //End of class definition.
 

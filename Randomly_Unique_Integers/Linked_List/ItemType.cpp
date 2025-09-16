@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include "ItemType.h"
+using namespace std;
 
 ItemType::ItemType()
 { 
@@ -26,5 +27,5 @@ void ItemType::Print(std::ostream& out) const
 // pre:  out has been opened.
 // post: value has been sent to the stream out.
 {
-  out << value;
+  out << value; 
 }
