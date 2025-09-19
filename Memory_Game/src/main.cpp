@@ -9,7 +9,7 @@ while(!game.allMatched()) {
     game.displayTerminal();
     int row, col;
     cout << "Enter x and y coordinates: ";
-    cin >> row >> col;
+    cin >> col >> row;
     if(game.flipCard(row, col)) game.checkMatch();
 }
     cout << "You win! Congratualtions!";
