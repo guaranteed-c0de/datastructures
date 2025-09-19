@@ -79,8 +79,9 @@ class MemoryGame{
                 {
                     return false;
                 }
-                return true;
             }
+                return true;
+            
         }
         //Display functions go here.
     void displayTerminal() {
