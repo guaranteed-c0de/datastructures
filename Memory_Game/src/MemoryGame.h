@@ -100,6 +100,55 @@ class MemoryGame{
             std:: cout << "\n";
         }
     }
+    void displaySFML() {
+        sf:: RenderWindow window(sf:: VideoMode(400, 400), "Memory Game");
+        sf:: Font font;
+        if(!font.loadFromFile("arial.ttf")) {/* Handle error*/}
+
+        while (window.isOpen()) {
+            sf:: Event event;
+            while (window.pollEvent(event)) {
+                if (event.type == sf:: Event::Closed) window.close();
+                if (event.type == sf::Event::MouseButtonPressed) {
+                    int x = event.mouseButton.x /100; //Assuming 100px per card.
+                    int y = event.mouseButton.y/100;
+                    if(flipCard(y, x)) checkMatch(); //y=row, x=col
+                }
+            }
+            window.clear();
+            for(int r = 0; r < rows; r++){
+                for (int c = 0; c<cols; c++) {
+                    int idx = r*cols + c;
+                    Card& card = cards.getAt(idx);
+
+                    sf::RectangleShape rect(sf::Vector2f(90, 90));
+                    rect.setPosition(c * 100 + 5, r*100 + 5);
+                    rect.setFillColor(card.isMatched ? sf::Color::Transparent :
+                (card.isFaceUp ? sf::Color::White : sf::Color::Blue));
+                        if(!card.isMatched) window.draw(rect);
+
+                        if(card.isFaceUp && !card.isMatched) {
+                            sf:: Text text(std::string(1, card.value), font, 50);
+                            text.setPosition(c*100 + 30, r*100 + 20);
+                            text.setFillColor(sf::Color::Black);
+                            window.draw(text);
+                        }
+
+                }
+            }
+            window.display();
+
+            if(allMatched()) {
+                //Draw win message
+                sf::Text winText("You Win!", font, 50);
+                winText.setPosition(100, 180);
+                window.draw(winText);
+                window.display();
+                sf::sleep(sf::seconds(3));
+                window.close();
+            }
+        }
+    }
 };
 
 #endif //MEMORYGAME_H
