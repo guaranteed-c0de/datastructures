@@ -4,6 +4,7 @@
 #include <iostream>
 #include "LinkedList.h"
 #include <SFML/Graphics.hpp>
+#include <ncurses.h>
 #ifndef MEMORYGAME_H
 #define MEMORYGAME_H
 class MemoryGame{
@@ -149,6 +150,81 @@ class MemoryGame{
                 window.close();
             }
         }
+    }
+    void displayTerminalNcurses() { //Yes, the Part 2 code starts here.
+        initscr(); //Start ncurses mode
+        noecho(); //Don't echo input.
+        keypad(stdscr, TRUE); //Enable arrow keys
+        curs_set(0);            //Hide cursor.
+        if (has_colors()) {     //Optional: Color better visuals.
+            start_color();
+            init_pair(1, COLOR_WHITE, COLOR_BLUE);
+            init_pair(2, COLOR_BLACK, COLOR_WHITE);
+            init_pair(3, COLOR_GREEN, COLOR_BLACK);
+
+        }
+        int cursorRow = 0, cursorCol = 0; //Track selected position.
+
+        while(!allMatched()) {
+            clear(); //Clear screen each redraw.
+
+            //Draw grid.
+            for(int r = 0; r < rows; r++) {
+                for (int c = 0; c < cols; c++) {
+                    int idx = r * cols + c;
+                    Card& card = cards.getAt(idx);
+                    int x = c*4; //Spacing: 4 chars per card
+                    int y = r*2; //2 lines per row for card visuals.
+
+                    //Highlight if cursor is here.
+                    if (r == cursorRow && c == cursorCol) {
+                        attron(A_BOLD | A_REVERSE);
+                    }
+                    if (card.isMatched) {
+                        mvprintw(y, x, "[]");
+                    }
+                    else if (card.isFaceUp) {
+                        if (has_colors()) attron (COLOR_PAIR(2));
+                        mvprintw(y, x, "[%c]", card.value);
+                        if (has_colors()) attroff(COLOR_PAIR(2));
+                    } else {
+                        if (has_colors()) attron(COLOR_PAIR(1));
+                        mvprintw(y, x, "[*]");
+                        if (has_colors()) attroff(COLOR_PAIR(1));
+                    }
+
+                    attroff(A_BOLD | A_REVERSE);
+                }
+            }
+            mvprintw(rows * 2 + 1, 0, "Use arrows to move, SPACE to flip. Q to quit.");
+
+            refresh(); //Update screen
+
+            //Handle input
+            int ch = getch();
+            switch (ch) {
+                case KEY_UP:    if(cursorRow > 0) cursorRow--; break;
+                case KEY_DOWN:  if (cursorRow < rows - 1) cursorRow++; break;
+                case KEY_LEFT: if (cursorCol > 0) cursorCol--; break;
+                case KEY_RIGHT: if (cursorCol < cols - 1) cursorCol++; break;
+                case ' ': //Space to flip.
+                case '\n': //Or enter to flip.
+                if (flipCard(cursorRow, cursorCol)) {
+                    checkMatch();
+
+                    napms(1000); //1000 milliseconds.
+                }
+                break;
+            case 'q':
+            case 'Q': endwin(); return;
+            }
+        }
+        //Win message
+        clear();
+        mvprintw(rows, cols *  2 - 5, "You win!");
+        refresh();
+        getch(); //Wait for key press.
+        endwin(); //End ncurses mode.
     }
 };
 
