@@ -1,0 +1,3 @@
+/home/yamirrichmond/GitHub folder/DataStructures/Memory_Game/src/CMakeFiles/MemoryGame.dir
+/home/yamirrichmond/GitHub folder/DataStructures/Memory_Game/src/CMakeFiles/edit_cache.dir
+/home/yamirrichmond/GitHub folder/DataStructures/Memory_Game/src/CMakeFiles/rebuild_cache.dir
