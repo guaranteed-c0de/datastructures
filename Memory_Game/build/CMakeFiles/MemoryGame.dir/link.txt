@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/MemoryGame.dir/link.d CMakeFiles/MemoryGame.dir/src/main.cpp.o -o MemoryGame
