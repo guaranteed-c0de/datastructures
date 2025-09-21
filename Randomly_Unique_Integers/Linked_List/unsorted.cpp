@@ -101,9 +101,9 @@ ItemType UnsortedType::GetItem(ItemType& item, bool& found)
   NodeType* tempLocation;
 
   // Locate node to be deleted.
-  if (item.ComparedTo(listData->info) == EQUAL)
+  if (item.ComparedTo(listData->info) == EQUAL) //Alternatively, if(item == listData -> info) The difference is keys. The version we have written compares each others' keys. In this case, the only thing that can be used as a key is their values.
   {
-    tempLocation = location;
+    tempLocation = location;		//Save pointer to node.
     listData = listData->next;		// Delete first node.
   }
   else
