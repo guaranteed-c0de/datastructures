@@ -24,8 +24,11 @@ void Insert(ItemType* item) override {
     }
     else {
         newNode->next = current;
-        prev -> next = newNode;
+        prev -> next = newNode; //Does an ADT provide implementation?
     }
+}
+void Remove(ItemType &item) ovveride {
+    //For number 4. Run a for loop with a switch statement. Why not an if/else statement?
 }
 };
 #endif //EXAMPLES_SORTEDLINKEDLIST_H
