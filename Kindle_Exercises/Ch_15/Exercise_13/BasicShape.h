@@ -8,6 +8,6 @@ class BasicShape
     public:
        double getArea()
        {return area;}
-       virtual void calcArea() = 0;
+       virtual double calcArea() = 0;
 };
 #endif //BASIC_SHAPE_H

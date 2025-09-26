@@ -1,4 +1,6 @@
 #include "BasicShape.h"
+#ifndef CIRCLE_H
+#define CIRCLE_H
 class Circle: public BasicShape {
 private:
     long int centerX;
@@ -10,11 +12,14 @@ public:
         centerX = x;
         centerY = y;
         radius = r;
-        calcArea(radius);
+        calcArea();
     }
 
     long int getCenterX() {return centerX;}
     long int getCenterY() {return centerY;}
-    void calcArea(double);
+   double calcArea() override {
+    return 3.1415 * radius * radius;
+}
 
 };
+#endif //CIRCLE_H
