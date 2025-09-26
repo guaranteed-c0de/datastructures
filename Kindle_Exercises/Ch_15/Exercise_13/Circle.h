@@ -1,5 +1,5 @@
 #include "BasicShape.h"
-#ifndef CIRCLE_H
+#ifndef CIRCLE_H 
 #define CIRCLE_H
 class Circle: public BasicShape {
 private:
@@ -17,9 +17,12 @@ public:
 
     long int getCenterX() {return centerX;}
     long int getCenterY() {return centerY;}
-   double calcArea() override {
-    return 3.1415 * radius * radius;
+    void setCenterX(long int x) {centerX = x;}
+    void setCenterY(long int y) {centerY = y;}
+   void calcArea() override {
+   double a = 3.1415  * radius * radius;
+    setArea(a);
 }
 
-};
+}; //End of Circle class definition.
 #endif //CIRCLE_H
