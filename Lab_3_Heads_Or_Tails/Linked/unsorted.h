@@ -68,7 +68,7 @@ public:
   // Post: Current position is updated to next position.
   //       item is a copy of element at current position.
 
-void Head();
+void Head(); //Should it be void or NodeType? If it is
 void Tail();
 private:
   NodeType* listData;
