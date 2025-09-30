@@ -41,6 +41,7 @@ int main() {
                     } catch (const std::runtime_error& e) {
                 cout << "Tail: " << e.what() << endl;
                     }
+            LinkedListList.ResetList(); 
             for (int l = 0; l < LinkedListList.GetLength(); l++)
             {
                 ItemType temp = LinkedListList.GetNextItem();
