@@ -156,16 +156,17 @@ UnsortedType::~UnsortedType()
 ItemType UnsortedType::Head() {
     
     if (listData == NULL) {
-      cout << "List is empty.";
+      throw std::runtime_error("List is empty");
     }
     return listData->info;
 }
 ItemType UnsortedType::Tail() {
     // O(n) because we must copy the entire list
-    UnsortedType newList;
-   
-
-    // Copy everything *except the head node*
+ if (listData == NULL)
+   {
+ throw std::runtime_error("List is empty");
+   }
+    
     NodeType* current = listData;
     while (current -> next != NULL) {
         current = current->next;
