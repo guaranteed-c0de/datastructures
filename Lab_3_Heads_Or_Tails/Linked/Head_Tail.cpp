@@ -10,7 +10,7 @@ int main() {
     int i = 0;
     bool found;
     int which_iteration = 1 + (rand() %99); //Which iteration in the loop should the program stop to reprint the list.
-   
+    cout << which_iteration << endl;
     
 
     while (i <= MAX_ITEMS)
