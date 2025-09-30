@@ -66,7 +66,8 @@ public:
   //	     
   // Post: Current position is updated to next position.
   //       item is a copy of element at current position.
-
+  ItemType Head();
+  ItemType Tail();
 
 private:
   int length;

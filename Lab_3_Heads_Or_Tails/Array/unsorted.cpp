@@ -83,3 +83,20 @@ ItemType UnsortedType::GetNextItem()
   return info[currentPos];
 }
 
+ItemType UnsortedType::Head()
+{
+  if(length == 0)
+  {
+     throw std::runtime_error("List is empty");
+  }
+  return info[0];
+}
+
+ItemType UnsortedType::Tail()
+{
+  if (length == 0)
+  {
+    throw std::runtime_error("List is empty");
+  }
+  return info[length - 1];
+}
