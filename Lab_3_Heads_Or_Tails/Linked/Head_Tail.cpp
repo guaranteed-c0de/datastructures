@@ -19,10 +19,11 @@ int main() {
             cout << "Here is the list at the beginning.\n";
             LinkedListList.Head();
             LinkedListList.Tail();
-            for (i = 0; i < LinkedListList.GetLength(); i++)
+            for (int l = 0; l < LinkedListList.GetLength(); l++)
             {
-                x.Print(cout);
-                cout << " ";
+                ItemType temp = LinkedListList.GetNextItem();
+             temp.Print(cout);
+             cout << " ";
             }
             cout << endl << endl;
         }
@@ -31,10 +32,11 @@ int main() {
             cout << "Here is the list at iteration " << i + 1 << endl;
             LinkedListList.Head();
             LinkedListList.Tail();
-            for (i = 0; i < LinkedListList.GetLength(); i++)
+            for (int k = 0; k < LinkedListList.GetLength(); k++)
             {
-                x.Print(cout);
-                cout << " ";
+                ItemType temp = LinkedListList.GetNextItem();
+             temp.Print(cout);
+             cout << " ";
             }
             cout << endl << endl;
 
@@ -44,10 +46,11 @@ int main() {
             cout << "Here is the list at the end.\n";
             LinkedListList.Head();
             LinkedListList.Tail();
-            for (i = 0; i < LinkedListList.GetLength(); i++)
+            for (int j = 0; j < LinkedListList.GetLength(); j++)
             {
-                x.Print(cout);
-                cout << " ";
+               ItemType temp = LinkedListList.GetNextItem();
+             temp.Print(cout);
+             cout << " ";
             }
             cout << endl << endl;
 
