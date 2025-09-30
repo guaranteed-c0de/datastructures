@@ -15,10 +15,32 @@ int main() {
 
     while (i <= MAX_ITEMS)
     {
-        if (i = 0) {
-            cout << "Here is the list at the beginning.\n";
-            LinkedListList.Head();
-            LinkedListList.Tail();
+        if (i == 0 || i == which_iteration || i == MAX_ITEMS) {
+            if (i == 0)
+            {
+            cout << "Here is the list at the beginning.\n"; }
+            if (i == which_iteration)
+            {
+                 cout << "Here is the list at iteration " << i + 1 << endl;
+            }
+            if (i == MAX_ITEMS)
+            {
+                cout << "Here is the list at the end." << endl;
+            }
+           try {
+            cout << "Head: ";
+            LinkedListList.Head().Print(cout);
+            cout << endl;
+                    } catch (const std::runtime_error& e) {
+                cout << "Head: " << e.what() << endl;
+                                }
+            try {
+            cout << "Tail: ";
+            LinkedListList.Tail().Print(cout);
+                cout << endl;
+                    } catch (const std::runtime_error& e) {
+                cout << "Tail: " << e.what() << endl;
+                    }
             for (int l = 0; l < LinkedListList.GetLength(); l++)
             {
                 ItemType temp = LinkedListList.GetNextItem();
@@ -26,34 +48,6 @@ int main() {
              cout << " ";
             }
             cout << endl << endl;
-        }
-        else if (i == which_iteration)
-        {
-            cout << "Here is the list at iteration " << i + 1 << endl;
-            LinkedListList.Head();
-            LinkedListList.Tail();
-            for (int k = 0; k < LinkedListList.GetLength(); k++)
-            {
-                ItemType temp = LinkedListList.GetNextItem();
-             temp.Print(cout);
-             cout << " ";
-            }
-            cout << endl << endl;
-
-        }
-        else if (i == MAX_ITEMS)
-        {
-            cout << "Here is the list at the end.\n";
-            LinkedListList.Head();
-            LinkedListList.Tail();
-            for (int j = 0; j < LinkedListList.GetLength(); j++)
-            {
-               ItemType temp = LinkedListList.GetNextItem();
-             temp.Print(cout);
-             cout << " ";
-            }
-            cout << endl << endl;
-
         }
         int random_number = 1 + (rand()% 100);
         x.Initialize(random_number);
