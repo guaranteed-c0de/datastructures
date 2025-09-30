@@ -85,14 +85,14 @@ ItemType UnsortedType::GetNextItem()
 
 ItemType UnsortedType::Head()
 {
-  if(length == 0)
+  if(length == 0) //The time complexity here is O(1) because it only has to go to one value.
   {
      throw std::runtime_error("List is empty");
   }
   return info[0];
 }
 
-ItemType UnsortedType::Tail()
+ItemType UnsortedType::Tail() //The time complexity here is O(1) because it only has to go to one value.
 {
   if (length == 0)
   {
