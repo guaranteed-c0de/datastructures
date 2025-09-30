@@ -2,6 +2,8 @@
 // UnsortedType.
 
 #include "unsorted.h"
+#include <iostream>
+using namespace std;
 struct NodeType
 {
     ItemType info;
@@ -101,9 +103,9 @@ ItemType UnsortedType::GetItem(ItemType& item, bool& found)
   NodeType* tempLocation;
 
   // Locate node to be deleted.
-  if (item.ComparedTo(listData->info) == EQUAL) //Alternatively, if(item == listData -> info) The difference is keys. The version we have written compares each others' keys. In this case, the only thing that can be used as a key is their values.
+  if (item.ComparedTo(listData->info) == EQUAL)
   {
-    tempLocation = location;		//Save pointer to node.
+    tempLocation = location;
     listData = listData->next;		// Delete first node.
   }
   else
@@ -150,4 +152,25 @@ UnsortedType::~UnsortedType()
     listData = listData->next;
     delete tempPtr;
   }
+}
+ItemType UnsortedType::Head() {
+    
+    if (listData == NULL) {
+      throw std::runtime_error("List is empty");
+    }
+    return listData->info;
+}
+ItemType UnsortedType::Tail() {
+    // O(n) because we must copy the entire list
+ if (listData == NULL)
+   {
+ throw std::runtime_error("List is empty");
+   }
+    
+    NodeType* current = listData;
+    while (current -> next != NULL) {
+        current = current->next;
+    }
+
+    return current -> info;
 }
