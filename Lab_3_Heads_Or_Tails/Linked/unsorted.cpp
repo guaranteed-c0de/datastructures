@@ -2,6 +2,8 @@
 // UnsortedType.
 
 #include "unsorted.h"
+#include <iostream>
+using namespace std;
 struct NodeType
 {
     ItemType info;
@@ -154,7 +156,7 @@ UnsortedType::~UnsortedType()
 ItemType UnsortedType::Head() {
     
     if (listData == NULL) {
-        throw std::runtime_error("List is empty");
+      cout << "List is empty.";
     }
     return listData->info;
 }
