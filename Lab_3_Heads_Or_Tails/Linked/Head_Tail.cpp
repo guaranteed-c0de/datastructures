@@ -21,7 +21,7 @@ int main() {
             cout << "Here is the list at the beginning.\n"; }
             if (i == which_iteration)
             {
-                 cout << "Here is the list at iteration " << i + 1 << endl;
+                 cout << "Here is the list at iteration " << i  << endl;
             }
             if (i == MAX_ITEMS)
             {
@@ -56,7 +56,8 @@ int main() {
         if (!found)
         {
             LinkedListList.PutItem(x);
+            i++;
         }
-        i++;
+        
     } 
 }
