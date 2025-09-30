@@ -151,3 +151,26 @@ UnsortedType::~UnsortedType()
     delete tempPtr;
   }
 }
+ItemType UnsortedType::Head() {
+    
+    if (listData == NULL) {
+        throw std::runtime_error("List is empty");
+    }
+    return listData->info;
+}
+UnsortedType UnsortedType::Tail() {
+    // O(n) because we must copy the entire list
+    UnsortedType newList;
+    if (listData == NULL) {
+        return newList; // empty list
+    }
+
+    // Copy everything *except the head node*
+    NodeType* current = listData;
+    while (current != NULL) {
+        newList.PutItem(current->info);
+        current = current->next;
+    }
+
+    return newList;
+}
