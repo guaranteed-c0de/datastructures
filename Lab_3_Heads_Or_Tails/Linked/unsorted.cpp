@@ -154,14 +154,14 @@ UnsortedType::~UnsortedType()
   }
 }
 ItemType UnsortedType::Head() {
-    
+    //Time complexity is O(1) because it is returning the head's value, which is always the first value it can access.
     if (listData == NULL) {
       throw std::runtime_error("List is empty");
     }
     return listData->info;
 }
 ItemType UnsortedType::Tail() {
-    // O(n) because we must copy the entire list
+    // Time complexity is O(n) because because the worst case scenario is that it goes through the entire linked list.
  if (listData == NULL)
    {
  throw std::runtime_error("List is empty");

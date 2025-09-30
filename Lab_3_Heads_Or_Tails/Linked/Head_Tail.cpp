@@ -9,7 +9,7 @@ int main() {
     ItemType x;
     int i = 0;
     bool found;
-    int which_iteration = 1 + (rand() %99); //Which iteration in the loop should the program stop to reprint the list.
+    int which_iteration = 1 + (rand() %49); //Which iteration in the loop should the program stop to reprint the list.
     cout << which_iteration << endl;
     
 
