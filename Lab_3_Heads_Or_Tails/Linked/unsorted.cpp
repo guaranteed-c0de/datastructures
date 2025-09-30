@@ -160,19 +160,16 @@ ItemType UnsortedType::Head() {
     }
     return listData->info;
 }
-UnsortedType UnsortedType::Tail() {
+ItemType UnsortedType::Tail() {
     // O(n) because we must copy the entire list
     UnsortedType newList;
-    if (listData == NULL) {
-        return newList; // empty list
-    }
+   
 
     // Copy everything *except the head node*
     NodeType* current = listData;
-    while (current != NULL) {
-        newList.PutItem(current->info);
+    while (current -> next != NULL) {
         current = current->next;
     }
 
-    return newList;
+    return current -> info;
 }

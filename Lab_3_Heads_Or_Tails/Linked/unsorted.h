@@ -69,7 +69,7 @@ public:
   //       item is a copy of element at current position.
 
 ItemType Head(); //Should it be void or NodeType? If it is
-UnsortedType Tail();
+ItemType Tail();
 private:
   NodeType* listData;
   int length;
