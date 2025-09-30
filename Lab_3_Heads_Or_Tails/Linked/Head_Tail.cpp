@@ -26,7 +26,7 @@ int main() {
             }
             cout << endl << endl;
         }
-        else if (i = which_iteration)
+        else if (i == which_iteration)
         {
             cout << "Here is the list at iteration " << i + 1 << endl;
             LinkedListList.Head();
@@ -39,7 +39,7 @@ int main() {
             cout << endl << endl;
 
         }
-        else if (i = MAX_ITEMS)
+        else if (i == MAX_ITEMS)
         {
             cout << "Here is the list at the end.\n";
             LinkedListList.Head();
