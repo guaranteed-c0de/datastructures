@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-
+#ifndef UNSORTED_LINKED_LIST_H
+#define UNSORTED_LINKED_LIST_H
 using namespace std;
 
 class ItemType {
@@ -108,4 +109,4 @@ class UnsortedList {
         }
     }
 };
-
+#endif //UNSORTED_LINKED_LIST_H
