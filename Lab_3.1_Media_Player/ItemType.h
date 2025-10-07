@@ -1,3 +1,4 @@
+const int MAX_ITEMS = 50;
 class ItemType {
 
     public:
