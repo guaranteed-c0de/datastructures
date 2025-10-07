@@ -1,17 +1,10 @@
 #include <iostream>
 #include <string>
+#include "ItemType.h"
 #ifndef UNSORTED_LINKED_LIST_H
 #define UNSORTED_LINKED_LIST_H
 using namespace std;
 
-class ItemType {
-
-    public:
-        virtual ~ItemType() = default;
-        virtual bool CompareTo (const ItemType& other) const = 0; //Equality comparison.
-        virtual bool LessThan( const ItemType& other) const = 0; //For sorting
-        virtual void Print(ostream& out) const = 0;
-};
 
 
 struct Node {
@@ -86,7 +79,7 @@ class UnsortedList {
         }
         return false;
     }
-    virtual int Length() const {
+    virtual int getLength() const {
             return length;
     }
 
