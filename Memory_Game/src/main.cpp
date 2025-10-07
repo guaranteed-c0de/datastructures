@@ -24,6 +24,6 @@ while(!game.allMatched()) {
     cin >> col >> row;
     if(game.flipCard(row, col)) game.checkMatch();
 }
-    cout << "You win! Congratualtions!";  
+    cout << "You win! Congratualtions! Thanks for playing!";  
     return 0; 
 }

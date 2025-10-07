@@ -6,7 +6,7 @@ using namespace std;
 int main() {
      srand(time(0));
     UnsortedType ArrayList;
-    ItemType y;
+    ItemType y; //Definition
     int i = 0;
     bool found;
     int which_iteration = 1 + (rand() %49); //Which iteration in the loop should the program stop to reprint the list.
