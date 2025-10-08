@@ -3,12 +3,20 @@
 
 #include "Song.h"
 #include "List.h"
+#include "UnsortedLinkedList.h"
+#include "SortedLinkedList.h"
 class Playlist : public UnsortedList {
     public:
     void addSong(const Song& song) {
         list->Insert(new Song(song));
     }
-
+    Playlist(List* implementation) : list(implementation), currentsong(nullptr){}
+    Playlist()
+    {
+        list = nullptr;
+        currentsong = nullptr;
+    }
+    ~Playlist() {delete list;}
     void removeSong(const std::string& title) {
         Song temp(title, "", 0, "");
         Remove(temp);

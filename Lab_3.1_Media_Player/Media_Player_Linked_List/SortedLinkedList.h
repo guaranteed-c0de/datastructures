@@ -15,7 +15,7 @@ struct Node {
     ~Node() {delete item;}
 };
 
-class UnsortedList: public List {
+class SortedList: public List {
 
     protected:
         Node* listData;
@@ -23,13 +23,13 @@ class UnsortedList: public List {
         Node* currentPos;
 
     public:
-        UnsortedList() {
+        SortedList() {
             listData = nullptr;
             length = 0;
             currentPos = nullptr;
 
         }
-    ~UnsortedList() {
+    SortedList() {
         Clear();
     }
    
@@ -124,4 +124,4 @@ class UnsortedList: public List {
 
    
 };
-#endif //UNSORTED_LINKED_LIST_H
+#endif //SORTED_LINKED_LIST_H
