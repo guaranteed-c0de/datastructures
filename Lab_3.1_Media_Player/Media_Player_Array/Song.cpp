@@ -6,6 +6,7 @@ Song::Song(const std:: string& t, const std:: string& a, int d, const std::strin
     bool Song::operator < (const Song& other) const {
         return title < other.title;
     }
+    
     bool Song::CompareTo(const ItemType& other) const {
     const Song& otherSong = dynamic_cast<const Song&>(other);
     // Compare for equality

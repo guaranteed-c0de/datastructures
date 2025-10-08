@@ -42,7 +42,7 @@ MediaPlayer :: MediaPlayer(): window(sf::VideoMode(800,600), "SFML Media Player"
     }
 
     void MediaPlayer::update() {
-        if (playlist.getLength() > 0) {
+        if (playlist.GetLength() > 0) {
             Song* current = playlist.getCurrentSong();
             if(current)
             {

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "ItemType.h"
-
+#include "List.h"
 #ifndef UNSORTED_LINKED_LIST_H
 #define UNSORTED_LINKED_LIST_H
 using namespace std;
@@ -15,7 +15,7 @@ struct Node {
     ~Node() {delete item;}
 };
 
-class UnsortedList {
+class UnsortedList: public List {
 
     protected:
         Node* listData;
@@ -32,7 +32,7 @@ class UnsortedList {
     ~UnsortedList() {
         Clear();
     }
-    virtual void Clear() {
+    virtual void Clear() override {
         Node* tempPtr;
         while (listData != nullptr) {
             tempPtr = listData;
@@ -42,14 +42,14 @@ class UnsortedList {
         length = 0;
         currentPos = nullptr;
     }
-    virtual void Insert(ItemType* item) {
+    virtual void Insert(ItemType* item) override {
         Node* location = new Node(item);
         location -> next = listData;
         listData = location;
         length++;
     }
 
-    virtual void Remove(ItemType& item) {
+    virtual void Remove(ItemType& item) override {
         Node* current = listData;
         Node* prev = nullptr;
         while (current != nullptr) {
@@ -69,7 +69,7 @@ class UnsortedList {
         }
     }
 
-    virtual bool IsPresent(const ItemType& item) const {
+    virtual bool IsPresent(const ItemType& item) const override {
 
         Node* current = listData;
         while (current != nullptr) {
@@ -80,15 +80,7 @@ class UnsortedList {
         }
         return false;
     }
-    virtual int getLength() const {
-            return length;
-    }
-
-    virtual bool IsEmpty() const {
-        return length == 0;
-    }
-
-    virtual void ListItems() const {
+     virtual void ListItems() const override{
 
         Node* current = listData;
         if (current == nullptr) {
@@ -102,5 +94,14 @@ class UnsortedList {
             current = current -> next;
         }
     }
+    virtual int GetLength() const override{
+            return length;
+    }
+
+    virtual bool IsEmpty() const override{
+        return length == 0;
+    }
+
+   
 };
 #endif //UNSORTED_LINKED_LIST_H
