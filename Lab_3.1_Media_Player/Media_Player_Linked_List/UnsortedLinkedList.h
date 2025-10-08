@@ -32,16 +32,7 @@ class UnsortedList: public List {
     ~UnsortedList() {
         Clear();
     }
-    virtual void Clear() override {
-        Node* tempPtr;
-        while (listData != nullptr) {
-            tempPtr = listData;
-            listData = listData -> next;
-            delete tempPtr;
-        }
-        length = 0;
-        currentPos = nullptr;
-    }
+   
     virtual void Insert(ItemType* item) override {
         Node* location = new Node(item);
         location -> next = listData;
@@ -94,12 +85,22 @@ class UnsortedList: public List {
             current = current -> next;
         }
     }
+     virtual bool IsEmpty() const override{
+        return length == 0;
+    }
     virtual int GetLength() const override{
             return length;
     }
 
-    virtual bool IsEmpty() const override{
-        return length == 0;
+    virtual void Clear() override {
+        Node* tempPtr;
+        while (listData != nullptr) {
+            tempPtr = listData;
+            listData = listData -> next;
+            delete tempPtr;
+        }
+        length = 0;
+        currentPos = nullptr;
     }
 
    

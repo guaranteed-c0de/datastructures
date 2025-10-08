@@ -1,4 +1,4 @@
-// List.h (new abstract base class)
+
 #ifndef LIST_H
 #define LIST_H
 

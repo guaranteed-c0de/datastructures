@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Playlist.h"
+#include "Song.h"
 
 class MediaPlayer {
     private:
@@ -11,6 +12,7 @@ class MediaPlayer {
         Playlist playlist;
         int currentIndex;
         bool isPlaying;
+        List* songs;
 
         //GUI elements
 
