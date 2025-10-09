@@ -42,7 +42,7 @@ class SortedList: public List {
         bool moreToSearch = (location != NULL);
 
         //Find insertion point.
-       if(location == NULL || item -> LessThan(*(location->item)))
+       if(!moreToSearch || item -> LessThan(*(location->item)))
        {
         newNode-> next = listData;
         listData = newNode;
