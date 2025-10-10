@@ -17,5 +17,9 @@ int main() {
    spl2.addSong(song3);
    spl2.addSong(song4);
    
+   spl1.mergeSortedPlaylists(spl2);
+
+   spl1.sortByTitle();
+   spl2.sortByTitle();
    return 0;
 }
