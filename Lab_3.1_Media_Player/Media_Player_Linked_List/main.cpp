@@ -18,8 +18,9 @@ int main() {
    spl2.addSong(song4);
    
    spl1.mergeSortedPlaylists(spl2);
+   cout << "Playlist 1\n";
 
    spl1.sortByTitle();
-   spl2.sortByTitle();
+   //spl2.sortByTitle();
    return 0;
 }
