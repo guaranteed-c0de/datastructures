@@ -61,6 +61,38 @@ class Playlist : public UnsortedList {
     void sortByTitle() {
         list -> ListItems();
     }
+
+    void mergeSortedPlaylists(Playlist& other) {
+            Node temp(nullptr); // temporary head for result
+            Node* tail = &temp; // keeps track of end of merged list
+            Node* playlistptr1 = this->listData;
+            Node* playlistptr2 = other.listData;
+
+            while (playlistptr1 != nullptr && playlistptr2 != nullptr)
+            {
+                if(playlistptr1->item->LessThan(*(playlistptr2->item)))
+                {
+                    tail->next = playlistptr1;
+                    playlistptr1 = playlistptr1 ->next;
+                }
+                else {
+                    tail-> next = playlistptr2;
+                    playlistptr2 = playlistptr2->next;
+                }
+                tail = tail->next;
+            }
+            //Add extra nodes.
+            tail->next = (playlistptr1 != nullptr) ? playlistptr1: playlistptr2;
+            
+
+            this->listData = temp.next;
+            this->length += other.length;
+
+            //Empty the 'other' playlist
+
+            other.listData = nullptr;
+            other.length = 0;
+    }
 private:
     List* list;
     Node* currentsong;

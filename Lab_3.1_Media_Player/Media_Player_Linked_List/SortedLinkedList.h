@@ -8,19 +8,19 @@ using namespace std;
 
 
 
-struct Node {
+struct SNode {
     ItemType* item;
-    Node* next;
-    Node(ItemType* i) : item(i), next(nullptr) {}
-    ~Node() {delete item;}
+    SNode* next;
+    SNode(ItemType* i) : item(i), next(nullptr) {}
+    ~SNode() {delete item;}
 };
 
 class SortedList: public List {
 
     protected:
-        Node* listData;
+        SNode* listData;
         int length;
-        Node* currentPos;
+        SNode* currentPos;
 
     public:
         SortedList() {
@@ -29,14 +29,14 @@ class SortedList: public List {
             currentPos = nullptr;
 
         }
-    SortedList() {
+    ~SortedList() {
         Clear();
     }
    
     virtual void Insert(ItemType* item) override {
-        Node* newNode = new Node(item); //Pointer to node being added.
-        Node* predLoc; //Trailing pointer.
-        Node* location; //Traveling pointer.
+        SNode* newSNode = new SNode(item); //Pointer to SNode being added.
+        SNode* predLoc; //Trailing pointer.
+        SNode* location; //Traveling pointer.
         location = listData; 
         predLoc = nullptr;
         bool moreToSearch = (location != NULL);
@@ -44,8 +44,8 @@ class SortedList: public List {
         //Find insertion point.
        if(!moreToSearch || item -> LessThan(*(location->item)))
        {
-        newNode-> next = listData;
-        listData = newNode;
+        newSNode-> next = listData;
+        listData = newSNode;
        }
        else{
 
@@ -53,15 +53,15 @@ class SortedList: public List {
         {
             location = location ->next;
         }
-        newNode -> next = location -> next;
-        location -> next = newNode;
+        newSNode -> next = location -> next;
+        location -> next = newSNode;
        }
         length++;
     }
 
     virtual void Remove(ItemType& item) override {
-        Node* current = listData;
-        Node* prev = nullptr;
+        SNode* current = listData;
+        SNode* prev = nullptr;
         while (current != nullptr) {
             if (current -> item -> CompareTo(item)) { //So current might not point to an item? Well, perhaps just not any one specific one.
                 if (prev == nullptr) {
@@ -81,7 +81,7 @@ class SortedList: public List {
 
     virtual bool IsPresent(const ItemType& item) const override {
 
-        Node* current = listData;
+        SNode* current = listData;
         while (current != nullptr) {
             if (current -> item -> CompareTo(item)) {
                     return true;
@@ -92,7 +92,7 @@ class SortedList: public List {
     }
      virtual void ListItems() const override{
 
-        Node* current = listData;
+        SNode* current = listData;
         if (current == nullptr) {
             std::cout << "List is empty.\n";
             return;
@@ -110,9 +110,10 @@ class SortedList: public List {
     virtual int GetLength() const override{
             return length;
     }
+    
 
     virtual void Clear() override {
-        Node* tempPtr;
+        SNode* tempPtr;
         while (listData != nullptr) {
             tempPtr = listData;
             listData = listData -> next;
