@@ -59,7 +59,7 @@ class Playlist : public UnsortedList {
     } //Move to previous
     //Add sorting method if extending to sorted list.
     void sortByTitle() {
-        list -> ListItems();
+        list -> PrintTitlesOnly();
     }
 
     void mergeSortedPlaylists(Playlist& other) {

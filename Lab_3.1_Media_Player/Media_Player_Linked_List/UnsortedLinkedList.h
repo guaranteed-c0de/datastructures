@@ -91,6 +91,20 @@ class UnsortedList: public List {
     virtual int GetLength() const override{
             return length;
     }
+     virtual void PrintTitlesOnly() const override {
+         Node* current = listData;
+    if (current == nullptr) {
+        std::cout << "List is empty.\n";
+        return;
+    }
+    while (current != nullptr) {
+        Song* song = dynamic_cast<Song*>(current->item);
+        if (song != nullptr) {
+            std::cout << song->title << std::endl;
+        }
+        current = current->next;
+    }
+    }
 
     virtual void Clear() override {
         Node* tempPtr;
