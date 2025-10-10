@@ -1,6 +1,8 @@
 #include "SortedLinkedList.h"
 #include "MediaPlayer.h"
 #include "Playlist.h"
+#include <iostream>
+using namespace std;
 
 int main() {
    Song song1("Cozy Coffeehouse", "Lunar Years", 110, "cozycoffeehouse.mp3");
@@ -9,5 +11,11 @@ int main() {
    Song song4("Prism", "Theatre of Delays", 221, "prism.mp3");
 
    Playlist spl1(new SortedList());
+   spl1.addSong(song1);
+   spl1.addSong(song2);
+   Playlist spl2(new SortedList());
+   spl2.addSong(song3);
+   spl2.addSong(song4);
+   
    return 0;
 }
