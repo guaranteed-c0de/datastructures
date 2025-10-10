@@ -15,7 +15,7 @@ struct SNode {
     ~SNode() {delete item;}
 };
 
-class SortedList: public List {
+class SortedLinkedList: public List {
 
     protected:
         SNode* listData;
@@ -23,13 +23,13 @@ class SortedList: public List {
         SNode* currentPos;
 
     public:
-        SortedList() {
+        SortedLinkedList() {
             listData = nullptr;
             length = 0;
             currentPos = nullptr;
 
         }
-    ~SortedList() {
+    ~SortedLinkedList() {
         Clear();
     }
    

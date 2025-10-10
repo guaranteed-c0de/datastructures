@@ -5,7 +5,7 @@
 #include "List.h"
 #include "UnsortedLinkedList.h"
 #include "SortedLinkedList.h"
-class Playlist : public UnsortedList {
+class Playlist : public UnsortedLinkedList {
     public:
     void addSong(const Song& song) {
         list->Insert(new Song(song));

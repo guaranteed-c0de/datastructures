@@ -6,7 +6,7 @@
 #ifndef UNSORTED_LINKED_LIST_H
 #define UNSORTED_LINKED_LIST_H
 using namespace std;
-
+#include "Song.h"
 
 
 struct Node {
@@ -16,7 +16,7 @@ struct Node {
     ~Node() {delete item;}
 };
 
-class UnsortedList: public List {
+class UnsortedLinkedList: public List {
 
     protected:
         Node* listData;
@@ -24,13 +24,13 @@ class UnsortedList: public List {
         Node* currentPos;
 
     public:
-        UnsortedList() {
+        UnsortedLinkedList() {
             listData = nullptr;
             length = 0;
             currentPos = nullptr;
 
         }
-    ~UnsortedList() {
+    ~UnsortedLinkedList() {
         Clear();
     }
    
