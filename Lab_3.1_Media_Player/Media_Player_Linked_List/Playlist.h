@@ -59,7 +59,14 @@ class Playlist : public UnsortedLinkedList {
     } //Move to previous
     //Add sorting method if extending to sorted list.
     void sortByTitle() {
-        list -> PrintTitlesOnly();
+     Node* current = listData;
+     while (current!= nullptr) {
+        Song* song = dynamic_cast<Song*>(current->item);
+        if(song != nullptr) {
+            std::cout << song->title << endl;
+        }
+        current = current->next;
+     }
     }
 
     void mergeSortedPlaylists(Playlist& other) {
