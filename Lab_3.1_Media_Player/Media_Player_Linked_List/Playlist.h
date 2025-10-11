@@ -5,7 +5,7 @@
 #include "List.h"
 #include "UnsortedLinkedList.h"
 #include "SortedLinkedList.h"
-class Playlist : public UnsortedLinkedList {
+class Playlist {
     public:
     void addSong(const Song& song) {
         list->Insert(new Song(song));
@@ -59,13 +59,16 @@ class Playlist : public UnsortedLinkedList {
     } //Move to previous
     //Add sorting method if extending to sorted list.
     void sortByTitle() {
-     Node* current = listData;
-     while (current!= nullptr) {
-        Song* song = dynamic_cast<Song*>(current->item);
+     Node* currentsong = listData;
+     while (currentsong!= nullptr) {
+        int i = 1;
+        std::cout << "Visiting node..." << i << std::endl;
+        Song* song = dynamic_cast<Song*>(currentsong->item);
         if(song != nullptr) {
             std::cout << song->title << endl;
         }
-        current = current->next;
+        currentsong = currentsong->next;
+        i++;
      }
     }
 

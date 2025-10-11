@@ -102,6 +102,9 @@ class UnsortedLinkedList: public List {
         length = 0;
         currentPos = nullptr;
     }
+    void Merge() {
+        
+    }
 
    
 };
