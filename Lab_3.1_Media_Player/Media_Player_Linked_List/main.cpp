@@ -10,10 +10,10 @@ int main() {
    Song song3("Melancholy Lull", "Vital", 136, "melancholylull.mp3");
    Song song4("Prism", "Theatre of Delays", 221, "prism.mp3");
 
-   Playlist spl1(new SortedList());
+   Playlist spl1(new SortedLinkedList());
    spl1.addSong(song1);
    spl1.addSong(song2);
-   Playlist spl2(new SortedList());
+   Playlist spl2(new SortedLinkedList());
    spl2.addSong(song3);
    spl2.addSong(song4);
    

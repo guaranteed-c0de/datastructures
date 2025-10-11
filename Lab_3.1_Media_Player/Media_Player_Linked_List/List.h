@@ -13,7 +13,6 @@ public:
     virtual bool IsEmpty() const = 0;
     virtual int GetLength() const = 0;
     virtual void Clear() = 0;
-    virtual void PrintTitlesOnly() const= 0;
     virtual ~List() {}
 };
 
