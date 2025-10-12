@@ -60,15 +60,14 @@ class Playlist {
     //Add sorting method if extending to sorted list.
     void sortByTitle() {
      Node* currentsong = list->GetHead();
+        
      while (currentsong!= nullptr) {
-        int i = 1;
-        std::cout << "Visiting node..." << i << std::endl;
         Song* song = dynamic_cast<Song*>(currentsong->item);
         if(song != nullptr) {
             std::cout << song->title << endl;
         }
         currentsong = currentsong->next;
-        i++;
+        
      }
     }
 
