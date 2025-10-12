@@ -117,7 +117,7 @@ class SortedLinkedList: public List {
         length = length;
         currentPos = nullptr;
     }
-    virtual void Merge(SortedLinkedList& other) override {
+     void Merge(SortedLinkedList& other)  {
             Node temp(nullptr); // temporary head for result
             Node* tail = &temp; // keeps track of end of merged list
             Node* playlistptr1 = this->listData;
@@ -148,7 +148,7 @@ class SortedLinkedList: public List {
             other.listData = nullptr;
             other.length = 0;
     }
-    Node* GetHead() override {
+   virtual Node* GetHead() override {
         return listData;
     }
    

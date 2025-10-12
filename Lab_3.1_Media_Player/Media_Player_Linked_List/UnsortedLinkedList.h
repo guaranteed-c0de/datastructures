@@ -9,12 +9,7 @@ using namespace std;
 #include "Song.h"
 
 
-struct Node {
-    ItemType* item;
-    Node* next;
-    Node(ItemType* i) : item(i), next(nullptr) {}
-    ~Node() {delete item;}
-};
+
 
 class UnsortedLinkedList: public List {
 
