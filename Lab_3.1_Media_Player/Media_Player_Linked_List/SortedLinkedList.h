@@ -120,6 +120,7 @@ class SortedLinkedList: public List {
             delete tempPtr;
         }
         length = 0;
+        length = length;
         currentPos = nullptr;
     }
 
