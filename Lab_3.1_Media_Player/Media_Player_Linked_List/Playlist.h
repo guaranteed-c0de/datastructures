@@ -19,7 +19,7 @@ class Playlist {
     ~Playlist() {delete list;}
     void removeSong(const std::string& title) {
         Song temp(title, "", 0, "");
-        Remove(temp);
+        list->Remove(temp);
     }
     Song* getCurrentSong() {
         if(currentsong == nullptr)
