@@ -13,7 +13,7 @@ class Playlist {
     Playlist(List* implementation) : list(implementation), currentsong(nullptr){}
     Playlist()
     {
-        list = nullptr;
+        list = new SortedLinkedList();
         currentsong = nullptr;
     }
     ~Playlist() {delete list;}
@@ -73,35 +73,13 @@ class Playlist {
     }
 
     void mergeSortedPlaylists(Playlist& other) {
-            Node temp(nullptr); // temporary head for result
-            Node* tail = &temp; // keeps track of end of merged list
-            Node* playlistptr1 = this->listData;
-            Node* playlistptr2 = other.listData;
-
-            while (playlistptr1 != nullptr && playlistptr2 != nullptr)
-            {
-                if(playlistptr1->item->LessThan(*(playlistptr2->item)))
-                {
-                    tail->next = playlistptr1;
-                    playlistptr1 = playlistptr1 ->next;
-                }
-                else {
-                    tail-> next = playlistptr2;
-                    playlistptr2 = playlistptr2->next;
-                }
-                tail = tail->next;
-            }
-            //Add extra nodes.
-            tail->next = (playlistptr1 != nullptr) ? playlistptr1: playlistptr2;
-            
-
-            this->listData = temp.next;
-            this->length += other.length;
-
-            //Empty the 'other' playlist
-
-            other.listData = nullptr;
-            other.length = 0;
+        SortedLinkedList* thisList = dynamic_cast<SortedLinkedList*>(this->list);
+        SortedLinkedList* otherList = dynamic_cast<SortedLinkedList*>(this->List);
+        if(!thisList || !otherList)
+        {
+            std::cout << "Invalid. Both lists must be sorted.";
+        }
+        thisList->Merge(*otherList);
     }
 private:
     List* list;
