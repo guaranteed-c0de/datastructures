@@ -13,4 +13,10 @@ class ItemType {
         virtual bool LessThan( const ItemType& other) const = 0; //For sorting
         virtual void Print(std::ostream& out) const = 0;
 };
+struct Node {
+    ItemType* item;
+    Node* next;
+    Node(ItemType* i) : item(i), next(nullptr) {}
+    ~Node() {delete item;}
+};
 #endif //ITEMTYPE_H

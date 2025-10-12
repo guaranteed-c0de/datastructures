@@ -36,13 +36,13 @@ class Playlist {
             currentsong = currentsong->next;
         }
         else {
-            currentsong = listData;
+            currentsong = list->GetHead();
         }
     } //Move to next in list.
     void previousSong() {
-        if (currentsong == listData || currentsong == nullptr) 
+        if (currentsong == list->GetHead() || currentsong == nullptr) 
         {
-            Node* temp = listData;
+            Node* temp = list->GetHead();
             while (temp != nullptr && temp->next != nullptr)
             {
                 temp = temp -> next;
@@ -51,15 +51,15 @@ class Playlist {
         }
         else {
             //Time to find the previous one..
-            Node* temp = listData;
-            while(temp != listData && temp ->next != currentsong)
+            Node* temp = list->GetHead();
+            while(temp != list->GetHead() && temp ->next != currentsong)
             temp = temp->next;
             currentsong = temp;
         }
     } //Move to previous
     //Add sorting method if extending to sorted list.
     void sortByTitle() {
-     Node* currentsong = listData;
+     Node* currentsong = list->GetHead();
      while (currentsong!= nullptr) {
         int i = 1;
         std::cout << "Visiting node..." << i << std::endl;
@@ -74,12 +74,15 @@ class Playlist {
 
     void mergeSortedPlaylists(Playlist& other) {
         SortedLinkedList* thisList = dynamic_cast<SortedLinkedList*>(this->list);
-        SortedLinkedList* otherList = dynamic_cast<SortedLinkedList*>(this->List);
+        SortedLinkedList* otherList = dynamic_cast<SortedLinkedList*>(other.list);
         if(!thisList || !otherList)
         {
             std::cout << "Invalid. Both lists must be sorted.";
         }
         thisList->Merge(*otherList);
+    }
+    int GetLength() {
+        return list->GetNumberOfItems();
     }
 private:
     List* list;
