@@ -48,5 +48,6 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp"
     },
+    "cmake.sourceDirectory": "/workspaces/DataStructures/Lab1.2",
     
 }
