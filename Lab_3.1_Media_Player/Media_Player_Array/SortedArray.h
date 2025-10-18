@@ -7,13 +7,7 @@
 using namespace std;
 class SortedArray: public List {
     public:
-        SortedArray()
-        {
-            length = 0;
-            
-
-        }
-       virtual void Insert(ItemType* item) override{
+        virtual void Insert(ItemType* item) override{
             currentPosition = 0;
             bool MoreToSearch = (currentPosition == length);
 
@@ -38,7 +32,7 @@ class SortedArray: public List {
                 items_array[i] = item;
             }
        }
-       virtual void Remove(ItemType& item) override {
+        virtual void Remove(ItemType& item) override {
         for (int i = 0; i < length; i++) {
             if(items_array[i] -> CompareTo(item)) {
                 delete items_array[i];
@@ -49,6 +43,12 @@ class SortedArray: public List {
         }
         
        }
+        SortedArray()
+        {
+            length = 0;
+        }
+       
+      
        virtual bool IsPresent(const ItemType& item) const {
         for (int i = 0; i < length; i++) {
             if(items_array[i] -> CompareTo(item)) {
@@ -76,7 +76,7 @@ class SortedArray: public List {
        }
 
 
-        int GetLength() const override{
+     virtual int GetNumberOfItems() const override{
             return length;
         }
         virtual void Clear() override {

@@ -10,7 +10,6 @@ class UnsortedArray: public List {
         UnsortedArray()
         {
             length = 0;
-            
 
         }
        virtual void Insert(ItemType* item) override{
@@ -57,7 +56,7 @@ class UnsortedArray: public List {
        }
 
 
-        int GetLength() const override{
+       virtual int GetNumberOfItems() const override{
             return length;
         }
         virtual void Clear() override {

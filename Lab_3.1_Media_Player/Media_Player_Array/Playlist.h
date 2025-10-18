@@ -2,9 +2,10 @@
 #define PLAYLIST_H
 
 #include "Song.h"
-#include "Unsorted_linked_list.h"
-class Playlist : public UnsortedList {
-    public:
+#include "SortedArray.h"
+#include "UnsortedArray.h"
+class Playlist {
+    public: 
     void addSong(const Song& song) {
         
     }

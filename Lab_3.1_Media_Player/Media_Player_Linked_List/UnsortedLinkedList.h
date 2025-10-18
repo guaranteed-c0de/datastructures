@@ -97,9 +97,13 @@ class UnsortedLinkedList: public List {
         length = 0;
         currentPos = nullptr;
     }
-    //virtual void Merge(SortedLinkedList& other) {
-        
-   // }
+     void SortThis(SortedLinkedList& sorted) {
+         Node* current = this->listData;
+    while (current != nullptr) {
+        sorted.Insert(current->item);  // Insert keeps it sorted
+        current = current->next;
+    }
+    }
 
    
 };

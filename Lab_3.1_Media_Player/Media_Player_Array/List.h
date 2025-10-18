@@ -11,7 +11,7 @@ public:
     virtual bool IsPresent(const ItemType& item) const = 0;
     virtual void ListItems() const = 0;
     virtual bool IsEmpty() const = 0;
-    virtual int GetLength() const = 0;
+    virtual int GetNumberOfItems() const = 0;
     virtual void Clear() = 0;
     virtual ~List() {}
 };

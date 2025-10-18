@@ -2,7 +2,6 @@
 #define PLAYLIST_H
 
 #include "Song.h"
-#include "List.h"
 #include "UnsortedLinkedList.h"
 #include "SortedLinkedList.h"
 class Playlist {
@@ -80,6 +79,20 @@ class Playlist {
         }
         thisList->Merge(*otherList);
     }
+
+    void mergeWithUnsorted(Playlist& unsorted) {
+         SortedLinkedList* sortedList = dynamic_cast<SortedLinkedList*>(this->list);
+    UnsortedLinkedList* unsortedList = dynamic_cast<UnsortedLinkedList*>(unsorted.list);
+
+    if (!sortedList || !unsortedList) {
+        std::cout << "Invalid merge: must merge a sorted playlist with an unsorted one.\n";
+        return;
+    }
+
+    unsortedList->SortThis(*sortedList);
+    std::cout << "Merged unsorted playlist into sorted playlist successfully.\n";
+    }
+
     int GetLength() {
         return list->GetNumberOfItems();
     }
