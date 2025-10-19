@@ -101,9 +101,6 @@ class SortedLinkedList: public List {
      virtual bool IsEmpty() const override{
         return length == 0;
     }
-    virtual int GetNumberOfItems() const override{
-            return length;
-    }
     
 
     virtual void Clear() override {
