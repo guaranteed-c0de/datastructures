@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/MediaPlayer.cpp" "CMakeFiles/unit_tests.dir/MediaPlayer.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/MediaPlayer.cpp.o.d"
+  "/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/Song.cpp" "CMakeFiles/unit_tests.dir/Song.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/Song.cpp.o.d"
   "/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/tests_playlists.cpp" "CMakeFiles/unit_tests.dir/tests_playlists.cpp.o" "gcc" "CMakeFiles/unit_tests.dir/tests_playlists.cpp.o.d"
   "" "unit_tests" "gcc" "CMakeFiles/unit_tests.dir/link.d"
   )

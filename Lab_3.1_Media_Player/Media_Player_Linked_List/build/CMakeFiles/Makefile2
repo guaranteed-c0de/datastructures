@@ -164,7 +164,7 @@ CMakeFiles/unit_tests.dir/all: _deps/catch2-build/src/CMakeFiles/Catch2.dir/all
 CMakeFiles/unit_tests.dir/all: _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=98,99,100 "Built target unit_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=97,98,99,100 "Built target unit_tests"
 .PHONY : CMakeFiles/unit_tests.dir/all
 
 # Build rule for subdir invocation for target.
@@ -181,7 +181,7 @@ unit_tests: CMakeFiles/unit_tests.dir/rule
 # codegen rule for target.
 CMakeFiles/unit_tests.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=98,99,100 "Finished codegen for target unit_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=97,98,99,100 "Finished codegen for target unit_tests"
 .PHONY : CMakeFiles/unit_tests.dir/codegen
 
 # clean rule for target.
@@ -1092,7 +1092,7 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 CMakeFiles/tests.dir/all: _deps/catch2-build/src/CMakeFiles/Catch2.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=95,96,97 "Built target tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=94,95,96 "Built target tests"
 .PHONY : CMakeFiles/tests.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1109,7 +1109,7 @@ tests: CMakeFiles/tests.dir/rule
 # codegen rule for target.
 CMakeFiles/tests.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=95,96,97 "Finished codegen for target tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=94,95,96 "Finished codegen for target tests"
 .PHONY : CMakeFiles/tests.dir/codegen
 
 # clean rule for target.
@@ -1124,7 +1124,7 @@ CMakeFiles/tests.dir/clean:
 CMakeFiles/player.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/player.dir/build.make CMakeFiles/player.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/player.dir/build.make CMakeFiles/player.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=92,93,94 "Built target player"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=91,92,93 "Built target player"
 .PHONY : CMakeFiles/player.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1141,7 +1141,7 @@ player: CMakeFiles/player.dir/rule
 # codegen rule for target.
 CMakeFiles/player.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/player.dir/build.make CMakeFiles/player.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=92,93,94 "Finished codegen for target player"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=91,92,93 "Finished codegen for target player"
 .PHONY : CMakeFiles/player.dir/codegen
 
 # clean rule for target.
@@ -1188,12 +1188,12 @@ _deps/catch2-build/src/CMakeFiles/Catch2.dir/clean:
 _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/all: _deps/catch2-build/src/CMakeFiles/Catch2.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=90,91 "Built target Catch2WithMain"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=90 "Built target Catch2WithMain"
 .PHONY : _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" 91
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" 90
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" 0
 .PHONY : _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/rule
@@ -1205,7 +1205,7 @@ Catch2WithMain: _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/rule
 # codegen rule for target.
 _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=90,91 "Finished codegen for target Catch2WithMain"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=90 "Finished codegen for target Catch2WithMain"
 .PHONY : _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/codegen
 
 # clean rule for target.

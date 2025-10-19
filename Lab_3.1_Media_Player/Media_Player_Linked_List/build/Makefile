@@ -590,6 +590,7 @@ Song.o: Song.cpp.o
 
 # target to build an object file
 Song.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/Song.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/Song.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/player.dir/build.make CMakeFiles/player.dir/Song.cpp.o
 .PHONY : Song.cpp.o
@@ -599,6 +600,7 @@ Song.i: Song.cpp.i
 
 # target to preprocess a source file
 Song.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/Song.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/Song.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/player.dir/build.make CMakeFiles/player.dir/Song.cpp.i
 .PHONY : Song.cpp.i
@@ -608,6 +610,7 @@ Song.s: Song.cpp.s
 
 # target to generate assembly for a file
 Song.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/unit_tests.dir/build.make CMakeFiles/unit_tests.dir/Song.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/Song.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/player.dir/build.make CMakeFiles/player.dir/Song.cpp.s
 .PHONY : Song.cpp.s

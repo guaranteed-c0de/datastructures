@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/unit_tests.dir/link.d"
   "CMakeFiles/unit_tests.dir/MediaPlayer.cpp.o"
   "CMakeFiles/unit_tests.dir/MediaPlayer.cpp.o.d"
+  "CMakeFiles/unit_tests.dir/Song.cpp.o"
+  "CMakeFiles/unit_tests.dir/Song.cpp.o.d"
   "CMakeFiles/unit_tests.dir/tests_playlists.cpp.o"
   "CMakeFiles/unit_tests.dir/tests_playlists.cpp.o.d"
   "unit_tests"

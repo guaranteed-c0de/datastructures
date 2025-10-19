@@ -22,7 +22,8 @@ target_link_libraries(unit_tests
 PRIVATE 
 Catch2::Catch2WithMain
 sfml-graphics
-sfml-audiosfml-window
+sfml-audio
+sfml-window
 sfml-system
 )
 target_include_directories(unit_tests PUBLIC include)

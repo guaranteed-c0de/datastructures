@@ -100,22 +100,41 @@ CMakeFiles/unit_tests.dir/MediaPlayer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/MediaPlayer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/MediaPlayer.cpp" -o CMakeFiles/unit_tests.dir/MediaPlayer.cpp.s
 
+CMakeFiles/unit_tests.dir/Song.cpp.o: CMakeFiles/unit_tests.dir/flags.make
+CMakeFiles/unit_tests.dir/Song.cpp.o: /home/yamirrichmond/GitHub\ folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/Song.cpp
+CMakeFiles/unit_tests.dir/Song.cpp.o: CMakeFiles/unit_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/unit_tests.dir/Song.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unit_tests.dir/Song.cpp.o -MF CMakeFiles/unit_tests.dir/Song.cpp.o.d -o CMakeFiles/unit_tests.dir/Song.cpp.o -c "/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/Song.cpp"
+
+CMakeFiles/unit_tests.dir/Song.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/Song.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/Song.cpp" > CMakeFiles/unit_tests.dir/Song.cpp.i
+
+CMakeFiles/unit_tests.dir/Song.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/Song.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/Song.cpp" -o CMakeFiles/unit_tests.dir/Song.cpp.s
+
 # Object files for target unit_tests
 unit_tests_OBJECTS = \
 "CMakeFiles/unit_tests.dir/tests_playlists.cpp.o" \
-"CMakeFiles/unit_tests.dir/MediaPlayer.cpp.o"
+"CMakeFiles/unit_tests.dir/MediaPlayer.cpp.o" \
+"CMakeFiles/unit_tests.dir/Song.cpp.o"
 
 # External object files for target unit_tests
 unit_tests_EXTERNAL_OBJECTS =
 
 unit_tests: CMakeFiles/unit_tests.dir/tests_playlists.cpp.o
 unit_tests: CMakeFiles/unit_tests.dir/MediaPlayer.cpp.o
+unit_tests: CMakeFiles/unit_tests.dir/Song.cpp.o
 unit_tests: CMakeFiles/unit_tests.dir/build.make
 unit_tests: CMakeFiles/unit_tests.dir/compiler_depend.ts
 unit_tests: _deps/catch2-build/src/libCatch2Main.a
+unit_tests: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.6.1
 unit_tests: _deps/catch2-build/src/libCatch2.a
+unit_tests: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.6.1
+unit_tests: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.6.1
 unit_tests: CMakeFiles/unit_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable unit_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable unit_tests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unit_tests.dir/link.txt --verbose=$(VERBOSE)
 	/snap/cmake/1487/bin/cmake -D TEST_TARGET=unit_tests -D "TEST_EXECUTABLE=/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/unit_tests" -D TEST_EXECUTOR= -D "TEST_WORKING_DIR=/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build" -D TEST_SPEC= -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_LIST=unit_tests_TESTS -D TEST_REPORTER= -D TEST_OUTPUT_DIR= -D TEST_OUTPUT_PREFIX= -D TEST_OUTPUT_SUFFIX= -D TEST_DL_PATHS= -D "CTEST_FILE=/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/unit_tests-b12d07c_tests.cmake" -P "/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/_deps/catch2-src/extras/CatchAddTests.cmake"
 
