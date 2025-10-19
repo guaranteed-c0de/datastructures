@@ -28,7 +28,7 @@ class Playlist {
             return nullptr;
         }
         else {
-            return dynamic_cast<Song*>(list -> item); //What does dynamic_cast mean? How does this all return a Song* variable?
+            return dynamic_cast<Song*>(list -> GetItem(y)); //What does dynamic_cast mean? How does this all return a Song* variable?
         }
     } //Returns current playing song.
     void nextSong() {
@@ -55,7 +55,7 @@ class Playlist {
      y = 0;
         
      while (y!= list->GetNumberOfItems()) {
-        Song* song = dynamic_cast<Song*>(currentsong->item);
+        Song* song = dynamic_cast<Song*>(list->GetItem(y));
         if(song != nullptr) {
             std::cout << song->title << endl;
         }

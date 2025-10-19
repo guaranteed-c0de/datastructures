@@ -13,6 +13,7 @@ public:
     virtual bool IsEmpty() const = 0;
     virtual int GetNumberOfItems() const = 0;
     virtual void Clear() = 0;
+    virtual ItemType* GetItem(int index) = 0;
     virtual ~List() {}
 };
 

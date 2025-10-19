@@ -82,9 +82,49 @@ class SortedArray: public List {
         virtual void Clear() override {
             length = 0;
         }
+        virtual ItemType* GetItem(int index) {
+            if (index < 0 || index >= length)
+            {
+                return nullptr;
+            }
+            else {
+                return items_array[index];
+            }
+        }
         void Merge(SortedArray& other)
         {
-            
+            ItemType* merged[MAX_ITEMS];  // temporary array to hold merged items
+    int i = 0; // index for this->items
+    int j = 0; // index for other.items
+    int k = 0; // index for merged[]
+
+    //  Merge until one list is exhausted
+    while (i < this->length && j < other.length) {
+        if (this->items_array[i]->LessThan(*other.items_array[j])) {
+            merged[k++] = this->items_array[i++];
+        } else {
+            merged[k++] = other.items_array[j++];
+        }
+    }
+
+    // Copy remaining elements
+    while (i < this->length) {
+        merged[k++] = this->items_array[i++];
+    }
+    while (j < other.length) {
+        merged[k++] = other.items_array[j++];
+    }
+
+    // Copy merged array back into this->items
+    for (int n = 0; n < k; n++) {
+        this->items_array[n] = merged[n];
+    }
+
+    //  Update the length
+    this->length = k;
+
+    // Empty the other array
+    other.length = 0;
         }
         ~SortedArray()
         {

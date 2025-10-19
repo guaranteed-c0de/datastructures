@@ -7,7 +7,7 @@
 #define UNSORTED_LINKED_LIST_H
 using namespace std;
 #include "Song.h"
-
+#include "SortedLinkedList.h"
 
 
 
@@ -84,7 +84,7 @@ class UnsortedLinkedList: public List {
      virtual bool IsEmpty() const override{
         return length == 0;
     }
-    virtual int GetNumberOfItems() const override{
+    virtual int GetLength() const override{
             return length;
     }
     virtual void Clear() override {
