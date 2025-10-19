@@ -17,8 +17,14 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 
 #Add test executable
-add_executable(unit_tests tests_playlists.cpp MediaPlayer.cpp)
-target_link_libraries(unit_tests PRIVATE Catch2::Catch2WithMain)
+add_executable(unit_tests tests_playlists.cpp MediaPlayer.cpp Song.cpp)
+target_link_libraries(unit_tests 
+PRIVATE 
+Catch2::Catch2WithMain
+sfml-graphics
+sfml-audiosfml-window
+sfml-system
+)
 target_include_directories(unit_tests PUBLIC include)
 
 #Discover and add tests to CTest

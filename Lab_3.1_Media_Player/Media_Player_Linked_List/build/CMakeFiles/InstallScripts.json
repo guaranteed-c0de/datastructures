@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/cmake_install.cmake",
+		"/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/_deps/catch2-build/cmake_install.cmake",
+		"/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/_deps/catch2-build/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
