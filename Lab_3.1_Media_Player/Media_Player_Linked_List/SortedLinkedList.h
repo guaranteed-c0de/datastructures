@@ -151,7 +151,7 @@ class SortedLinkedList: public List {
    virtual Node* GetHead() override {
         return listData;
     }
-    virtual int GetLength() const override {
+    virtual int GetNumberOfItems() const override {
         return length;
     }
    
