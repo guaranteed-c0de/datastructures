@@ -17,7 +17,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 
 #Add test executable
-add_executable(unit_tests test_playlist.cpp MediaPlayer.cpp)
+add_executable(unit_tests tests_playlist.cpp MediaPlayer.cpp)
 target_link_libraries(unit_tests PRIVATE Catch2::Catch2WithMain)
 target_include_directories(unit_tests PUBLIC include)
 
