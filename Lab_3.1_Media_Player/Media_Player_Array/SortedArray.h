@@ -82,6 +82,10 @@ class SortedArray: public List {
         virtual void Clear() override {
             length = 0;
         }
+        void Merge(SortedArray& other)
+        {
+            
+        }
         ~SortedArray()
         {
             Clear();

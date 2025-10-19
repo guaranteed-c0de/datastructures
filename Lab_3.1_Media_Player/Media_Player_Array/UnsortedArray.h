@@ -10,7 +10,6 @@ class UnsortedArray: public List {
         UnsortedArray()
         {
             length = 0;
-
         }
        virtual void Insert(ItemType* item) override{
     
