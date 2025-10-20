@@ -78,6 +78,16 @@ class Playlist {
     int GetLength() {
         return list->GetNumberOfItems();
     }
+    void searchPlaylist() {
+        string artist_last_name;
+        cout << "Search for a song by the last name of the artist.\n";
+        cin >> artist_last_name;
+        if(artist_last_name != "Years" || artist_last_name != "Bosman" || artist_last_name != "Vital" || artist_last_name != "Delays")
+        {
+            cout << "Sorry. That is not an artist of a song you can add to your playlist." << endl;
+        }
+
+    }
 private:
    List* list;
    int y;
