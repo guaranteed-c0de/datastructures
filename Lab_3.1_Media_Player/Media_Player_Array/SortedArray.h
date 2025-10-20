@@ -135,9 +135,10 @@ class SortedArray: public List {
             Clear();
         }
     private:
-        const int MAX_ITEMS = 10000;
         int length;
+        static const int MAX_ITEMS = 10000;
         ItemType* items_array[MAX_ITEMS];
         int currentPosition;
+       
 };
 #endif //SORTED_ARRAY_H
