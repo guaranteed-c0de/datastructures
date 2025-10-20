@@ -135,6 +135,7 @@ class SortedArray: public List {
             Clear();
         }
     private:
+        const int MAX_ITEMS = 10000;
         int length;
         ItemType* items_array[MAX_ITEMS];
         int currentPosition;
