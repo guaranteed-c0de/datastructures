@@ -1,7 +1,7 @@
 #include <iostream>
 #ifndef ITEMTYPE_H
 #define ITEMTYPE_H
-const int MAX_ITEMS = 50;
+const int MAX_ITEMS = 10000;
 class ItemType {
 
     public:
