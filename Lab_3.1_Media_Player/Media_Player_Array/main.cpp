@@ -48,8 +48,8 @@ int main() {
    spl1.sortByTitle();
    //spl2.sortByTitle();
    return 0;*/
-   testMergeTime(100);
-   testMergeTime(1000);
+   testMergeTime(10);
+   //testMergeTime(1000);
    //testMergeTime(10000);
    return 0;
 }
