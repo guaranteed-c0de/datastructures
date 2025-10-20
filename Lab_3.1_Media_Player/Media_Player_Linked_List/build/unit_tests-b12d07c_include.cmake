@@ -1,5 +1,0 @@
-if(EXISTS "/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/unit_tests-b12d07c_tests.cmake")
-  include("/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/unit_tests-b12d07c_tests.cmake")
-else()
-  add_test(unit_tests_NOT_BUILT-b12d07c unit_tests_NOT_BUILT-b12d07c)
-endif()

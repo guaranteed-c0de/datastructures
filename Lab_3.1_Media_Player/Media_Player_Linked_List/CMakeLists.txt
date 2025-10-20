@@ -51,7 +51,7 @@ target_link_libraries(tests
     sfml-audio
     sfml-window
     sfml-system
-    Catch2::Catch2
+    Catch2::Catch2WithMain
     )
 
 # Player target
