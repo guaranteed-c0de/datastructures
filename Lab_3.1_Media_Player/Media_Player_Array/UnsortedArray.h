@@ -66,9 +66,11 @@ class UnsortedArray: public List {
             Clear();
         }
     private:
+        inline static const int MAX_ITEMS = 10000;
         int length;
         ItemType* items[MAX_ITEMS];
         int currentPosition;
+        
 };
 #endif //UNSORTED_ARRAY_H
 
