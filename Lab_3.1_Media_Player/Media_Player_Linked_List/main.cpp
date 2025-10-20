@@ -9,7 +9,7 @@ using namespace std;
 void testMergeTime(int n) {
     Playlist list1, list2;
     
-    // Fill both lists with n dummy songs
+    
     for (int i = 0; i < n; i++) {
         Song s1("Title" + to_string(i), "Artist" + to_string(i), 200, "path");
         Song s2("Title" + to_string(n - i), "Artist" + to_string(n - i), 200, "path");
