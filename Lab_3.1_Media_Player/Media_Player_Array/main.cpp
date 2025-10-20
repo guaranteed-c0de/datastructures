@@ -50,6 +50,6 @@ int main() {
    return 0;*/
    testMergeTime(100);
    testMergeTime(1000);
-   testMergeTime(10000);
+   //testMergeTime(10000);
    return 0;
 }
