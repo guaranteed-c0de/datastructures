@@ -31,6 +31,7 @@ class SortedArray: public List {
                 }
                 items_array[i] = item;
             }
+            length++;
        }
         virtual void Remove(ItemType& item) override {
         for (int i = 0; i < length; i++) {
@@ -80,6 +81,9 @@ class SortedArray: public List {
             return length;
         }
         virtual void Clear() override {
+             for (int i = 0; i < length; i++) {
+        delete items_array[i];
+    }
             length = 0;
         }
         virtual ItemType* GetItem(int index) {

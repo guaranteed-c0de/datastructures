@@ -9,6 +9,7 @@ class Playlist {
   public:
     void addSong(const Song& song) {
         list->Insert(new Song(song));
+        
     }
     Playlist(List* implementation) : list(implementation), y(-1){}
     Playlist()
