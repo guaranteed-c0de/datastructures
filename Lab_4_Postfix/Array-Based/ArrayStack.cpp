@@ -22,7 +22,6 @@ void Stack::push(ItemType item) {
     if (!isFull())
     {    top++;
          stackArray[top] = item;
-         
     }
     else {
         cout << "\nThe list is full. No more items can be pushed.\n";

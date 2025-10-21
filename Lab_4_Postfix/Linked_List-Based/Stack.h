@@ -4,6 +4,11 @@
 #include <iostream>
 
 typedef int ItemType;
+struct Node {
+ItemType data;
+Node* next;
+Node(ItemType item) : data(item), next(nullptr) {}
+};
 class Stack{
     private:
         Node* top;
@@ -18,9 +23,5 @@ class Stack{
         void makeEmpty(); //Empties the stack.
 
 };
-struct Node {
-ItemType data;
-Node* next;
-Node(ItemType item) : data(item), next(nullptr) {}
-};
+
 #endif //STACK_H
