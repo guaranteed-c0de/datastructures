@@ -16,12 +16,13 @@ int main() {
    while (true)
    {
     int x = 3;
-    Plain.push(x);
-    x++;
-    if (Plain.isFull())
+     if (Plain.isFull())
     {
         break;
     }
+    Plain.push(x);
+    x++;
+   
    }
     return 0;
 }
