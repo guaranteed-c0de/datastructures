@@ -20,9 +20,9 @@ bool Stack::isFull() {
 }
 void Stack::push(ItemType item) {
     if (!isFull())
-    {
+    {    top++;
          stackArray[top] = item;
-         top++;
+         
     }
     else {
         cout << "\nThe list is full. No more items can be pushed.\n";
