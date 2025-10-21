@@ -3,7 +3,7 @@
 using namespace std;
 
 Stack::Stack() {
-   int* stackArray = new int[MAX_STACK]; //Why not stackArray = nullptr;?
+    stackArray = new int[MAX_STACK]; //Why not stackArray = nullptr;?
     top = 0;
 }
 
