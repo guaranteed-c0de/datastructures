@@ -13,7 +13,7 @@ int main() {
         cout << Plain.pop();
         cout << endl;
     }*/
-   while (true)
+  /* while (true)
    {
     int x = 3;
      if (Plain.isFull())
@@ -24,6 +24,8 @@ int main() {
     Plain.push(x);
     x++;
    
-   }
+   } */
+  cout << Plain.pop();
+  cout << Plain.peek();
     return 0;
 }
