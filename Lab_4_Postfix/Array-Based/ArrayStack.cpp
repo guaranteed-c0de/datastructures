@@ -4,7 +4,7 @@ using namespace std;
 
 Stack::Stack() {
     stackArray = new int[MAX_STACK]; //Why not stackArray = nullptr;?
-    top = 0;
+    top = -1;
 }
 
 Stack:: ~Stack() {
