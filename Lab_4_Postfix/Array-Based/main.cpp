@@ -30,7 +30,7 @@ int main() {
    } */
   //cout << Plain.pop();
   //cout << Plain.peek();
-  cout << evaluatePostfix("2++", Plain);
+  cout << evaluatePostfix("12-3*4+5-6*7+8/", Plain);
   cout << endl;
     return 0;
 }
