@@ -31,12 +31,13 @@ void Stack::push(ItemType item) {
 int Stack::pop() {
     if(!isEmpty())
     {
-        return stackArray[top];
-        top--;
+        return stackArray[top--];
+        
     }
     else {
+         cout << "\nThe list is empty. No items can be popped.\n";
         return -999;
-        cout << "\nThe list is empty. No items can be popped.\n";
+       
     }
 }
 int Stack::peek() {
