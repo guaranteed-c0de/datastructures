@@ -18,6 +18,10 @@ int main() {
     int x = 3;
     Plain.push(x);
     x++;
+    if (Plain.isFull())
+    {
+        break;
+    }
    }
     return 0;
 }
