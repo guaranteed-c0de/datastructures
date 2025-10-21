@@ -18,6 +18,7 @@ int main() {
     int x = 3;
      if (Plain.isFull())
     {
+        Plain.push(x);
         break;
     }
     Plain.push(x);
