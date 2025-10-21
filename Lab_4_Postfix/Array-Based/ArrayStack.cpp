@@ -35,7 +35,7 @@ int Stack::pop() {
     }
     else {
         return -999;
-        cout << "\nThe list is empty. No items can be popped.\n"
+        cout << "\nThe list is empty. No items can be popped.\n";
     }
 }
 int Stack::peek() {
