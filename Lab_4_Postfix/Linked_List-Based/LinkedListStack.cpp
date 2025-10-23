@@ -50,6 +50,9 @@ bool Stack::isFull() {
     return false;
 }
 void Stack::makeEmpty() {
+    if (top == nullptr) {
+        cout << "\nThe list is already empty.\n";
+    }
     while(top)
       {
         Node* temp = top;

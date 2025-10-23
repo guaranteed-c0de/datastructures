@@ -5,6 +5,9 @@ int evaluatePostfix(string, Stack&);
 int main()
 {
    Stack Basic;
+   Basic.makeEmpty();
+   Basic.push(3);
+   Basic.makeEmpty();
     for (int x = 0; x < 100; x++)
     {
         Basic.push(x + 1);
@@ -13,6 +16,7 @@ int main()
     {
         cout << Basic.pop() << endl;
     } 
+    
  // cout << evaluatePostfix("231*+4-", Basic) << endl;
     return 0;
 }
