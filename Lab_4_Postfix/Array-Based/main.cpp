@@ -37,7 +37,7 @@ int main() {
 
  // cout << evaluatePostfix("", Plain);
 
-  cout << evaluatePostfix("72+", Plain);
+  cout << evaluatePostfix("12-3*4+5/", Plain);
 
   cout << endl;
     return 0;

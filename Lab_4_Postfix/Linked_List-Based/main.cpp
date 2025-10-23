@@ -17,7 +17,7 @@ int main()
         cout << Basic.pop() << endl;
     } 
     */
-  cout << evaluatePostfix("3++", Basic) << endl;
+  cout << evaluatePostfix("12345+-/*", Basic) << endl;
     return 0;
 }
 int evaluatePostfix(string expr, Stack& stack) {
