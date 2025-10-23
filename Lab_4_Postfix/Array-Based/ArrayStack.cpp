@@ -34,7 +34,7 @@ int Stack::pop() {
         
     }
     else {
-         cout << "\nThe list is empty. No items can be popped.\n";
+         cout << "\nThe list is empty. No items can be removed.\n";
         return -999;
        
     }
@@ -45,7 +45,9 @@ int Stack::peek() {
         return stackArray[top];
     }
     else {
+        cout << "The list is empty. There is no item at the top.\n";
         return -999;
+        
     }
 }
 void Stack::makeEmpty() {

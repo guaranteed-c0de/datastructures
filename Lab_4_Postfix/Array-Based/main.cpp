@@ -5,8 +5,12 @@ using namespace std;
 #include "Stack.h"
 int evaluatePostfix(string, Stack&);
 int main() {
+    
     Stack Plain;
-   /* for (int i = 1; i<= 10; i++) //Push 10 elements (1-10)
+  /* cout << Plain.peek() << endl;
+   cout << Plain.pop() << endl;
+
+    for (int i = 1; i<= 10; i++) //Push 10 elements (1-10)
     {
         Plain.push(i);
     }
@@ -15,8 +19,8 @@ int main() {
     {
         cout << Plain.pop();
         cout << endl;
-    }*/
-  /* while (true)
+    }
+  while (true)
    {
     int x = 3;
      if (Plain.isFull())
@@ -25,12 +29,16 @@ int main() {
         break;
     }
     Plain.push(x);
-    x++;
+    x++; 
    
    } */
   //cout << Plain.pop();
-  //cout << Plain.peek();
-  cout << evaluatePostfix("12-3*4+5-6*7+8/", Plain);
+ // cout << Plain.peek();
+
+ // cout << evaluatePostfix("", Plain);
+
+  cout << evaluatePostfix("12-3*4+5/", Plain);
+
   cout << endl;
     return 0;
 }
