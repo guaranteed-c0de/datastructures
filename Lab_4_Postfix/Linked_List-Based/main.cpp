@@ -4,7 +4,7 @@ using namespace std;
 int evaluatePostfix(string, Stack&);
 int main()
 {
-   Stack Basic; /*
+   Stack Basic;
     for (int x = 0; x < 100; x++)
     {
         Basic.push(x + 1);
@@ -12,8 +12,8 @@ int main()
     for (int y = 0; y < 100; y++)
     {
         cout << Basic.pop() << endl;
-    } */
-  cout << evaluatePostfix("231*+4-", Basic) << endl;
+    } 
+ // cout << evaluatePostfix("231*+4-", Basic) << endl;
     return 0;
 }
 int evaluatePostfix(string expr, Stack& stack) {

@@ -56,5 +56,8 @@ void Stack::makeEmpty() {
         top = top->next;
         delete temp;
     }
+    {
+        cout << "\nThe list has been emptied.\n";
+    }
 
 }

@@ -45,8 +45,9 @@ int Stack::peek() {
         return stackArray[top];
     }
     else {
-        return -999;
         cout << "The list is empty. There is no item at the top.\n";
+        return -999;
+        
     }
 }
 void Stack::makeEmpty() {
