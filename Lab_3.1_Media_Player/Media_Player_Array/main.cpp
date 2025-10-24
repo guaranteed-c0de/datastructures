@@ -7,7 +7,7 @@ using namespace std::chrono;
 using namespace std;
 void testMergeTime(int n) {
     Playlist list1, list2;
-    
+    cout << "Hello World!";
     
     for (int i = 0; i < n; i++) {
         Song s1("Title" + to_string(i), "Artist" + to_string(i), 200, "path");
