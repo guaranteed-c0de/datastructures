@@ -1,0 +1,1 @@
+For this assignment, the work is in the Static folder. HW5_Driver.cpp is the driver program, Static.in is the input file, and Static.out is the output file. To run, type g++ HW5_Driver.cpp StackType.cpp -o program, ./program
