@@ -47,9 +47,9 @@ public:
    //     otherwise, top element has been removed from stack.
 
 void SetSecondElement(ItemType item);
-ItemType SetBottomWithStackEmpty();
-ItemType SetBottomeWithoutStackEmpty();
-void CopyStackMaintainStack();
+void SetBottomWithStackEmpty(ItemType item);
+void SetBottomeWithoutStackEmpty(ItemType item);
+StackType CopyStackMaintainStack();
 private:
    int top;
    ItemType  items[MAX_ITEMS];

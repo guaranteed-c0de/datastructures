@@ -45,24 +45,21 @@ void StackType::SetSecondElement(ItemType item) {
     ItemType second_element = item;
     Push(second_element);
 }
-ItemType StackType::SetBottomWithStackEmpty() {
-    ItemType bottom;
+void StackType::SetBottomWithStackEmpty(ItemType item) {
+    ItemType bottom = item;
     
     while (!IsEmpty())
     {
-    bottom = Top();
        Pop(); 
     }
-    return bottom;
-
+    Push(bottom);
 
 }
-ItemType StackType::SetBottomeWithoutStackEmpty() {
-    ItemType bottom;
+void StackType::SetBottomeWithoutStackEmpty(ItemType item) {
+    ItemType bottom = item;
     StackType tempStack;
     while (!IsEmpty()) {
         tempStack.Push(Top());
-        bottom = Top();
         Pop();
     }
     while (!tempStack.IsEmpty())
@@ -70,9 +67,9 @@ ItemType StackType::SetBottomeWithoutStackEmpty() {
         Push(tempStack.Top());
         tempStack.Pop();
     }
-    return bottom;
+   
 }
-void StackType::CopyStackMaintainStack() {
+StackType StackType::CopyStackMaintainStack() {
 StackType stack2;
 StackType temp;
     while (!IsEmpty()) {
@@ -84,4 +81,5 @@ StackType temp;
         stack2.Push(temp.Top());
         temp.Pop();
     }
+    return stack2;
 }

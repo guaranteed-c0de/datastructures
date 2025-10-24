@@ -20,6 +20,7 @@ Push Q
 Top
 SetSecondElement X
 Top
+SetBottomWithStackEmpty
 Error
 Quit
 

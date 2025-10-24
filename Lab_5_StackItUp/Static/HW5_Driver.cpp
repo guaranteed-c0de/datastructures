@@ -14,6 +14,7 @@ int main() {
   
   ItemType item;
   StackType stack;
+  StackType copystack;
   int numCommands;
   // Prompt for file names, read file names, and prepare files
   cout << "Enter name of input command file; press return." << endl;
@@ -45,6 +46,23 @@ int main() {
       {
         inFile >> item;
         stack.SetSecondElement(item);
+      }
+      else if (command == "SetBottomWithStackEmpty")
+      {
+        inFile >> item;
+        stack.SetBottomWithStackEmpty(item);
+        outFile << "The bottom of the (emptied) stack is " << item << endl;
+      }
+      else if (command == "SetBottomWithoutStackEmpty")
+      {
+        inFile >> item;
+        stack.SetBottomeWithoutStackEmpty(item);
+        outFile << "The bottom of the stack is now " << item << endl;
+      }
+      else if (command == "CopyStackMaintainStack")
+      {
+        copystack = stack.CopyStackMaintainStack();
+        outFile << "Stack has been copied." << endl;
       }
       else if (command == "Top")
       {
