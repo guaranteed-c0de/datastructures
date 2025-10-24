@@ -1,14 +1,26 @@
 Push U
+Top
 Push E
+Top
 Push Z
+Top
 Push F
+Top
 Push D
+Top
 Push B
+Top
 Push G
+Top
 Push R
+Top
 Push H
+Top
 Push Q
+Top
 SetSecondElement X
-SetBottomWithStackEmpty M
-SetBottomeWithoutStackEmpty
-CopyStackMaintainStack
+Top
+Error
+Quit
+
+
