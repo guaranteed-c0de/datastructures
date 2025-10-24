@@ -1,1 +1,14 @@
-
+Push U
+Push E
+Push Z
+Push F
+Push D
+Push B
+Push G
+Push R
+Push H
+Push Q
+SetSecondElement X
+SetBottomWithStackEmpty M
+SetBottomeWithoutStackEmpty
+CopyStackMaintainStack
