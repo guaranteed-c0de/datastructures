@@ -15,15 +15,25 @@ QueType::QueType() {
 }
 
 QueType::~QueType()
-{}
+{
+    length = 0;
+    rear = front;
+}
 
 void QueType::MakeEmpty()
-{}
+{
+    length = 0;
+    rear = front;
+}
 
 bool QueType::IsEmpty() const
-{} 
+{
+    return length == 0 && rear == front;
+} 
 bool QueType::IsFull() const
-{}
+{
+    return length == maxQue;
+}
 void QueType::Enqueue(ItemType newItem) {
     rear = (rear + 1)% maxQue;
     items[rear] = newItem;
