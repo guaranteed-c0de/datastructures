@@ -4,19 +4,22 @@ using namespace std;
 void Display(QueType& queue);
 int main() {
     
-    QueType BankQueue(100);
+    QueType BankQueue(10);
    Display(BankQueue);
    return 0;
 }
 
 void Display(QueType& queue) {
-int Service_Rate = 3;
-int Arrival_Rate = 2 * Service_Rate;
+
+int Arrival_Rate;
+int Service_Rate;
 int TotalLeftLine = 0;
 int TotalServed = 0;
 
 for (int i = 1; i<= 100; i++)
+    
 {
+    int Arrival_Rate = ....
     int LeftLine = 0;
     int NoOneToServe = 0;
     for (int x = 0; x < Arrival_Rate; x++)
