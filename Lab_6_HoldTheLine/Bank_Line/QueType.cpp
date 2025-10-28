@@ -59,6 +59,7 @@ void QueType::Enqueue(ItemType newItem)
   {
     rear = (rear +1) % maxQue;
     items[rear] = newItem;
+    length++;
   }
 }
 

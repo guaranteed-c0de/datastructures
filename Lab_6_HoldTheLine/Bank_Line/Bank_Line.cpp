@@ -4,7 +4,7 @@ using namespace std;
 void Display(QueType& queue);
 int main() {
     
-    QueType BankQueue(10);
+    QueType BankQueue(100);
    Display(BankQueue);
    return 0;
 }
@@ -19,12 +19,13 @@ for (int i = 1; i<= 100; i++)
     int NoOneToServe = 0;
     for (int x = 0; x < Arrival_Rate; x++)
     {
-        if (queue.IsFull())
-        {
-            LeftLine +=1;
-        }
         queue.Enqueue(queue.GenerateItem());
 
+    }
+    while (queue.GetLength() > 10)
+    {
+        queue.Dequeue();
+        LeftLine +=1;
     }
     for (int y = 0; y < Service_Rate; y++)
     {
