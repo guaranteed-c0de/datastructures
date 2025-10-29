@@ -54,9 +54,10 @@ cout << "This is iteration " << i << ".\n";
 cout << TotalServed << " patrons have been served.\n";
 cout << TotalLeftLine << " patrons left the line." << endl;
 cout << "So far, the customer service desks have been empty " << NoOneToServe << " times!" << endl;
-cout << "There are " << queue.GetLength() << " people currently in line.\n\n";
+cout << "There are " << queue.GetLength() << " people currently in line.\n";
 cout << "This is the current queue:\n";
 queue.DisplayQueue();
+cout << endl;
 }
 
 }
