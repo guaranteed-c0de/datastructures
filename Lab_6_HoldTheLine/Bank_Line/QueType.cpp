@@ -9,9 +9,9 @@ QueType::QueType(int max)
 //       The array to hold the queue elements has been dynamically
 //       allocated.
 {
-  maxQue = max + 1;
-  front = maxQue - 1;
-  rear = maxQue - 1;
+  maxQue = max;
+  front = 0;
+  rear = 0;
   items = new ItemType[maxQue];
   length = 0;
 }
@@ -34,14 +34,14 @@ QueType::~QueType()         // Class destructor
 void QueType::MakeEmpty()
 // Post: front and rear have been reset to the empty state.
 {
-  front = maxQue - 1;
-  rear = maxQue - 1;
+  front = 0;
+  rear = 0;
 }
 
 bool QueType::IsEmpty() const
 // Returns true if the queue is empty; false otherwise.
 {
-  return (rear == front);
+  return (length == 0);
 }
 
 bool QueType::IsFull() const
@@ -50,7 +50,7 @@ bool QueType::IsFull() const
   return ((rear + 1) % maxQue == front);
 }
 
-void QueType::Enqueue(ItemType newItem)
+void QueType::Enqueue(ItemType newItem) //We want rear to hold the position of the last item of the queue.
 // Post: If (queue is not full) newItem is at the rear of the queue;
 //       otherwise a FullQueue exception is thrown.  
 {
@@ -58,8 +58,14 @@ void QueType::Enqueue(ItemType newItem)
     throw FullQueue();
   else
   {
-    rear = (rear +1) % maxQue;
+    if(IsEmpty())
+    {
+      items[front] = newItem;
+    }
+    else {
+     rear = (rear + 1) % maxQue;
     items[rear] = newItem;
+    }
     length++;
   }
 }
@@ -73,12 +79,17 @@ void QueType::Dequeue()
     throw EmptyQueue();
   else
   {
+    if (length == 1)
+    {
+      front = (front + 1) % maxQue;
+      rear = (rear + 1) % maxQue;
+    }
     front = (front + 1) % maxQue;
     length--;
   }
 }
 ItemType QueType :: GenerateItem() {
-srand(time(0)); 
+srand(static_cast<unsigned int>(time(0))); 
 int number = (rand() % 26) + 1;
 ItemType name;
 if (number == 1) {name = 'A';}
@@ -121,6 +132,6 @@ void QueType:: DisplayQueue()
   for (int i = 0; i < length; i++)
   {
     cout << items[current%maxQue] << "\t";
-    maxQue++;
+    current++;
   }
 }
