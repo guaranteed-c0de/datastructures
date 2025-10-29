@@ -10,8 +10,8 @@ QueType::QueType(int max)
 //       allocated.
 {
   maxQue = max;
-  front = 0;
-  rear = 0;
+  front = maxQue - 1;
+  rear = maxQue - 1;
   items = new ItemType[maxQue];
   length = 0;
 }
@@ -84,7 +84,8 @@ void QueType::Dequeue()
       front = (front + 1) % maxQue;
       rear = (rear + 1) % maxQue;
     }
-    front = (front + 1) % maxQue;
+    else {
+    front = (front + 1) % maxQue; }
     length--;
   }
 }
