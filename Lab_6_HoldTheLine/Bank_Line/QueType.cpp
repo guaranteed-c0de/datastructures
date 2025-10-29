@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+using namespace std;
 QueType::QueType(int max)
 // Parameterized class constructor
 // Post: maxQue, front, and rear have been initialized.
@@ -110,4 +111,16 @@ else if (number == 26) {name = 'Z';}
 }
 int QueType:: GetLength() {
   return length;
+}
+int QueType:: GetFront() {
+  return front;
+}
+void QueType:: DisplayQueue()
+{
+  int current = front;
+  for (int i = 0; i < length; i++)
+  {
+    cout << items[current%maxQue] << "\t";
+    maxQue++;
+  }
 }

@@ -36,6 +36,8 @@ public:
     //       item is a copy of removed element.
     ItemType GenerateItem();
     int GetLength();
+    int GetFront();
+    void DisplayQueue();
 private:
     int front;
     int rear;
