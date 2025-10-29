@@ -34,12 +34,12 @@ for (int i = 1; i<= 100; i++)
         queue.Enqueue(queue.GenerateItem()); //When x = 0, queue goes to 7. When x = 1, queue goes to 8. When x = 2, queue goes to 9. When x = 3, queue goes to 10. When x = 4, queue goes to 11. When x = 5, queue goes to 12. When x = 0, queue goes to 6. 
         }
         else {
-            if (x!=Arrival_Rate)
-           { LeftLine++;}
+            
+            LeftLine++;
         }
-          TotalLeftLine += LeftLine;
+         
     }
-  
+   TotalLeftLine += LeftLine;
    
 if (queue.IsEmpty())
 {
