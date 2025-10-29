@@ -1,0 +1,67 @@
+#include <iostream>
+using namespace std;
+#include "QueType.h"
+#include <cstdlib>
+#include <ctime>
+void ShowData(QueType& queue);
+int main() {
+    
+    QueType BankQueue(10);
+   ShowData(BankQueue);
+   return 0;
+}
+
+void ShowData(QueType& queue) {
+
+int Arrival_Rate;
+int Service_Rate;
+int TotalLeftLine = 0;
+int TotalServed = 0;
+int NoOneToServe = 0;
+
+for (int i = 1; i<= 100; i++)
+    
+{
+    srand(static_cast<unsigned int>(time(0))); 
+    Arrival_Rate = (rand() % 10);
+    cout << "Arrival Rate: " << Arrival_Rate << endl;
+    Service_Rate = Arrival_Rate/2;
+    cout << "Service Rate: " << Service_Rate << endl;
+    int LeftLine = 0;
+    for (int x = 0; x < Arrival_Rate; x++)
+    {
+        if (!queue.IsFull()) {
+        queue.Enqueue(queue.GenerateItem()); //When x = 0, queue goes to 7. When x = 1, queue goes to 8. When x = 2, queue goes to 9. When x = 3, queue goes to 10. When x = 4, queue goes to 11. When x = 5, queue goes to 12. When x = 0, queue goes to 6. 
+        }
+        else {
+            
+            LeftLine++;
+        }
+         
+    }
+   TotalLeftLine += LeftLine;
+   
+if (queue.IsEmpty())
+{
+    NoOneToServe +=1;
+}
+else {
+ for (int y = 0; y < Service_Rate; y++)
+    {
+       
+         queue.Dequeue();
+         TotalServed +=1;
+}
+}
+cout << "This is iteration " << i << ".\n";
+cout << TotalServed << " patrons have been served.\n";
+cout << TotalLeftLine << " patrons left the line." << endl;
+cout << "So far, the customer service desks have been empty " << NoOneToServe << " times!" << endl;
+cout << "There are " << queue.GetLength() << " people currently in line.\n";
+cout << "This is the current queue:\n";
+queue.DisplayQueue();
+cout << endl;
+}
+
+}
+
