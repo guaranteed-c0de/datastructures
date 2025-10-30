@@ -30,6 +30,12 @@ for (int i = 1; i<= 100; i++)
     Arrival_Rate = dist(gen);
     cout << "Arrival Rate: " << Arrival_Rate << endl;
     Service_Rate = Arrival_Rate/2;
+    double proxy_Service_Rate = static_cast<double>(Arrival_Rate)/2;
+    if (proxy_Service_Rate != Service_Rate)
+    {
+        Service_Rate++;
+    }
+    
     cout << "Service Rate: " << Service_Rate << endl;
     int LeftLine = 0;
     for (int x = 0; x < Arrival_Rate; x++)
