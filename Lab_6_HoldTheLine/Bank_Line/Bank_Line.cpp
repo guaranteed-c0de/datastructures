@@ -35,7 +35,7 @@ for (int i = 1; i<= 100; i++)
     {
         Service_Rate++;
     }
-    
+
     cout << "Service Rate: " << Service_Rate << endl;
     int LeftLine = 0;
     for (int x = 0; x < Arrival_Rate; x++)
@@ -70,7 +70,7 @@ cout << "So far, the customer service desks have been empty " << NoOneToServe <<
 cout << "There are " << queue.GetLength() << " people currently in line.\n";
 cout << "This is the current queue:\n";
 queue.DisplayQueue();
-cout << endl;
+cout << endl << "\n";
 }
 
 }
