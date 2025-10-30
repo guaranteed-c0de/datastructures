@@ -41,5 +41,6 @@ void QueType::Enqueue(ItemType newItem) {
 }
 void QueType::Dequeue(ItemType &item)
 {
-
+front = (front + 1)% maxQue;
+length--;
 }
