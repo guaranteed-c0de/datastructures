@@ -3,6 +3,7 @@ using namespace std;
 #include "QueType.h"
 #include <cstdlib>
 #include <ctime>
+#include <random>
 void ShowData(QueType& queue);
 int main() {
     
@@ -18,13 +19,15 @@ int Service_Rate;
 int TotalLeftLine = 0;
 int TotalServed = 0;
 int NoOneToServe = 0;
-srand(static_cast<unsigned int>(time(0))); 
+   std::random_device rd;  // non-deterministic random seed
+    std::mt19937 gen(rd()); // Mersenne Twister RNG
+    std::uniform_int_distribution<> dist(0, 9); 
 
 for (int i = 1; i<= 100; i++)
     
 {
    
-    Arrival_Rate = (rand() % 10);
+    Arrival_Rate = dist(gen);
     cout << "Arrival Rate: " << Arrival_Rate << endl;
     Service_Rate = Arrival_Rate/2;
     cout << "Service Rate: " << Service_Rate << endl;
