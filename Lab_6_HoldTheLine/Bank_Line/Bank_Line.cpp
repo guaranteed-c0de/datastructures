@@ -18,11 +18,12 @@ int Service_Rate;
 int TotalLeftLine = 0;
 int TotalServed = 0;
 int NoOneToServe = 0;
+srand(static_cast<unsigned int>(time(0))); 
 
 for (int i = 1; i<= 100; i++)
     
 {
-    srand(static_cast<unsigned int>(time(0))); 
+   
     Arrival_Rate = (rand() % 10);
     cout << "Arrival Rate: " << Arrival_Rate << endl;
     Service_Rate = Arrival_Rate/2;

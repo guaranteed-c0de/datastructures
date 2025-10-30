@@ -14,7 +14,7 @@ QueType::QueType(int max)
   rear = maxQue - 1;
   items = new ItemType[maxQue];
   length = 0;
-  srand(static_cast<unsigned int>(time(0))); 
+ 
 
 }
 QueType::QueType()          // Default class constructor
@@ -92,7 +92,7 @@ void QueType::Dequeue()
   }
 }
 ItemType QueType :: GenerateItem() {
-
+ srand(static_cast<unsigned int>(time(0))); 
 int number = (rand() % 26) + 1;
 ItemType name;
 if (number == 1) {name = 'A';}
