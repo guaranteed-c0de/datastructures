@@ -35,8 +35,8 @@ for (int i = 1; i<= 100; i++)
     for (int x = 0; x < Arrival_Rate; x++)
     {
         if (!queue.IsFull()) {
-        queue.Enqueue(queue.GenerateItem()); //When x = 0, queue goes to 7. When x = 1, queue goes to 8. When x = 2, queue goes to 9. When x = 3, queue goes to 10. When x = 4, queue goes to 11. When x = 5, queue goes to 12. When x = 0, queue goes to 6. 
-        }
+        queue.Enqueue(queue.GenerateItem()); 
+            }
         else {
             
             LeftLine++;
