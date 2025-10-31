@@ -17,7 +17,7 @@ QueType::QueType()          // Default class constructor
 //       allocated.
 {
   maxQue = 501;
-  front = maxQue - 1;
+  front = maxQue - 1; //front is the "reserved" space. front comes right BEFORE the "first" element.
   rear = maxQue - 1;
   items = new ItemType[maxQue];
 }
@@ -29,8 +29,8 @@ QueType::~QueType()         // Class destructor
 void QueType::MakeEmpty()
 // Post: front and rear have been reset to the empty state.
 {
-  front = maxQue - 1;
-  rear = maxQue - 1;
+  front = maxQue - 1; //So, the queue is full whenever rear is 1 less than the front position. The front position is always empty.
+  rear = maxQue - 1; //The queue is empty whenver the front and rear are at the same position, but MakeEmpty immediately makes them at MaxQue - 1.
 }
 
 bool QueType::IsEmpty() const

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <random>
 using namespace std;
 QueType::QueType(int max)
 // Parameterized class constructor
@@ -14,6 +15,8 @@ QueType::QueType(int max)
   rear = maxQue - 1;
   items = new ItemType[maxQue];
   length = 0;
+ 
+
 }
 QueType::QueType()          // Default class constructor
 // Post: maxQue, front, and rear have been initialized.
@@ -90,8 +93,10 @@ void QueType::Dequeue()
   }
 }
 ItemType QueType :: GenerateItem() {
-srand(static_cast<unsigned int>(time(0))); 
-int number = (rand() % 26) + 1;
+ std::random_device rd;  // non-deterministic random seed
+    std::mt19937 gen(rd()); // Mersenne Twister RNG
+    std::uniform_int_distribution<> dist(0, 9);  
+int number = dist(gen);
 ItemType name;
 if (number == 1) {name = 'A';}
 else if (number == 2) {name = 'B';}
