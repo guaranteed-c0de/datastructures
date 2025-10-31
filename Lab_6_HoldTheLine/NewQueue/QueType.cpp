@@ -53,7 +53,8 @@ void QueType::Dequeue(ItemType &item)
 front = (front + 1)% maxQue;
 length--;
 }
-int QueType::GetLength() {
-    return length;
 }
+int QueType::GetLength() {
+    
+    return length;
 }
