@@ -34,6 +34,7 @@ public:
     //       and item is undefined
     //       else front element has been removed from queue and
     //       item is a copy of removed element.
+    int GetLength();
 private:
     int front;
     int rear;
