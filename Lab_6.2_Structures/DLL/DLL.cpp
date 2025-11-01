@@ -9,6 +9,22 @@ head->prev = nullptr;
 head->next = nullptr;
 tail = newNode;
 }
+void DLL::insertTail(DLLNode*& tail, int val)
+{
+    DLLNode* temp = tail; 
+    DLLNode* newNode = new DLLNode(val);
+    tail = newNode;
+    tail-> prev = temp;
+    temp->next = newNode; 
+    if (IsEmpty())
+    {
+        head = tail;
+    }  
+ }
+bool DLL:: IsEmpty()
+{
+    return head == nullptr;
+}
 
 int main() {
     DLL list;
@@ -17,8 +33,13 @@ int main() {
     list.insertHead(list.head, 20);
     list.insertHead(list.head, 10);
     DLLNode* p = list.head;
+
+    while (p)
+    {
+        cout << p->val << endl;
+        p = p->next;
+    }
     
-    
-    
+    return 0;
 }
 
