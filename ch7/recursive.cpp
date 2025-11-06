@@ -1,3 +1,5 @@
+#include <iostream>
+using namespace std;
 template <typename T>
 
 class LinkedList {
@@ -18,7 +20,7 @@ class LinkedList {
         size = 0;
     }
     ~LinkedList() {
-        current = head;
+       Node* current = head;
         while(current!= nullptr) {
             Node* nextNode = current->next;
         }
@@ -28,14 +30,34 @@ class LinkedList {
         Node* newNode = new Node;
         newNode->data = item;
         newNode->next = head;
+        head = newNode;
+        size++;
     }
     void printList() {
         printListHelper(head);
     }
     void printListHelper(Node* current) {
 
-        if (current == nulltpr) return;
+        if (current == nullptr) return;
+        while (current)
+        {
         std::cout << current->data << " ";
-        printListHelper(current->next);
+        current = current->next;
+        }
+        
+        
     }
 };
+
+int main() {
+    LinkedList<int> alex;
+    alex.Insert(5);
+    alex.Insert(15);
+    alex.Insert(25);
+
+    alex.printList();
+} //Depth determines complexity.
+
+// O(b^n)
+
+//Factorial function has both time complexity and space complexity of O(n).
