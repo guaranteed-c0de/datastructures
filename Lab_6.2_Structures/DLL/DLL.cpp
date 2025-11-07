@@ -2,6 +2,12 @@
 #include <iostream>
 #include <stdexcept>
 using namespace std;
+
+DLL::DLL() {
+    length = 0;
+    head = nullptr;
+    tail = nullptr;
+}
 void DLL::insertHead(DLLNode*& head, int val) //Allocate node, set prev = nullptr, link to old head, update head
 {
 DLLNode* newNode = new DLLNode(val);
@@ -9,6 +15,7 @@ head = newNode;
 head->prev = nullptr;
 head->next = nullptr;
 tail = newNode;
+length++;
 }
 void DLL::insertTail(DLLNode*& tail, int val)
 {
@@ -21,6 +28,7 @@ void DLL::insertTail(DLLNode*& tail, int val)
     {
         head = tail;
     }  
+    length++;
  }
 bool DLL:: IsEmpty()
 {
@@ -36,6 +44,7 @@ head = head->next;
 head->prev = nullptr;
 delete temp;
     }
+    length--;
 }
 void DLL::DeleteTail(DLLNode* & head, DLLNode* & tail) {
     if (IsEmpty())
@@ -48,12 +57,14 @@ tail = tail->prev;
 tail->next = nullptr;
 delete temp;
     }
+    length--;
 }
 
 void DLL::InsertAfter(DLLNode* node, int val) {
     DLLNode* newNode = new DLLNode(val);
     newNode->next = node->next;
     node->next = newNode;
+    length++;
 }
 void DLL::DeleteNode(DLLNode* node) {
     if (IsEmpty()) {
@@ -67,9 +78,10 @@ void DLL::DeleteNode(DLLNode* node) {
        node = node->next;
        delete temp;
     }
+    length--;
 }
 
-void::Reverse(DLLNode*& head, DLLNode*& tail) { //head points to the node that the tail does...
+void DLL::Reverse(DLLNode*& head, DLLNode*& tail) { //head points to the node that the tail does...
    DLLNode* temp = head;
    head = tail;
    tail = temp;
@@ -82,13 +94,52 @@ void::Reverse(DLLNode*& head, DLLNode*& tail) { //head points to the node that t
    while (loc != tail)
    {
     DLLNode* temp_ptr = loc;
+    loc->next = loc->prev;
     loc->prev = last;
-
+    last = loc;
+    loc = loc->next;
    }
 
+   loc->prev = last;
+   loc->next = nullptr;
 
 
 
+
+}
+DLLNode* DLL:: Middle(DLLNode* head) {
+   int middle = length/2;
+if (static_cast<double>(length)/2 == length/2)
+{
+  middle++;  
+}
+DLLNode* loc = head;
+
+for (int i = 1; i < middle; i++)
+{
+    loc = loc->next;
+}
+return loc;
+}
+
+bool DLL::HasCycle(DLLNode* head) {
+    DLLNode* tortoise = head;
+    DLLNode* hare = head;
+    tortoise = tortoise->next;
+    hare = hare->next->next;
+
+    while (hare != nullptr && hare != tortoise)
+    {
+        hare = hare->next->next;
+        tortoise = tortoise->next;
+    }
+    if (hare == tortoise)
+    {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 int main() {

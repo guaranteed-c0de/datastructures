@@ -10,12 +10,16 @@ public:
  
     DLLNode* head;
     DLLNode* tail;
-    void insertHead(DLLNode*& head, int val);
+    int length;
+    DLL();
+    void insertHead(DLLNode*& head, int val); //List is empty.
     void insertTail(DLLNode*& tail, int val);
     bool IsEmpty();
-    void DeleteHead(DLLNode* & head, DLLNode* & tail);
-    void DeleteTail(DLLNode* & head, DLLNode* & tail);
+    void DeleteHead(DLLNode* & head, DLLNode* & tail); //List is already empty. List has exactly 1 node.
+    void DeleteTail(DLLNode* & head, DLLNode* & tail); //List is already empty. List has exactly 1 node.
     void InsertAfter(DLLNode* node, int val);
     void DeleteNode(DLLNode* node);
     void Reverse(DLLNode*& head, DLLNode*& tail);
+    DLLNode* Middle(DLLNode* head);
+    bool HasCycle(DLLNode* head);
 };
