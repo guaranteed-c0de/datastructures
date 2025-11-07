@@ -11,7 +11,7 @@ void CircularQueue::Enqueue(int value) {
 }
 
 bool CircularQueue::IsEmpty() const {
-    return size == MAX;
+    return size < 0;
 }
 
 bool CircularQueue:: Remove(int x) {
@@ -39,7 +39,7 @@ void PrintQueue() {
         return;
     }
     int i = front;
-    for (int count = 0; count < Lsize; count++) { //Counter will be related to the number of times we enqueue.
+    for (int count = 0; count < size; count++) { //Counter will be related to the number of times we enqueue.
         cout << data[i] << " ";
         i = (i + 1) % capacity;
     }
