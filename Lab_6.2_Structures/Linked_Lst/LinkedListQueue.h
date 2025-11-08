@@ -28,4 +28,11 @@ class LinkedListQueue {
 
 
 };
+
+class StackFromLinkedListQueue {
+    LinkedListQueue q;
+    public:
+    void push(int x);
+    int pop();
+};
 #endif //LINKEDLISTQUEUE_H

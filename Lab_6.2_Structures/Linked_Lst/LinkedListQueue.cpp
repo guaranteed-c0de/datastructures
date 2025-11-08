@@ -151,4 +151,8 @@ void LinkedListQueue::RemoveDuplicates(LinkedListQueue& q) {
         }
      }
     }
-} 
+}
+
+void StackFromLinkedListQueue::push(int x) {
+    
+}
