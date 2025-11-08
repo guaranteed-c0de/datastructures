@@ -6,7 +6,7 @@ using namespace std;
 void CircularQueue::Enqueue(int value) {
     if (IsFull())
     {
-
+        cout << "List is full, no items can be added";
     }
 }
 
@@ -73,7 +73,7 @@ class LRUCache: public CircularQueue {
 
         }
         else {
-            queue.movedBack(x);
+            movedBack(x);
         }
       
     }
@@ -82,7 +82,7 @@ class LRUCache: public CircularQueue {
         Enqueue(x);
     }
     void display() {
-        queue.PrintQueue();
+       PrintQueue();
         cout << endl;
     }
 
