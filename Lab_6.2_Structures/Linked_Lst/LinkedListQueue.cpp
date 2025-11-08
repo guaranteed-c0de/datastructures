@@ -91,5 +91,64 @@ void LinkedListQueue::Print(LinkedListQueue& queue) const {
 LinkedListQueue LinkedListQueue::Merge(LinkedListQueue a, LinkedListQueue b) {
 LinkedListQueue c;
 
-aloc = a
+QNode* aloc = a.front;
+QNode* bloc = b.front;
+
+    while (aloc && bloc) {
+        if (aloc->val <= bloc->val)
+        {
+            c.Enqueue(aloc->val);
+           aloc = aloc->next;
+        }
+        else {
+            c.Enqueue(bloc->val);
+            bloc = bloc->next;
+        }
+    }
+    if (aloc)
+    {
+        while (aloc)
+        {
+            c.Enqueue(aloc->val);
+            aloc = aloc->next;
+        }
+
+    }
+    else {
+         while (bloc)
+        {
+            c.Enqueue(bloc->val);
+            bloc = bloc->next;
+        }
+    }
+    Print(c);
 }
+
+void LinkedListQueue::RemoveDuplicates(LinkedListQueue& q) {
+    //Keep front and tail fixed.
+    int fixed_front = q.GetFront(); //First, it has to find those duplicates... 
+    QNode* loc = q.front;
+    int arr[q.length];
+     bool duplicate = true;
+    int i = 0;
+    while (loc != nullptr)
+    {
+        arr[i] = q.Dequeue();
+    } //Only Enqueue if it isn't a duplicate...
+
+    for (int i = 0; i<q.length;i++)
+    {
+     for (int j = 0; j <i; j++)   
+     {
+       
+        if (arr[i] != arr[j])
+        {
+             duplicate = false;
+        }
+        if (!duplicate)
+        {
+            q.Enqueue(arr[i]);
+        }
+     }
+    }
+} 

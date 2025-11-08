@@ -18,6 +18,8 @@ class LinkedListQueue {
         void Reverse(LinkedListQueue& queue);
         void Print(LinkedListQueue& queue) const;
         LinkedListQueue Merge(LinkedListQueue a, LinkedListQueue b);
+        void RemoveDuplicates(LinkedListQueue& b);
+        
 
     private:
         QNode* front; 
