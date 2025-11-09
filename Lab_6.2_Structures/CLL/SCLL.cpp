@@ -15,7 +15,7 @@ head = newNode;
 tail = newNode;
 }
 else {
-    newNode->next = head->next;
+    newNode->next = head;
     head = newNode;
     tail->next = newNode;
 }
@@ -30,17 +30,13 @@ void SCLL::InsertTail(int val) {
         tail = newNode;
     }
     else {
-        SCLLNode* loc = head;
-        while (loc != tail)
-        {
-            loc = loc->next;
-        }
+     
         newNode->next = head;
-        loc = newNode;
+        tail->next = newNode;
         tail = newNode;
 
     }
-
+    length++;
 }
 void SCLL::DeleteHead() {
     if (length == 0)
@@ -48,9 +44,11 @@ void SCLL::DeleteHead() {
         throw std::underflow_error("List is empty, no nodes can be removed.\n");
     }
     else {
-    SCLLNode*& temp = head;
+    SCLLNode* temp = head;
     head = head->next;
+    tail->next = head;
     delete temp;
+    length--;
     }
 }
 
@@ -61,13 +59,18 @@ void SCLL::DeleteLastNode() {
     }
     else {
         SCLLNode* loc = head;
+        SCLLNode* last = nullptr;
         while (loc != tail)
         {
+            last = loc;
             loc = loc->next;
+    
         }
-        SCLLNode* temp = loc;
-        loc = head;
+        SCLLNode* temp = tail;
+        last->next = head;
+        tail = last;
         delete temp;
+        length--;
     }
 }
 int SCLL::Josephus(int k) {
@@ -81,14 +84,17 @@ int SCLL::Josephus(int k) {
     else if (length > 1)
     {
         SCLLNode* loc = head;
+        SCLLNode* last = nullptr;
         while (length > 1)
         {
             for (int i = 1; i <=k; i++)
             {
+                last = loc;
                 loc = loc->next;
             }
             SCLLNode* temp = loc;
             loc = loc->next;
+            last->next = loc;
             head = loc;
             tail = loc;
             delete temp;
