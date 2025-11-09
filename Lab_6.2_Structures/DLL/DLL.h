@@ -1,4 +1,5 @@
-
+#ifndef DLL_H
+#define DLL_H
    struct DLLNode {
     int val;
     DLLNode* prev;
@@ -19,8 +20,9 @@ public:
     void DeleteTail(); //List is already empty. List has exactly 1 node.
     void InsertAfter(DLLNode* node, int val);
     void DeleteNode(DLLNode* node);
-    void Reverse(DLLNode*& head, DLLNode*& tail);
-    DLLNode* Middle(DLLNode* head);
-    bool HasCycle(DLLNode* head);
+    void Reverse();
+    DLLNode* Middle();
+    bool HasCycle();
     void Print();
 };
+#endif //DLL_H

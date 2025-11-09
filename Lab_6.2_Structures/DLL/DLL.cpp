@@ -11,7 +11,7 @@ DLL::DLL() {
 void DLL::insertHead(int val) //Allocate node, set prev = nullptr, link to old head, update head
 {
 DLLNode* newNode = new DLLNode(val);
-if (IsEmpty) {
+if (IsEmpty()) {
 head = newNode;
 head->prev = nullptr;
 head->next = nullptr;
@@ -81,14 +81,19 @@ void DLL::DeleteNode(DLLNode* node) {
         throw std::out_of_range("Cannot be deleted from this function call.\n");
     }
     else {
-       DLLNode* temp = node;
-       node = node->next;
+       DLLNode* loc = head;
+       while (loc != node) {
+        loc = loc->next;
+       }
+       DLLNode* temp = loc;
+       loc = loc->next;
+       loc->prev = loc->prev->prev;
        delete temp;
     }
     length--;
 }
 
-void DLL::Reverse(DLLNode*& head, DLLNode*& tail) { //head points to the node that the tail does...
+void DLL::Reverse() { //head points to the node that the tail does...
    DLLNode* temp = head;
    head = tail;
    tail = temp;
@@ -114,7 +119,7 @@ void DLL::Reverse(DLLNode*& head, DLLNode*& tail) { //head points to the node th
 
 
 }
-DLLNode* DLL:: Middle(DLLNode* head) {
+DLLNode* DLL:: Middle() {
     bool odd = (length%2 == 0);
    int middle = length/2;
 if (odd)
@@ -130,7 +135,7 @@ for (int i = 1; i < middle; i++)
 return loc;
 }
 
-bool DLL::HasCycle(DLLNode* head) {
+bool DLL::HasCycle() {
     DLLNode* tortoise = head;
     DLLNode* hare = head;
     tortoise = tortoise->next;
@@ -156,6 +161,7 @@ void DLL::Print() {
     while (loc!=nullptr)
     {
         cout << loc->val << endl;
+        loc = loc->next;
     }
 }
 
