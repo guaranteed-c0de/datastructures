@@ -8,16 +8,23 @@ DLL::DLL() {
     head = nullptr;
     tail = nullptr;
 }
-void DLL::insertHead(DLLNode*& head, int val) //Allocate node, set prev = nullptr, link to old head, update head
+void DLL::insertHead(int val) //Allocate node, set prev = nullptr, link to old head, update head
 {
 DLLNode* newNode = new DLLNode(val);
+if (IsEmpty) {
 head = newNode;
 head->prev = nullptr;
 head->next = nullptr;
 tail = newNode;
+}
+else {
+    newNode->next = head;
+    head->prev = newNode;
+    head = newNode;
+}
 length++;
 }
-void DLL::insertTail(DLLNode*& tail, int val)
+void DLL::insertTail(int val)
 {
     DLLNode* temp = tail; 
     DLLNode* newNode = new DLLNode(val);
@@ -34,7 +41,7 @@ bool DLL:: IsEmpty()
 {
     return head == nullptr;
 }
-void DLL::DeleteHead(DLLNode* & head, DLLNode* & tail) {
+void DLL::DeleteHead() {
     if (IsEmpty()) {
         throw std::underflow_error("List is empty, head cannot be removed.\n");
     }
@@ -46,7 +53,7 @@ delete temp;
     }
     length--;
 }
-void DLL::DeleteTail(DLLNode* & head, DLLNode* & tail) {
+void DLL::DeleteTail() {
     if (IsEmpty())
     {
           throw std::underflow_error("List is empty, tail cannot be removed.\n");
@@ -108,10 +115,11 @@ void DLL::Reverse(DLLNode*& head, DLLNode*& tail) { //head points to the node th
 
 }
 DLLNode* DLL:: Middle(DLLNode* head) {
+    bool odd = (length%2 == 0);
    int middle = length/2;
-if (static_cast<double>(length)/2 == length/2)
+if (odd)
 {
-  middle++;  
+    middle++;
 }
 DLLNode* loc = head;
 
@@ -142,20 +150,12 @@ bool DLL::HasCycle(DLLNode* head) {
     }
 }
 
-int main() {
-    DLL list;
-    list.head = nullptr;
-    list.tail = nullptr;
-    list.insertHead(list.head, 20);
-    list.insertHead(list.head, 10);
-    DLLNode* p = list.head;
-
-    while (p)
+void DLL::Print() {
+    cout << "Here is what the linked list looks like now:\n";
+    DLLNode* loc = head;
+    while (loc!=nullptr)
     {
-        cout << p->val << endl;
-        p = p->next;
+        cout << loc->val << endl;
     }
-    
-    return 0;
 }
 

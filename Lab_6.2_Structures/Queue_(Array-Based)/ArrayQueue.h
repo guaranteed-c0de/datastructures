@@ -10,4 +10,5 @@ class Queue {
         int GetFront() const;
         bool IsEmpty() const;
         bool IsFull() const;
+        void ReverseK(Queue& q, int k) const;
 };

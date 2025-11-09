@@ -3,7 +3,7 @@
 void Queue::Enqueue(int x) {
     if (IsFull())
     {
-        throw std::overflow_error("The queue is full.");
+        throw std::overflow_error("The queue is full.\n");
     }
     else {
         rear++;
@@ -34,4 +34,23 @@ bool Queue::IsFull() const {
     return rear == MAX - 1;
 }
 
-void 
+void Queue:: ReverseK(Queue& q, int k) const{
+    if (k >= MAX)
+    {
+        throw std::out_of_range("The queue does not have that many elements.\n");
+    }
+    else {
+        int reverse[k];
+        
+        for (int i = 0; i < k; i++)
+        {
+            reverse[i] = q.Dequeue();
+        }
+        q.front = 0;
+
+        for (int i = 0; i < k; i++)
+        {
+            q.Enqueue(reverse[i]);
+        }
+    }
+}
