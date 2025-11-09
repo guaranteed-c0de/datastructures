@@ -6,5 +6,7 @@ int main() {
     Kairi.push(4);
     Kairi.push(5);
     Kairi.Print();
+    Kairi.pop();
+    Kairi.Print();
     return 0;
 }

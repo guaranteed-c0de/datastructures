@@ -42,11 +42,11 @@ bool Stack::isFull() const {
     return top == MAX - 1;
 }
 void Stack::Print() {
-    cout << "This is currently the stack. (Bottom to top)\n";
+    cout << "This is currently the stack. (Top to bottom.)\n";
     Stack Namine;
     while (!isEmpty())
 {
-   cout << pop() << endl;
+ 
 }
    
 }
