@@ -11,13 +11,13 @@ SCLLNode* head;
 SCLLNode* tail;
 int length;
 SCLL();
-void InsertHead(SCLLNode*& head, int val);
-void InsertTail(SCLLNode*& tail, int val);
+void InsertHead(int val);
+void InsertTail(int val);
 void DeleteHead();
 void DeleteLastNode();
 int Josephus(int k);
 std:: pair<SCLLNode*, SCLLNode*> Split();
 int CycleLength();
 void SortedInsert(int val);
-
+void Print();
 };

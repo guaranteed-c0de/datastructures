@@ -7,7 +7,7 @@ using namespace std;
     tail = nullptr;
     length = 0;
  }
-void SCLL::InsertHead(SCLLNode*& head, int val) {
+void SCLL::InsertHead(int val) {
 SCLLNode* newNode = new SCLLNode(val);
 if (head == nullptr) 
 {
@@ -22,7 +22,7 @@ else {
 length++;
 }
 
-void SCLL::InsertTail(SCLLNode*& head, int val) {
+void SCLL::InsertTail(int val) {
    SCLLNode* newNode = new SCLLNode(val);
     if (head == nullptr)
     {
@@ -125,7 +125,7 @@ int SCLL::Josephus(int k) {
     SCLLNode* loc = head;
     if (loc == nullptr)
     {
-        InsertHead(head, val);
+        InsertHead(val);
     }
     else {
         while (val > loc->val && loc != tail)
@@ -135,5 +135,13 @@ int SCLL::Josephus(int k) {
        SCLLNode* newNode = new SCLLNode(val);
        newNode->next = loc->next;
        loc = newNode;
+    }
+ }
+ void SCLL::Print() {
+    cout << "This is currently the list.\n";
+    SCLLNode* loc = head;
+    for (int i = 1; i<=length; i++) {
+        cout << loc->val << endl;
+        loc = loc->next;
     }
  }
