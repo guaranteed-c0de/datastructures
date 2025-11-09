@@ -86,8 +86,10 @@ void DLL::DeleteNode(DLLNode* node) {
         loc = loc->next;
        }
        DLLNode* temp = loc;
-       loc = loc->next;
-       loc->prev = loc->prev->prev;
+       node->prev->next = node->next;
+       node = node->next;
+       node->prev = node->prev->prev;
+       
        delete temp;
     }
     length--;
@@ -120,7 +122,7 @@ void DLL::Reverse() { //head points to the node that the tail does...
 
 }
 DLLNode* DLL:: Middle() {
-    bool odd = (length%2 == 0);
+    bool odd = (length%2 == 1);
    int middle = length/2;
 if (odd)
 {
@@ -141,7 +143,7 @@ bool DLL::HasCycle() {
     tortoise = tortoise->next;
     hare = hare->next->next;
 
-    while (hare != nullptr && hare != tortoise)
+    while (hare != nullptr && hare->next != nullptr && hare != tortoise)
     {
         hare = hare->next->next;
         tortoise = tortoise->next;
