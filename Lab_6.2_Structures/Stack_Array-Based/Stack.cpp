@@ -1,4 +1,6 @@
 #include "Stack.h"
+#include <iostream>
+using namespace std;
 #include <stdexcept>
 Stack::Stack() {
     top = -1;
@@ -38,4 +40,13 @@ bool Stack::isEmpty() const {
 }
 bool Stack::isFull() const {
     return top == MAX - 1;
+}
+void Stack::Print() {
+    cout << "This is currently the stack. (Bottom to top)\n";
+    Stack Namine;
+    while (!isEmpty())
+{
+   cout << pop() << endl;
+}
+   
 }

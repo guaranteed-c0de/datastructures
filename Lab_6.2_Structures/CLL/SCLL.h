@@ -19,5 +19,7 @@ int Josephus(int k);
 std:: pair<SCLLNode*, SCLLNode*> Split();
 int CycleLength();
 void SortedInsert(int val);
+int DetectLoopLength();
 void Print();
+void PrintHalves(SCLLNode* head1, SCLLNode* head2, int j, int k);
 };

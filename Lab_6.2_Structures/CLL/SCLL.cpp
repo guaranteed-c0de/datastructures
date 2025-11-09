@@ -105,13 +105,13 @@ int SCLL::Josephus(int k) {
 }
 
  pair< SCLL::SCLLNode*, SCLL::SCLLNode* > SCLL::Split() {
+
     int middle = length/2;
     SCLLNode* head1 = head;
-    tail->next = head1;
    //Wait. Even doing that will delete the pointer it's connected to. And we don't want that. delete head; 
     SCLLNode* loc = head1;
     
-    for (int i = 1; i<=middle; i++)
+    for (int i = 2; i<=middle; i++)
     {
         loc = loc->next;
     }
@@ -120,7 +120,10 @@ int SCLL::Josephus(int k) {
   // delete loc; I need to make sure each node points to the correct one before deleting them.
    tail1->next = head1;
     SCLLNode* tail2 = tail;
-    
+    loc->next = head1;
+    tail2->next = head2;
+    PrintHalves(head1, head2, middle, length - middle);
+    return std::make_pair(head1, head2);
  }
 
  int SCLL::CycleLength() {
@@ -129,19 +132,27 @@ int SCLL::Josephus(int k) {
 
  void SCLL::SortedInsert(int val) {
     SCLLNode* loc = head;
-    if (loc == nullptr)
+    SCLLNode* last = nullptr;
+    if (loc == nullptr || val < head->val)
     {
         InsertHead(val);
     }
-    else {
+    else if (val >= head->val && val < tail->val) {
         while (val > loc->val && loc != tail)
         {
+            last = loc;
             loc = loc->next;
         }
        SCLLNode* newNode = new SCLLNode(val);
-       newNode->next = loc->next;
-       loc = newNode;
+       newNode->next = loc;
+       last->next = newNode;
+       length++;
     }
+    else if (val >= tail->val)
+    {
+        InsertTail(val);
+    }
+    
  }
  void SCLL::Print() {
     cout << "This is currently the list.\n";
@@ -151,3 +162,25 @@ int SCLL::Josephus(int k) {
         loc = loc->next;
     }
  }
+ void SCLL::PrintHalves(SCLLNode* head1, SCLLNode* head2, int j, int k) {
+cout << "Here is the first half:\n";
+SCLLNode* loc1 = head1;
+SCLLNode* loc2 = head2;
+for (int i = 1; i <= j; i++)
+{
+    cout << loc1->val << endl;
+    loc1 = loc1->next;
+}
+cout << "Here is the second half:\n";
+
+for (int i = 1; i <= k; i++)
+{
+    cout << loc2->val << endl;
+    loc2 = loc2->next;
+}
+
+ }
+ int SCLL::DetectLoopLength() {
+    return length;
+ }
+

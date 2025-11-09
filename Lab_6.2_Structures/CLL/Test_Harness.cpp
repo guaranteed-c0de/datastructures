@@ -4,10 +4,10 @@ using namespace std;
 
 int main() {
     SCLL Riku;
-    for (int i = 1; i<= 7; i++)
-    {
-        Riku.InsertTail(i);
-    }
+    
+    Riku.SortedInsert(4);
+    Riku.SortedInsert(3);
+
     Riku.Print();
-    cout << "\nThe survivor is " << Riku.Josephus(3) << endl;
+   cout << "The length of the list is " << Riku.DetectLoopLength() << endl;
 }

@@ -10,4 +10,5 @@ public:
     int Peek() const;
     bool isEmpty() const;
     bool isFull() const;
+    void Print();
 };
