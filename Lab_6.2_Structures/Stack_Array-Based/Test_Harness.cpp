@@ -2,6 +2,7 @@
 
 int main() {
     Stack Kairi;
+    Kairi.push(2);
     Kairi.push(3);
     Kairi.push(4);
     Kairi.push(5);

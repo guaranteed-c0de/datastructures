@@ -41,12 +41,32 @@ bool Stack::isEmpty() const {
 bool Stack::isFull() const {
     return top == MAX - 1;
 }
+void Stack::nextGreater() {
+    int out[top];
+    for (int i = top; i > 0; i--)
+    {
+        if (i == top)
+        {
+            out[i] = -1;
+        }
+        else {
+            
+        }
+    }
+}
 void Stack::Print() {
     cout << "This is currently the stack. (Top to bottom.)\n";
     Stack Namine;
+    Stack Xikira;
     while (!isEmpty())
 {
- 
+ Namine.push(pop());
 }
-   
+   while (!Namine.isEmpty()) {
+    Xikira.push(Namine.Peek());
+    push(Namine.pop());
+   }
+   while (!Xikira.isEmpty()) {
+    cout << Xikira.pop() << endl;
+   }
 }
