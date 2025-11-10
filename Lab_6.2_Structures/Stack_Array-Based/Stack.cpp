@@ -43,13 +43,28 @@ bool Stack::isFull() const {
 }
 void Stack::nextGreater() {
     int out[top];
-    for (int i = top; i > 0; i--)
+    bool found = false;
+    int popped[top];
+    for (int i = top; i >= 0; i--)
     {
         if (i == top)
         {
             out[i] = -1;
         }
         else {
+            popped[i] = pop();
+            while (!found)
+            {
+                for (int k = top; k > i; k--)
+                {
+                    if (popped[k] > arr[i])
+                    {
+                        out[i] = popped[k];
+                        found = true;
+                    }
+                }
+
+            }
             
         }
     }
