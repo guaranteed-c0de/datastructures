@@ -75,12 +75,38 @@ public:
             throw std::underflow_error("List is empty, no item can be removed.");
         }
         else {
-            temp = tail;
+            temp = rear;
             Node* loc = head;
-            
+            Node* prev = nullptr;
+            while (loc != rear)
+            {
+                prev = loc;
+                loc = loc->next;
+            }
+            prev->next = head;
+            tail = prev;
             delete temp;
             count--;
         }
 
+    }
+    void display() const{
+        Node* loc = head;
+        for (int i = 1; i<= count)
+        {
+            cout << loc->data << endl;
+            loc = loc->next;
+        }
+    }
+    bool isEmpty() const {return count == 0;}
+    int size() const {return count;}
+    ~CircularLinkedList() {
+        Node* loc = head;
+        for (int i = 1; i<= loc; i++)
+        {
+            Node* temp = loc;
+            loc = loc->next;
+            delete temp;
+        }
     }
 };
