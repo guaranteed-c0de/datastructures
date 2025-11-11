@@ -1,3 +1,6 @@
+#include <iostream>
+#include <stdexcept>
+using namespace std;
 template <typename T>
 class CircularLinkedStack {
 private:
@@ -26,10 +29,30 @@ public:
        tempPtr = topNode;
        topNode = topNode->next;
        delete tempPtr;
+       count--;
        return value;
     }
-    T top()
+    T top() const
     {
+        if (isEmpty())
+        {
+            throw std:: underflow_error("The stack is empty, no item at the top.");
+        }
         return topNode->val;
+    }
+    bool isEmpty() const {
+        return count == 0;
+    }
+    int size() const {
+        return count;
+    }
+    ~CircularLinkedLStack() {
+        while (topNode)
+        {
+            Node* temp = topNode;
+            topNode = topNode->next;
+            delete temp;
+        }
+        count = 0;
     }
 };
