@@ -8,7 +8,7 @@ head = newNode;
 head->prev = nullptr;
 head->next = nullptr;
 tail = newNode;
-}
+} //comment
 void DLL::insertTail(DLLNode*& tail, int val)
 {
     DLLNode* temp = tail; 
