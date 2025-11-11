@@ -1,4 +1,5 @@
-
+#ifndef DLL_H
+#define DLL_H
    struct DLLNode {
     int val;
     DLLNode* prev;
@@ -10,7 +11,18 @@ public:
  
     DLLNode* head;
     DLLNode* tail;
-    void insertHead(DLLNode*& head, int val);
-    void insertTail(DLLNode*& tail, int val);
+    int length;
+    DLL();
+    void insertHead(int val); //List is empty.
+    void insertTail(int val);
     bool IsEmpty();
+    void DeleteHead(); //List is already empty. List has exactly 1 node.
+    void DeleteTail(); //List is already empty. List has exactly 1 node.
+    void InsertAfter(DLLNode* node, int val);
+    void DeleteNode(DLLNode* node);
+    void Reverse();
+    DLLNode* Middle();
+    bool HasCycle();
+    void Print();
 };
+#endif //DLL_H

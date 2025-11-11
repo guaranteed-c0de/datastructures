@@ -73,9 +73,11 @@ class DoublyLinkedList {
             }
 
 };
-
-int main() {
-    DoublyLinkedList<int> list;
+void createTwoElementList() {
+     DoublyLinkedList<int> list;
     list.InsertAtFront(20);
     list.InsertAtFront(30);
+}
+int main() {
+   createTwoElementList();
 }
