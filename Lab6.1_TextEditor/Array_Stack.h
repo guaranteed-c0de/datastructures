@@ -1,7 +1,7 @@
-template <typename T>
 #include <iostream>
 using namespace std;
 #include <stdexcept>
+template <typename T>
 
 class Stack {
 private:
