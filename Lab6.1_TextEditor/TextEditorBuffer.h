@@ -10,8 +10,8 @@ class TextEditorBuffer {
     CircularLinkedQueue<T> redoQueue;
 
 public:
-    void type(T item) {/*Push to buffer, log to history.*/}
-    void undo() {/*Pop from buffer, enqueue to redoQueue*/}
-    void redo() {/*Dequeue from redoQueue, push to buffer*/}
-    void displayBuffer() const {/*Display buffer contents.*/}
+    void type(T item);
+    void undo();
+    void redo();
+    void displayBuffer() const;
 };

@@ -92,7 +92,7 @@ public:
     }
     void display() const{
         Node* loc = head;
-        for (int i = 1; i<= count)
+        for (int i = 1; i<= count; i++)
         {
             cout << loc->data << endl;
             loc = loc->next;

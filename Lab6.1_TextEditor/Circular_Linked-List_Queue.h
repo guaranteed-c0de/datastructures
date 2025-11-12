@@ -88,6 +88,6 @@ class CircularLinkedQueue {
                 loc = loc->next;
                 delete temp;
             }
-            cout = 0;
+            count = 0;
         }
 };
