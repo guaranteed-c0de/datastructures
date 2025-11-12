@@ -24,15 +24,10 @@ class CircularLinkedQueue {
                 newNode->next = rear;
             }
             else {
-                Node* loc = rear;
-                Node* prev = nullptr;
-                while (loc)
-                {
-                    prev = loc;
-                    loc = loc->next;
-                }
-                prev->next = newNode;
-                newNode->next = rear;
+                newNode->next = rear->next; 
+                rear->next = newNode;       
+                rear = newNode;    
+                
             }
             count++;
         }
@@ -80,14 +75,18 @@ class CircularLinkedQueue {
             return count;
         }
         ~CircularLinkedQueue() {
-            Node* loc = rear;
+            if (!rear) return;
+            Node* front = rear->next;
+            rear->next = nullptr;
+            Node* loc = front;
 
-            for (int i = 1; i <= count; i++)
+            while(loc)
             {
                 Node* temp = loc;
                 loc = loc->next;
                 delete temp;
             }
+            rear = nullptr;
             count = 0;
         }
 };
