@@ -14,10 +14,11 @@ class Queue {
         void enqueue (T item) {
             if (isFull())
             {
-                throw::std overflow_error("The queue is full, no item can be added.");
+                throw std:: overflow_error("The queue is full, no item can be added.");
             }
             else {
-                arr[rearIndex++] = item;
+                rearIndex = rearIndex + 1% capacity;
+                arr[rearIndex] = item;
                 count++;
             }
         }
@@ -27,28 +28,30 @@ class Queue {
                 throw std:: underflow_error("The list is empty, no items can be removed.");
             }
             else {
-                return arr[frontIndex]
-                frontIndex++;
+                return arr[frontIndex];
+                frontIndex = frontIndex + 1%capacity;
                 count--;
             }
         }
         T front() const {
             if (isEmpty())
             {
-                throw std:: underflow_error("The queue is empty, there are no items at the top.");
+                throw std::underflow_error("The queue is empty, there are no items at the top.");
             }
+            else {
             return arr[frontIndex];
+            }
         }
-        bool isEmpty const() {
+        bool isEmpty () const {
             return count == 0;
         }
-        bool isFull const() {
+        bool isFull() const {
             return count == capacity;
         }
         int size() {
             return count;
         }
         ~Queue() {
-            delete arr[];
+            delete[] arr;
         }
 };
