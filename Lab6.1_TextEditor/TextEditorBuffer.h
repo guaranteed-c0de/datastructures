@@ -22,7 +22,8 @@ public:
     void displayBuffer() const {
          while (!buffer.isEmpty())
     {
-        cout << buffer.pop() << endl;
+        CircularLinkedStack<T> copy = buffer; 
+        cout << copy.pop() << endl;
     }
     }
 };
