@@ -5,7 +5,8 @@ class Queue {
     private:
     T* arr;
     int capacity;
-    int frontIndex, int rearIndex;
+    int frontIndex;
+    int rearIndex;
     int count;
 
     public:
