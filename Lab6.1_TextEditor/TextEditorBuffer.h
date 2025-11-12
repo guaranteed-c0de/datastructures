@@ -10,8 +10,19 @@ class TextEditorBuffer {
     CircularLinkedQueue<T> redoQueue;
 
 public:
-    void type(T item);
-    void undo();
-    void redo();
-    void displayBuffer() const;
+    void type(T item) {
+        buffer.push(item);
+    }
+    void undo() {
+        redoQueue.enqueue(buffer.pop());
+    }
+    void redo() {
+        buffer.push(redoQueue.dequeue());
+    }
+    void displayBuffer() const {
+         while (!buffer.isEmpty())
+    {
+        cout << buffer.pop() << endl;
+    }
+    }
 };
