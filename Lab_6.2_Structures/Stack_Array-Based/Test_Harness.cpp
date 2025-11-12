@@ -2,12 +2,9 @@
 
 int main() {
     Stack Kairi;
-    Kairi.push(2);
-    Kairi.push(3);
-    Kairi.push(4);
-    Kairi.push(5);
-    Kairi.Print();
-    Kairi.pop();
-    Kairi.Print();
+   int numbers[] = {5, 4, 3, 2, 1};
+
+   Kairi.nextGreater(numbers, 5);
+    //Kairi.Print();
     return 0;
 }

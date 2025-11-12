@@ -41,37 +41,51 @@ bool Stack::isEmpty() const {
 bool Stack::isFull() const {
     return top == MAX - 1;
 }
-void Stack::nextGreater() {
-    int out[top];
- 
-    int popped[top];
-    for (int i = top; i >= 0; i--)
+void Stack::nextGreater(int arr[], int n) {
+    int out[n];
+    Stack Kairi2;
+    
+    for (int i = n - 1; i>=0; i--)
     {
-        if (i == top)
+        if (i == n - 1)
         {
             out[i] = -1;
+            Kairi2.push(arr[i]);
         }
         else {
-            popped[i] = pop();
-               bool found = false;
-            while (!found)
+            if (Kairi2.Peek() > arr[i])
             {
-                for (int k = top - 1; k > i; k--)
+                out[i] = Kairi2.Peek();
+            }
+            else {
+                while (!Kairi2.isEmpty())
                 {
-                    if (popped[k] > arr[i])
+                    if (Kairi2.Peek() > arr[i])
                     {
-                        out[i] = popped[k];
-                        found = true;
+                        out[i] = Kairi2.Peek();
                         break;
                     }
-                }
-                
-                
+                    else {
+                        Kairi2.pop();
+                    }
 
+                }
             }
-            
         }
     }
+ cout << "Here are the next greater elements:\n";
+ cout<< "Original array:\n";
+ for (int i = 0; i <= n - 1; i++)
+ {
+    cout << arr[i];
+ }
+
+ cout << endl;
+
+ for (int i = 0; i<= n - 1; i++)
+ {
+    cout << out[i];
+ }
 }
 void Stack::Print() {
     cout << "This is currently the stack. (Top to bottom.)\n";

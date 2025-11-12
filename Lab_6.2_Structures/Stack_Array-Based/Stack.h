@@ -10,6 +10,6 @@ public:
     int Peek() const;
     bool isEmpty() const;
     bool isFull() const;
-    void nextGreater();
+    void nextGreater(int arr[], int n);
     void Print();
 };
