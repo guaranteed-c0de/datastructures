@@ -12,7 +12,7 @@ private:
     Node* topNode;
     int count;
 public:
-    CircularLinkedLStack() : topNode(nullptr), count(0) {}
+    CircularLinkedStack() : topNode(nullptr), count(0) {}
     void push(T item) {
         newNode = new Node(val);
         if (isEmpty()) {
