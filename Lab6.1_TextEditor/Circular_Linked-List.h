@@ -17,7 +17,7 @@ public:
         if (isEmpty())
         {
             head = newNode;
-            tail = newNode;
+            rear = newNode;
             newNode->next = newNode;
         }
         else {
@@ -40,20 +40,20 @@ public:
          if (isEmpty())
         {
             head = newNode;
-            tail = newNode;
+            rear = newNode;
             newNode->next = newNode;
         }
         else {
-            Node* loc = tail->next;
+            Node* loc = rear->next;
             Node* prev = nullptr;
-            while (loc != tail)
+            while (loc != rear)
             {
                 prev = loc;
                 loc= loc->next;
             }
             prev->next = newNode;
             newNode->next = head;
-            tail = newNode;
+            rear = newNode;
 
         }
         count++;
@@ -63,9 +63,9 @@ public:
             throw std::underflow_error("List is empty, no item can be removed.");
         }
         else {
-            temp = head;
+           Node* temp = head;
             head = head->next;
-            tail->next = head;
+            rear->next = head;
             delete temp;
             count--;
         }
@@ -75,7 +75,7 @@ public:
             throw std::underflow_error("List is empty, no item can be removed.");
         }
         else {
-            temp = rear;
+            Node* temp = rear;
             Node* loc = head;
             Node* prev = nullptr;
             while (loc != rear)
@@ -84,7 +84,7 @@ public:
                 loc = loc->next;
             }
             prev->next = head;
-            tail = prev;
+            rear = prev;
             delete temp;
             count--;
         }
