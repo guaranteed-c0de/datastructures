@@ -43,7 +43,7 @@ class CircularLinkedQueue {
             }
             else if (count == 1)
             {
-                value = rear->data;
+                T value = rear->data;
                 Node* temp = rear;
                 rear = nullptr;
                 delete temp;
@@ -51,7 +51,7 @@ class CircularLinkedQueue {
                 return value;
             }
             else {
-            value = rear->data;
+           T value = rear->data;
             Node* temp = rear;
             Node* loc = rear->next;
             Node* prev = nullptr;

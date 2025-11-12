@@ -14,7 +14,7 @@ private:
 public:
     CircularLinkedStack() : topNode(nullptr), count(0) {}
     void push(T item) {
-        newNode = new Node(val);
+       Node* newNode = new Node(val);
         if (isEmpty()) {
             topNode = newNode;
         }

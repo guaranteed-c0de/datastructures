@@ -9,7 +9,7 @@ private:
     int capacity;
     int topIndex;
 public:
-    Stack() : capacity(100), topIndex(-1), arr = new T[capacity] {}
+    Stack() : capacity(100), topIndex(-1) {arr = new T[capacity];}
     void push(T item) {
         if (isFull())
         {
