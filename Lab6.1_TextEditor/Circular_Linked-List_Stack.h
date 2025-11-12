@@ -8,13 +8,13 @@ private:
         T data;
         Node* next;
         Node (T val) : data(val), next(nullptr) {}
-    }
+    };
     Node* topNode;
     int count;
 public:
     CircularLinkedStack() : topNode(nullptr), count(0) {}
     void push(T item) {
-       Node* newNode = new Node(val);
+       Node* newNode = new Node(item);
         if (isEmpty()) {
             topNode = newNode;
         }
