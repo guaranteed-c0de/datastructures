@@ -47,31 +47,19 @@ void Stack::nextGreater(int arr[], int n) {
     
     for (int i = n - 1; i>=0; i--)
     {
-        if (i == n - 1)
-        {
-            out[i] = -1;
-            Kairi2.push(arr[i]);
+        while (!Kairi2.isEmpty() && Kairi2.Peek() <= arr[i]) {
+            Kairi2.pop();
         }
-        else {
-            if (Kairi2.Peek() > arr[i])
-            {
-                out[i] = Kairi2.Peek();
-            }
-            else {
-                while (!Kairi2.isEmpty())
-                {
-                    if (Kairi2.Peek() > arr[i])
-                    {
-                        out[i] = Kairi2.Peek();
-                        break;
-                    }
-                    else {
-                        Kairi2.pop();
-                    }
 
-                }
-            }
+        
+        if (Kairi2.isEmpty()) {
+            out[i] = -1;
+        } else {
+            out[i] = Kairi2.Peek();
         }
+
+       
+        Kairi2.push(arr[i]);
     }
  cout << "Here are the next greater elements:\n";
  cout<< "Original array:\n";
