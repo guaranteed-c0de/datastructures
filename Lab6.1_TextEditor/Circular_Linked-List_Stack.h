@@ -25,8 +25,8 @@ public:
         count++;
     }
     T pop() {
-       T value = topNode->val;
-       tempPtr = topNode;
+       T value = topNode->data;
+      Node* tempPtr = topNode;
        topNode = topNode->next;
        delete tempPtr;
        count--;
@@ -38,7 +38,7 @@ public:
         {
             throw std:: underflow_error("The stack is empty, no item at the top.");
         }
-        return topNode->val;
+        return topNode->data;
     }
     bool isEmpty() const {
         return count == 0;
@@ -46,7 +46,7 @@ public:
     int size() const {
         return count;
     }
-    ~CircularLinkedLStack() {
+    ~CircularLinkedStack() {
         while (topNode)
         {
             Node* temp = topNode;
