@@ -5,6 +5,9 @@ using namespace std;
 Stack::Stack() {
     top = -1;
 }
+int Stack::GetLength() {
+    return top + 1;
+}
 
 void Stack::push(int x) {
     if (isFull())
@@ -130,6 +133,38 @@ Stack X;
         
     }
     return true;
+}
+void Stack::SortStack() {
+    int temp;
+    Stack Xtra;
+    while (!isEmpty())
+    {
+        int temp = pop();
+        while (!Xtra.isEmpty() && Xtra.Peek() < temp)
+        {
+            push(Xtra.pop());
+        }
+        Xtra.push(temp);
+    }
+    while (!Xtra.isEmpty())
+    {
+        push(Xtra.pop());
+    }
+    cout << "This is the stack. (From greatest to least).\n";
+
+    while (!isEmpty())
+    {
+        cout << pop() << endl;
+    }
+}
+
+void Stack::StockSpan(int n) { //Kairi = price.
+    int S[n];
+    S[0] = 1;
+   for (int i = 1; i <= n - 1)
+   {
+    while (!isEmpty() && )
+   }
 }
 void Stack::Print() {
     cout << "This is currently the stack. (Top to bottom.)\n";
