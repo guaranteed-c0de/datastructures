@@ -14,6 +14,6 @@ public:
     void nextGreater(int arr[], int n);
     bool Balanced(char arr[], int n);
     void SortStack();
-    void StockSpan(int n);
+    void StockSpan(int arr[], int n);
     void Print();
 };

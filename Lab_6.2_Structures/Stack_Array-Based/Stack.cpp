@@ -158,13 +158,34 @@ void Stack::SortStack() {
     }
 }
 
-void Stack::StockSpan(int n) { //Kairi = price.
+void Stack::StockSpan(int price[], int n) { 
     int S[n];
+    Stack indexStack;
     S[0] = 1;
-   for (int i = 1; i <= n - 1)
-   {
-    while (!isEmpty() && )
-   }
+    indexStack.push(0);
+
+   
+    for (int i = 1; i<= n - 1; i++)
+    {
+        while (!indexStack.isEmpty() && price[indexStack.Peek()] <= price[i])
+        {
+            indexStack.pop();
+        }
+        if (indexStack.isEmpty())
+        {
+            S[i] = i + 1;
+        }
+        else {
+            S[i] = i - indexStack.Peek();
+        }
+        indexStack.push(i);
+    }
+    cout << "The stock span are as follows:\n";
+
+    for (int i = 0; i <=n -1; i++)
+    {
+        cout << "Day " << i << " " << S[i] << endl;
+    }
 }
 void Stack::Print() {
     cout << "This is currently the stack. (Top to bottom.)\n";

@@ -10,7 +10,7 @@ int main() {
    Kairi.push(5);
    Kairi.push(17);
    Kairi.push(4);
-   Kairi.StockSpan(Kairi.GetLength());
+   Kairi.StockSpan(numbers, 5);
 
     //Kairi.Print();
     return 0;
