@@ -65,15 +65,70 @@ void Stack::nextGreater(int arr[], int n) {
  cout<< "Original array:\n";
  for (int i = 0; i <= n - 1; i++)
  {
-    cout << arr[i];
+    cout << arr[i] << " ";
  }
 
  cout << endl;
 
  for (int i = 0; i<= n - 1; i++)
  {
-    cout << out[i];
+    cout << out[i] << " ";
  }
+}
+
+bool Stack::Balanced(char arr[], int n) {
+Stack X;
+    if (n%2 == 1) return false;
+
+    for (int i = 0; i <= n - 1; i++)
+    {
+        if (arr[i] == ')' || arr[i] == '}' || arr[i] == ']' || arr[i] == '(' || arr[i] == '{' || arr[i] == '[')
+        {
+            if (X.isEmpty())
+            {
+                if(arr[i] == ')' || arr[i] == '}' || arr[i] == ']')
+                {
+                    return false;
+                }
+                else if (arr[i] == '(') {X.push(1);}
+                else if (arr[i] == '{') {X.push(3);}
+                else if (arr[i] == '[') {X.push(5);}
+            }
+            else {
+            if (arr[i] == '(')
+            {
+                if(X.Peek()%2 == 1) {return false;}
+                else {X.push(1);}
+            }
+            else if (arr[i] == ')') {
+                if (X.Peek() !=1) {return false;}
+                else {X.push(2);}
+            }
+             if (arr[i] == '{')
+            {
+                if(X.Peek()%2 == 1) {return false;}
+                else {X.push(3);}
+            }
+            else if (arr[i] == '}') {
+                if (X.Peek() !=1) {return false;}
+                else {X.push(4);}
+            }
+             if (arr[i] == '[')
+            {
+                if(X.Peek()%2 == 1) {return false;}
+                else {X.push(5);}
+            }
+            else if (arr[i] == '}') {
+                if (X.Peek() !=1) {return false;}
+                else {X.push(6);}
+            }
+        }
+        }
+        else {
+            return false;
+        }
+        
+    }
 }
 void Stack::Print() {
     cout << "This is currently the stack. (Top to bottom.)\n";

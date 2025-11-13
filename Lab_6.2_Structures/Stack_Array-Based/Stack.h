@@ -11,5 +11,6 @@ public:
     bool isEmpty() const;
     bool isFull() const;
     void nextGreater(int arr[], int n);
+    bool Balanced(char arr[], int n);
     void Print();
 };
