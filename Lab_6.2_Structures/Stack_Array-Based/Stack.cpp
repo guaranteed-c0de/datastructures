@@ -129,6 +129,7 @@ Stack X;
         }
         
     }
+    return true;
 }
 void Stack::Print() {
     cout << "This is currently the stack. (Top to bottom.)\n";
