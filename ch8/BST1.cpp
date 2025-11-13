@@ -56,6 +56,18 @@ class TreeType {
             Insert(node ->right, item);
         }
     }
+    bool GetItemrec(int item) {
+        bool found = false;
+        Retrieve(root, item, found);
+        return found;
+    }
+
+    bool GetItem(int item) {
+        TreeNode* node = root;
+        while (node != nullptr && item != node->info) {
+            node = item < node->info ? node->left : node->right;
+        }
+    }
 };
 
 int main() {
