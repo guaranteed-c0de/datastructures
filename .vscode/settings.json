@@ -91,6 +91,6 @@
         "valarray": "cpp",
         "variant": "cpp"
     },
-    "cmake.sourceDirectory": "/workspaces/DataStructures/Lab1.2",
+    "cmake.sourceDirectory": "/home/yamirrichmond/GitHub folder/DataStructures/Lab_3.1_Media_Player/Media_Player_Linked_List/build/_deps/catch2-src/tests",
     
 }

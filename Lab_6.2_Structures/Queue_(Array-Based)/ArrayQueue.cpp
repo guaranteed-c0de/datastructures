@@ -1,6 +1,7 @@
 #include "ArrayQueue.h"
 #include <stdexcept>
-void Queue::Enqueue(int x) {
+template <typename T>
+void Queue<T>:: Enqueue(T x) {
     if (IsFull())
     {
         throw std::overflow_error("The queue is full.\n");
@@ -12,7 +13,8 @@ void Queue::Enqueue(int x) {
 
 
 }
-int Queue::Dequeue() {
+template <typename T>
+T Queue <T>::Dequeue() {
     if (IsEmpty())
     {
         throw std::underflow_error("The queue is empty.");
@@ -21,20 +23,22 @@ int Queue::Dequeue() {
    front++;
    return result;
 }
+template <typename T>
 
-int Queue::GetFront() const{
+T Queue<T>::GetFront() const{
 return arr[front];
 }
-
-bool Queue::IsEmpty() const {
+template <typename T>
+bool Queue<T>::IsEmpty() const {
     return front > rear;
 }
 
-bool Queue::IsFull() const {
+template <typename T>
+bool Queue<T>::IsFull() const {
     return rear == MAX - 1;
 }
-
-void Queue:: ReverseK(Queue& q, int k) const{
+template <typename T>
+void Queue<T>:: ReverseK(Queue& q, int k) const{
     if (k >= MAX)
     {
         throw std::out_of_range("The queue does not have that many elements.\n");
