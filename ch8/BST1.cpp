@@ -68,6 +68,51 @@ class TreeType {
             node = item < node->info ? node->left : node->right;
         }
     }
+
+    void DeleteItem(int item) {
+        DeleteNode(root, item);
+    }
+
+    void DeleteNode(TreeNode* node, int item) {
+        if (node == nullptr) {
+            return;
+        }
+        if (item < node->info)
+        {
+            DeleteNode(node->left, item);
+        }
+        else if (item > node->info)
+            DeleteNode(node->right, item);
+        else {
+
+
+            if (node->left == nullptr && node->right == nullptr) {
+                delete node;
+                node = nullptr;
+
+            }
+            else if (node->right == nullptr) {
+                TreeNode *temp = node->right;
+                node = node->right;
+                delete temp;
+            }
+            else if (node->left == nullptr) {
+                TreeNode* temp = node->left;
+                node = node->left;
+                delete temp;
+            }
+            else {
+                TreeNode* temp = node->right;
+                while (temp->left != nullptr) {
+                    temp = temp->left;
+                }
+                node->info = temp->info;
+                DeleteNode(node->right, temp->info); 
+            }
+        }
+    }
+
+       
 };
 
 int main() {

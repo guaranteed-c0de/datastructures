@@ -1,6 +1,6 @@
 #include "ArrayQueue.h"
 #include <stdexcept>
-void Queue::Enqueue(string x) {
+void Queue::Enqueue(int x) {
     if (IsFull())
     {
         throw std::overflow_error("The queue is full.\n");
@@ -12,17 +12,17 @@ void Queue::Enqueue(string x) {
 
 
 }
-string Queue::Dequeue() {
+int Queue::Dequeue() {
     if (IsEmpty())
     {
         throw std::underflow_error("The queue is empty.");
     }
-   string result = arr[front];
+   int result = arr[front];
    front++;
    return result;
 }
 
-string Queue::GetFront() const{
+int Queue::GetFront() const{
 return arr[front];
 }
 
@@ -34,7 +34,7 @@ bool Queue::IsFull() const {
     return rear == MAX - 1;
 }
 
-/*void Queue:: ReverseK(Queue& q, int k) const{
+void Queue:: ReverseK(Queue& q, int k) const{
     if (k >= MAX)
     {
         throw std::out_of_range("The queue does not have that many elements.\n");
@@ -53,20 +53,20 @@ bool Queue::IsFull() const {
             q.Enqueue(reverse[i]);
         }
     }
-}  */
-void Queue::generateBinary(int n) {
+}  
+/*void Queue::generateBinary(int n) {
     Queue M;
 
     M.Enqueue("1");
 
     for (int i = 1; i<= n; i++)
     {
-        string top = M.Dequeue();
+        int top = M.Dequeue();
         cout << top << endl;
-        string binary1 = front + "0";
-        string binary2 = top + "1";
+        int binary1 = front + "0";
+        int binary2 = top + "1";
 
         M.Enqueue(binary1);
         M.Enqueue(binary2);
-    }
-}
+    } 
+}*/
