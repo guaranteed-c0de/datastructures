@@ -8,6 +8,14 @@ int main() {
     Sora.insert(4);
     Sora.insert(5);
 
-    cout << "The middle is " << Sora.findMiddle(Sora.head)->data;
+    LinkedList Sora2;
+    Sora2.insert(1);
+    Sora2.insert(4);
+    Sora2.insert(16);
+
+    LinkedList Sora3;
+    Sora3.head = Sora3.MergeSortedLists(Sora.head, Sora2.head);
+
+    Sora3.print(Sora3.head);
     return 0;
 }

@@ -17,6 +17,9 @@ class LinkedList {
         Node* RecursivelyReverse(Node* head);
         Node* findMiddle(Node* head);
         Node* DetectMiddle(Node* head1, Node* head2);
+        bool FindCycle(Node* head2);
+        bool DetectCycle (Node* head1, Node* head2);
+        Node* MergeSortedLists(Node* headn1, Node* headn2);
 };
 
 void LinkedList:: insert(int val) {
@@ -73,5 +76,53 @@ Node* LinkedList::DetectMiddle(Node* slow, Node* fast) {
     }
 
     return DetectMiddle(slow->next, fast->next->next);
+}
+
+
+bool LinkedList::FindCycle(Node* head)
+{
+    return DetectCycle(head->next, head->next->next);
+}
+
+bool LinkedList::DetectCycle(Node* slow, Node* fast)
+{
+    if (fast == slow || fast == nullptr || fast->next == nullptr)
+    {
+        if (!fast || !fast->next)
+        {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    DetectCycle(slow->next, fast->next->next);
+}
+
+Node* LinkedList::MergeSortedLists(Node* headn1, Node* headn2)
+{
+    Node* mergedHead;
+    if (!headn1 && !headn2) {
+
+    }
+    if (!headn1)
+    {
+        return headn2;
+    }
+    else if(!headn2) {
+        return headn1;
+    }
+
+    if (headn1->data <= headn2->data)
+    {
+       mergedHead = headn1;
+        mergedHead->next = MergeSortedLists(headn1->next, headn2);
+    }
+
+    else {
+        mergedHead = headn2;
+        mergedHead->next = MergeSortedLists(headn1, headn2->next);
+    }
+    return mergedHead;
 }
 #endif //LINKED_LIST_H
