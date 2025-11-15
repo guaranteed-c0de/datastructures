@@ -16,6 +16,6 @@ int main() {
     LinkedList Sora3;
     Sora3.head = Sora3.MergeSortedLists(Sora.head, Sora2.head);
 
-    Sora3.print(Sora3.head);
+    Sora3.partitionList(Sora3.head, 4);
     return 0;
 }
