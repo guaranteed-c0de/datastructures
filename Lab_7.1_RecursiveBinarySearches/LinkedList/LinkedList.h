@@ -24,8 +24,9 @@ class LinkedList {
         Node* RemoveDuplicate(Node* headplh);
         Node* DetectDuplicate(Node* headplh);
         bool DuplicateExists(Node* nodeplh, int value);
-        std::pair<Node*, Node*> partitioHeklper(Node* node, int x);
-
+        std::pair<Node*, Node*> partitionList(Node* head, int x);
+        std::pair<Node*, Node*> partitionHelper(Node* node, int x);
+        
     };
 
 void LinkedList:: insert(int val) {
@@ -163,5 +164,34 @@ bool LinkedList::DuplicateExists(Node* node, int value) {
         return true;
     }
     return DuplicateExists(node->next, value);
+}
+std::pair <Node*, Node*> LinkedList::partitionList(Node* head, int x) {
+    auto [lesserHead, greaterHead] = partitionHelper(head, x);
+    return {lesserHead, greaterHead};
+
+    cout << "This is the first partition:\n";
+
+    print(lesserHead);
+
+    cout << endl << endl;
+    print(greaterHead);
+}
+
+std::pair <Node*, Node*> LinkedList::partitionHelper(Node* node,int x) {
+if (node == nullptr)
+{
+    return {nullptr, nullptr};
+}
+auto [lowerList, higherList] = partitionHelper(node->next, x);
+
+if (node->data < x)
+{
+    node->next = lowerList;
+    return {node, higherList};
+}
+else {
+    node->next = higherList;
+    return {lowerList, node};
+}
 }
 #endif //LINKED_LIST_H
