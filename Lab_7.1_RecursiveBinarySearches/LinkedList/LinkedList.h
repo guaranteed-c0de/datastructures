@@ -1,6 +1,7 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 #include <iostream>
+#include <utility>
 using namespace std;
 struct Node {
 int data;
@@ -20,7 +21,12 @@ class LinkedList {
         bool FindCycle(Node* head2);
         bool DetectCycle (Node* head1, Node* head2);
         Node* MergeSortedLists(Node* headn1, Node* headn2);
-};
+        Node* RemoveDuplicate(Node* headplh);
+        Node* DetectDuplicate(Node* headplh);
+        bool DuplicateExists(Node* nodeplh, int value);
+        std::pair<Node*, Node*> partitioHeklper(Node* node, int x);
+
+    };
 
 void LinkedList:: insert(int val) {
     if (!head) {
@@ -124,5 +130,38 @@ Node* LinkedList::MergeSortedLists(Node* headn1, Node* headn2)
         mergedHead->next = MergeSortedLists(headn1, headn2->next);
     }
     return mergedHead;
+}
+
+Node* LinkedList::RemoveDuplicate(Node* headplh)
+{
+    return DetectDuplicate(headplh);
+}
+
+Node* LinkedList::DetectDuplicate(Node* nodeplh) {
+    if (!nodeplh)
+    {
+        return nullptr;
+    }
+    nodeplh->next = DetectDuplicate(nodeplh->next);
+
+    if (DuplicateExists(nodeplh->next, nodeplh->data))
+    {
+        return nodeplh->next;
+    }
+
+    else {
+        return nodeplh;
+    }
+}
+
+bool LinkedList::DuplicateExists(Node* node, int value) {
+    if (node == nullptr) {
+        return false;
+    }
+    if (node->data == value)
+    {
+        return true;
+    }
+    return DuplicateExists(node->next, value);
 }
 #endif //LINKED_LIST_H
