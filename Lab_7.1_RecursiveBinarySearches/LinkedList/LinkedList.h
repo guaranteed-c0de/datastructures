@@ -167,14 +167,22 @@ bool LinkedList::DuplicateExists(Node* node, int value) {
 }
 std::pair <Node*, Node*> LinkedList::partitionList(Node* head, int x) {
     auto [lesserHead, greaterHead] = partitionHelper(head, x);
-    return {lesserHead, greaterHead};
-
-    cout << "This is the first partition:\n";
+     cout << "This is the first partition:\n";
 
     print(lesserHead);
 
     cout << endl << endl;
     print(greaterHead);
+     cout << "This is the first partition:\n";
+
+    print(lesserHead);
+
+    cout << endl << endl;
+    cout << "This is the second partition.\n";
+    print(greaterHead);
+    return {lesserHead, greaterHead};
+
+   
 }
 
 std::pair <Node*, Node*> LinkedList::partitionHelper(Node* node,int x) {
