@@ -18,8 +18,13 @@ class LinkedList {
 };
 
 void LinkedList:: insert(int val) {
+    if (!head) {
+        Node* newNode = new Node(val);
+        head = newNode;
+    }
+    else {
     Node* loc = head;
-    Node* prev = nullptr;
+    Node* prev = head;
 
     while (loc) {
         prev = loc;
@@ -30,7 +35,7 @@ void LinkedList:: insert(int val) {
     prev->next = newNode;
 
 }
-
+}
 void LinkedList::print() {
     Node* loc = head;
     cout << "Here is the list.\n";
@@ -44,12 +49,14 @@ void LinkedList::print() {
 Node* LinkedList::RecursivelyReverse(Node* head) {
     if (head == nullptr || head->next == nullptr)
     {
-        return nullptr;
+        return head;
     }
+    else {
     Node* newHead = RecursivelyReverse(head->next);
     head->next->next = head;
     head->next = nullptr;
 
     return newHead;
+    }
 }
 #endif //LINKED_LIST_H

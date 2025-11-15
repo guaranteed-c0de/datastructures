@@ -10,7 +10,7 @@ int main() {
 
     Sora.print();
 
-    Sora.RecursivelyReverse(Sora.head);
+   // Node* RecursivelyReverse(Sora.head);
     cout << endl << endl;
     Sora.print();
     return 0;
