@@ -13,7 +13,7 @@ class LinkedList {
         Node* head;
         LinkedList() : head(nullptr) {}
         void insert(int val); 
-        void print();
+        void print(Node* head);
         Node* RecursivelyReverse(Node* head);
 };
 
@@ -36,7 +36,7 @@ void LinkedList:: insert(int val) {
 
 }
 }
-void LinkedList::print() {
+void LinkedList::print(Node* head) {
     Node* loc = head;
     cout << "Here is the list.\n";
     while (loc)

@@ -8,10 +8,10 @@ int main() {
     Sora.insert(4);
     Sora.insert(5);
 
-    Sora.print();
+    Sora.print(Sora.head);
 
-   // Node* RecursivelyReverse(Sora.head);
+    Sora.head = Sora.RecursivelyReverse(Sora.head);
     cout << endl << endl;
-    Sora.print();
+    Sora.print(Sora.head);
     return 0;
 }
