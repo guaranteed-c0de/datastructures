@@ -8,10 +8,6 @@ int main() {
     Sora.insert(4);
     Sora.insert(5);
 
-    Sora.print(Sora.head);
-
-    Sora.head = Sora.RecursivelyReverse(Sora.head);
-    cout << endl << endl;
-    Sora.print(Sora.head);
+    cout << "The middle is " << Sora.findMiddle(Sora.head)->data;
     return 0;
 }

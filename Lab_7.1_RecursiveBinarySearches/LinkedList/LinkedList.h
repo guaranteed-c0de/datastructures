@@ -15,6 +15,8 @@ class LinkedList {
         void insert(int val); 
         void print(Node* head);
         Node* RecursivelyReverse(Node* head);
+        Node* findMiddle(Node* head);
+        Node* DetectMiddle(Node* head1, Node* head2);
 };
 
 void LinkedList:: insert(int val) {
@@ -58,5 +60,18 @@ Node* LinkedList::RecursivelyReverse(Node* head) {
 
     return newHead;
     }
+}
+
+Node* LinkedList::findMiddle(Node* head) {
+    return DetectMiddle(head, head);
+}
+
+Node* LinkedList::DetectMiddle(Node* slow, Node* fast) {
+
+    if (fast == nullptr || fast->next == nullptr) {
+        return slow;
+    }
+
+    return DetectMiddle(slow->next, fast->next->next);
 }
 #endif //LINKED_LIST_H
