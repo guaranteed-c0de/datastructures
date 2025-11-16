@@ -204,6 +204,15 @@ DNode* rotateHelper(DNode* head, int k) {
     DNode* newHead = head->next;
     newHead->prev = nullptr;
 
-    DNode* 
+    DNode* tail = newHead;
+    while (tail->next != nullptr)
+    {
+        tail = tail->next;
+    }
+    tail->next = first;
+    first->prev = tail;
+    first->next = nullptr;
+
+    return rotateHelper(newHead, k - 1);
 }
 #endif //DOUBLYLINKEDLIST_H
