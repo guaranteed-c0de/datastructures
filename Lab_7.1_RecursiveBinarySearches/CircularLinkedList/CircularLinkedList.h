@@ -62,7 +62,7 @@ int CircularLinkedList:: CalculateCycle(CNode* head) {
     return LengthHelper(head, head);
 }
 
-int CircularLinkedList:: LengthHelper(CNode* node, CNode* head) {
+int CircularLinkedList:: LengthHelper(CNode* node, int value) {
 
     if (node->next == head) {
         return 1;
@@ -100,14 +100,9 @@ void CircularLinkedList::InsertHelper(CNode* node, int val) {
         InsertHelper(node->next, val);
     }
 }
-void CircularLinkedList:: DeleteNode(CNode* node) {
-    if (head == nullptr)
-    {
-        return;
-    }
+void CircularLinkedList:: DeleteNode(CNode* startNode) {
+   return DeleteHelper(startNode, int value)
 
-    else {
-        node = node->next;
-    }
+    
 }
 #endif //CIRCULAR_LINKED_LIST_H
