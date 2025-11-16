@@ -1,5 +1,7 @@
 #ifndef DOUBLYLINKEDLIST_H
 #define DOUBLYLINKEDLIST_H
+#include <iostream>
+using namespace std;
 
 struct DNode {
     int data;
@@ -13,7 +15,8 @@ class DoublyLinkedList{
         DNode* head;
         DoublyLinkedList() : head(nullptr) {}
         void insert(int val);
-        void print();
+        void print(DNode* head);
+        void RecursivelyReverse(DNode* head);
 };
 
 void DoublyLinkedList:: insert(int val) {
@@ -30,7 +33,24 @@ else {
        last = loc;
        loc = loc->next;
     }
-}
-}
+    last->next = newNode;
+    newNode->prev = last;
 
+}
+}
+void DoublyLinkedList::print(DNode* head) {
+    DNode* loc = head;
+
+    while (loc)
+    {
+        cout << loc->data << endl;
+        loc = loc->next;
+    }
+}
+void DoublyLinkedList::RecursivelyReverse(DNode* head) {
+    if (head == nullptr || head->next == nullptr)
+    {
+        return head;
+    }
+}
 #endif //DOUBLYLINKEDLIST_H

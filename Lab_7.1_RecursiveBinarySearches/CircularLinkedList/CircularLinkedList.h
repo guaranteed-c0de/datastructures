@@ -1,6 +1,7 @@
 #ifndef CIRCULAR_LINKED_LIST_H
 #define CIRCULAR_LINKED_LIST_H
 #include <iostream>
+#include <utility>
 using namespace std;
 
 struct CNode {
@@ -19,8 +20,12 @@ class CircularLinkedList {
         int LengthHelper(CNode* node, CNode* head);
         void SortedInsert(int val);
         void InsertHelper(CNode* node, int val);
-        void DeleteNode(CNode* node);
-        void DeleteHelper(CNode* node);
+        void DeleteNode(CNode* node, CNode* original);
+        std::pair<CNode*, CNode*> SplitCircularList(CNode* head);
+        std::pair<CNode*, CNode*> SplitHelper(CNode* head, CNode* slow, CNode* fast);
+        int Josephus(CNode* head, int k);
+        int JosephusHelper(CNode* node, int k);
+       
 };
 
 void CircularLinkedList::insert(int val) {
@@ -62,7 +67,7 @@ int CircularLinkedList:: CalculateCycle(CNode* head) {
     return LengthHelper(head, head);
 }
 
-int CircularLinkedList:: LengthHelper(CNode* node, int value) {
+int CircularLinkedList:: LengthHelper(CNode* node, CNode* head) {
 
     if (node->next == head) {
         return 1;
@@ -100,9 +105,76 @@ void CircularLinkedList::InsertHelper(CNode* node, int val) {
         InsertHelper(node->next, val);
     }
 }
-void CircularLinkedList:: DeleteNode(CNode* startNode) {
-   return DeleteHelper(startNode, int value)
+void CircularLinkedList:: DeleteNode(CNode* startNode, CNode* original) {
+  if (startNode->next == startNode)
+  {
+    delete startNode;
+    return;
+  }
 
-    
+  if (startNode == original)
+  {
+    startNode->data = startNode->next->data;
+    CNode* temp = startNode->next;
+    startNode->next = startNode->next->next;
+    delete temp;
+    return;
+  }
+
+  DeleteNode(startNode->next, original);
 }
+
+std::pair<CNode*, CNode*> CircularLinkedList::SplitCircularList(CNode* head) {
+    if (head == nullptr || head->next == head)
+    {
+        return {head, nullptr};
+    }
+
+    return SplitHelper(head, head, head);
+}
+
+std::pair<CNode*, CNode*> CircularLinkedList::SplitHelper(CNode* head, CNode* slow, CNode* fast) {
+    if (fast->next == head || fast->next->next == head)
+    {
+        CNode* head1 = head;
+       CNode* head2 = slow->next;
+
+       slow->next = head1;
+
+       if (fast->next == head)
+        {
+            fast->next = head2;
+        }
+        else {
+            fast->next->next = head2;
+        }
+        return {head1, head2};
+    }
+    return SplitHelper(head, slow->next, fast->next->next);
+}
+
+int CircularLinkedList::Josephus(CNode* head, int k)
+{
+    return JosephusHelper(head, k);
+}
+
+int CircularLinkedList::JosephusHelper(CNode* node, int k) {
+    if (node->next == node) {
+        return node->data;
+    }
+
+    for (int i = 1; i < k; i++)
+    {
+        node = node->next;
+    }
+    CNode* Removed = node->next;
+
+    node->next = Removed->next;
+
+    delete Removed;
+
+    return JosephusHelper(node->next, k);
+
+}
+
 #endif //CIRCULAR_LINKED_LIST_H
