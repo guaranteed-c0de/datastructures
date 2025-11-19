@@ -5,9 +5,9 @@ using namespace std;
 
 int main() {
     TreeType Oak;
-    Oak.PutItem('X');
-    Oak.PutItem('Y');
-    Oak.PutItem('Z');
+    Oak.PutItem('B');
+    Oak.PutItem('A');
+    Oak.PutItem('C');
    cout << "There are " << Oak.GetLength() << " nodes in the tree.\n";
    cout << Oak.LeafCount() << " of these nodes are leaves.\n";
     return 0;
