@@ -11,7 +11,7 @@ int main() {
     Oak.PutItem('I');
     Oak.PutItem('T');
     Oak.PutItem('O');
-    Oak.PutItem('R');
+    Oak.PutItem('X');
    cout << "There are " << Oak.GetLength() << " nodes in the tree.\n";
    cout << Oak.LeafCount() << " of these nodes are leaves.\n";
     return 0;
