@@ -31,7 +31,7 @@ bool TreeType::IsEmpty() const
 }
 
 int CountNodes(TreeNode* tree);
-
+int CountLeavesHelper(TreeNode* tree);
 int TreeType::GetLength() const
 // Calls recursive function CountNodes to count the 
 // nodes in the tree.
@@ -39,6 +39,22 @@ int TreeType::GetLength() const
   return CountNodes(root);
 }
 
+int TreeType::LeafCount() {
+  return CountLeavesHelper(root);
+}
+int CountLeavesHelper(TreeNode* tree) {
+  if (tree == nullptr)
+  {
+    return 0;
+  }
+  else if (!tree->left && !tree->right)
+  {
+    return 1;
+  }
+  else {
+    return CountLeavesHelper(tree->left) + CountLeavesHelper(tree->right);
+  }
+}
 
 int CountNodes(TreeNode* tree)
 // Post: returns the number of nodes in the tree.
@@ -48,6 +64,7 @@ int CountNodes(TreeNode* tree)
   else 
     return CountNodes(tree->left) + CountNodes(tree->right) + 1;
 }
+
 
 void Retrieve(TreeNode* tree, 
      ItemType& item, bool& found);
@@ -296,6 +313,7 @@ void PreOrder(TreeNode* tree,
     PreOrder(tree->right, preQue);
   }
 }
+
 
 
 void InOrder(TreeNode* tree, 

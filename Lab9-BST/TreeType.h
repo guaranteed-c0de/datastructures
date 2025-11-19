@@ -22,6 +22,7 @@ public:
   void ResetTree(OrderType order); 
   ItemType GetNextItem(OrderType order, bool& finished);
   void Print(std::ofstream& outFile) const;
+  int LeafCount();
 private:
   TreeNode* root;
   QueType preQue;
