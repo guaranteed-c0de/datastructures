@@ -56,5 +56,5 @@ void Queue::reverseQueue() {
     reverseQueue();
 
     enqueue(temp);
-} //O(n) time complexity...
+} //O(n) time complexity... //Comment.
 #endif //QUEUE_H
