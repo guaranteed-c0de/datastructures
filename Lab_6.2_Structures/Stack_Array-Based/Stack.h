@@ -2,7 +2,8 @@ class Stack {
 static const int MAX = 1000;
 int arr[MAX];
 int top;
-
+int minTop;
+int minStack[MAX];
 public:
     Stack();
     void push(int x);
@@ -15,5 +16,7 @@ public:
     bool Balanced(char arr[], int n);
     void SortStack();
     void StockSpan(int arr[], int n);
+    void InfixtoPostfix(char* array1, char* array2);
+    int GetMin();
     void Print();
 };

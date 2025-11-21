@@ -4,6 +4,7 @@ using namespace std;
 #include <stdexcept>
 Stack::Stack() {
     top = -1;
+    minTop = -1;
 }
 int Stack::GetLength() {
     return top + 1;
@@ -17,7 +18,17 @@ void Stack::push(int x) {
     else {
         top++;
         arr[top] = x;
+        if (minTop == -1 || x <= minStack[minTop])
+        {
+            minTop++;
+            minStack[minTop] = x;
+        }
+        else {
+            minTop = minTop + 1;
+            minStack[minTop] = minStack[minTop - 1];
+        }
     }
+
 }
 int Stack::pop() {
     if (isEmpty())
@@ -26,7 +37,9 @@ int Stack::pop() {
 }
 else 
 {
-    return arr[top--];
+    top = top - 1;
+    minTop = minTop - 1;
+    return arr[top];
 }
 }
 int Stack::Peek() const {
@@ -186,6 +199,58 @@ void Stack::StockSpan(int price[], int n) {
     {
         cout << "Day " << i << " " << S[i] << endl;
     }
+}
+
+void Stack::InfixtoPostfix(char* infix, char* postfix) {
+     Stack opStack;   // this is the ONLY stack
+    int j = 0;       // index for postfix output
+
+    for (int i = 0; infix[i] != '\0'; i++) {
+        char c = infix[i];
+
+        // 1. Operand → goes directly to output
+        if (isalnum(c)) {
+            postfix[j++] = c;
+        }
+
+        // 2. '(' → push onto stack
+        else if (c == '(') {
+            opStack.push(c);
+        }
+
+        // 3. ')' → pop until '('
+        else if (c == ')') {
+            while (!opStack.isEmpty() && opStack.Peek() != '(') {
+                postfix[j++] = opStack.pop();
+            }
+            opStack.pop();  // remove '('
+        }
+
+        // 4. Operator
+        else {
+            while (!opStack.isEmpty() &&
+                   precedence(opStack.Peek()) >= precedence(c)) {
+                postfix[j++] = opStack.pop();
+            }
+            opStack.push(c);
+        }
+    }
+
+    // Pop remaining operators
+    while (!opStack.isEmpty()) {
+        postfix[j++] = opStack.pop();
+    }
+
+    postfix[j] = '\0';  // null-terminate
+}
+
+int Stack::GetMin() {
+    return minStack[minTop];
+}
+int precedence(char op) {
+    if (op == '*' || op == '/') return 2;
+    if (op == '+' || op == '-') return 1;
+    return 0;
 }
 void Stack::Print() {
     cout << "This is currently the stack. (Top to bottom.)\n";

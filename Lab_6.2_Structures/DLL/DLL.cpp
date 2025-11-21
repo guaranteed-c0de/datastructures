@@ -17,7 +17,8 @@ head->prev = nullptr;
 head->next = nullptr;
 tail = newNode;
 }
-void DLL::insertTail(DLLNode*& tail, int val)
+}
+void DLL::insertTail(int val)
 {
     DLLNode* temp = tail; 
     DLLNode* newNode = new DLLNode(val);

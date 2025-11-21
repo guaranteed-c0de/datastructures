@@ -11,7 +11,7 @@ int main() {
    Kairi.push(17);
    Kairi.push(4);
    Kairi.StockSpan(numbers, 5);
-
+   Kairi.GetMin();
     //Kairi.Print();
     return 0;
 }

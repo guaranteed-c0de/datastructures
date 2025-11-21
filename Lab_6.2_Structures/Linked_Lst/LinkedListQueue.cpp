@@ -152,7 +152,8 @@ void LinkedListQueue::RemoveDuplicates(LinkedListQueue& q) {
      }
     }
 }
-
+//And through these, it didn't match the parameter list.
 void StackFromLinkedListQueue::push(int x) {
     
 }
+
