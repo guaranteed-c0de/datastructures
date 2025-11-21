@@ -1,5 +1,5 @@
 template <class ItemType>
-void swap(ItemType& one, ItemType& two);
+void Swap(ItemType& one, ItemType& two);
 
 template<class ItemType>
 // Assumes ItemType is either a built-in simple type or a class
