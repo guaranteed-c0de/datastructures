@@ -245,6 +245,13 @@ void Stack::InfixtoPostfix(char* infix, char* postfix) {
 }
 
 int Stack::GetMin() {
+    if (minTop < 0) 
+    {
+        throw std::underflow_error("Stack is empty. There is no minimum.");
+    }
+    else {
+        cout << "The minimum of the stack is \n";
+    }
     return minStack[minTop];
 }
 int precedence(char op) {

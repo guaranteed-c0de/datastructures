@@ -3,7 +3,7 @@
 using namespace std;
 #include "ArrayQueue.h"
 
-
+template <typename T>
 int StackfromQueue::pop() {
 
     if (!Q1.IsEmpty())
@@ -14,8 +14,8 @@ int StackfromQueue::pop() {
         throw std::underflow_error("Stack is empty, no elements can be removed.\n");
     }
 }
-
-void StackfromQueue::push(int item) {
+template <typename T>
+void StackfromQueue::push(T item) {
     if (Q1.IsEmpty())
     {
         Q1.Enqueue(item);
@@ -35,7 +35,7 @@ void StackfromQueue::push(int item) {
         }
     }
 }
-
+template <typename T>
 int StackfromQueue::peek() {
     if (!Q1.IsEmpty()) {
         return Q1.GetFront();
