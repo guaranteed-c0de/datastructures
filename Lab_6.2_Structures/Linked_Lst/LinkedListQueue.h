@@ -19,6 +19,9 @@ class LinkedListQueue {
         void Print(LinkedListQueue& queue) const;
         LinkedListQueue Merge(LinkedListQueue a, LinkedListQueue b);
         void RemoveDuplicates(LinkedListQueue& b);
+        int GetLength();
+        int Middle();
+        void RotateK(int k); 
         
 
     private:
@@ -34,5 +37,7 @@ class StackFromLinkedListQueue {
     public:
     void push(int x);
     int pop();
+    int peek();
+
 };
 #endif //LINKEDLISTQUEUE_H
