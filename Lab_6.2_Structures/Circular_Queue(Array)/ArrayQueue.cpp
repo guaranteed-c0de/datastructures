@@ -35,7 +35,9 @@ int CircularQueue::GetFront() const{
 bool CircularQueue::IsEmpty() const {
     return size < 0;
 }
-
+bool CircularQueue::IsFull() const {
+    return size == MAX;
+}
 bool CircularQueue:: Remove(int x) {
     if (IsEmpty()) {
         return false;
@@ -138,6 +140,20 @@ int CircularQueue::CircularTour(int petrol[], int dist[], int n)
     }
     return -1;
 }
+void CircularQueue::Rotate(int k) {
+    if (IsEmpty() || size == 1)
+    {
+        std::underflow_error("Cannot be performed.\n");
+    }
+    k = k%size;
+    int temp;
+    for (int i = 1; i <=k; i++)
+    {
+        temp = Dequeue();
+        Enqueue(temp);
+    }
+
+}
 void CircularQueue:: PrintQueue() {
 
     if(IsEmpty()) {
@@ -150,7 +166,44 @@ void CircularQueue:: PrintQueue() {
         i = (i + 1) % MAX;
     }
 }
+bool CircularQueue:: IsPalindrome(const char* s, int n) {
+    CircularQueue CQ1;
+    CircularQueue CQ2;
+    char stack[n];
+    for (int i = 0; i < n; i++)
+    {
+        CQ1.Enqueue(s[i]);
+    }
+    Stack S;
+    CircularQueue temp = CQ1;
+    while (!temp.IsEmpty()) {
+        S.push(temp.Dequeue());
+    } 
+    while (!S.isEmpty()) {
+        CQ2.Enqueue(S.pop());
+    }
 
+    for (int i = 1; i < n; i++)
+    {
+        if (CQ1.Dequeue() != CQ2.Dequeue())
+        {
+            return false;
+        }
+    }
+    return true;
+
+}
+void CircularQueue::PrintReverse() {
+    Stack S;
+    while (IsEmpty()) {
+        int x = Dequeue();
+        S.push(x);
+    }
+    cout << "These are the elements in reverse order.\n";
+    while (!S.isEmpty()) {
+        cout << S.pop() << endl;
+    }
+}
 class LRUCache: public CircularQueue {
     private:
     CircularQueue queue;

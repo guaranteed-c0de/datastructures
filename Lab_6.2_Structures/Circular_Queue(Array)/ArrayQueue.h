@@ -1,3 +1,4 @@
+#include "Stack.h"
 class CircularQueue {
 private:
     static const int MAX = 1000;
@@ -12,9 +13,9 @@ public:
     bool IsFull() const;  
     void firstNegative(int arr[], int n, int k);
     int CircularTour(int petrol[], int dist[], int n);
-    void Rotate(CircularQueue& q, int k);
-    bool IsPalindrome(const char* s);
-    void PrintReverse(CircularQueue& q);
+    void Rotate(int k);
+    bool IsPalindrome(const char* s, int n);
+    void PrintReverse();
     bool Remove(int x);
     int CircularTour( int petrol[], int dist[], int n);
     void PrintQueue();
