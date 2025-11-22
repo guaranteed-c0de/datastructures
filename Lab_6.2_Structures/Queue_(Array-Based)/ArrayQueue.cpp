@@ -58,6 +58,25 @@ void Queue<T>:: ReverseK(Queue& q, int k) const{
         }
     }
 }  
+template <typename T>
+int Queue<T>::SlidingWindowMaximum(int arr[], int n, int k, int out[]) {
+Queue Q;
+
+for (int i = 0; i < k; i++)
+{
+    while (!Q.IsEmpty() && )
+    {
+        Q.Enqueue(arr[i]);
+    }
+}
+int outIndex = 1;
+for (int i = k; i<n; i++)
+{
+    Q.Dequeue();
+    Q.Enqueue(arr[i]);
+    outIndex++;
+}
+}
 /*void Queue::generateBinary(int n) {
     Queue M;
 

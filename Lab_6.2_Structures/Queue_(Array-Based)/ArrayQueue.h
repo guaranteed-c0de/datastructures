@@ -16,6 +16,7 @@ class Queue {
         bool IsEmpty() const;
         bool IsFull() const;
         void ReverseK(Queue& q, int k) const;
+        int SlidingWindowMaximum(int arr[], int n, int k, int out[]);
 
        // void generateBinary(int n);
 };
@@ -39,7 +40,7 @@ void Traversal(TreeNode* root);
 
 };
 template <typename T>
-int StackfromQueue::pop() {
+T StackfromQueue<T>::pop() {
 
     if (!Q1.IsEmpty())
         return Q1.Dequeue();
@@ -50,7 +51,7 @@ int StackfromQueue::pop() {
     }
 }
 template <typename T>
-void StackfromQueue::push(T item) {
+void StackfromQueue<T>::push(T item) {
     if (Q1.IsEmpty())
     {
         Q1.Enqueue(item);
@@ -71,7 +72,7 @@ void StackfromQueue::push(T item) {
     }
 }
 template <typename T>
-int StackfromQueue::peek() {
+T StackfromQueue<T>::peek() {
     if (!Q1.IsEmpty()) {
         return Q1.GetFront();
     }
