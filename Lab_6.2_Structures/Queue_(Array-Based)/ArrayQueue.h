@@ -17,7 +17,9 @@ class Queue {
         bool IsFull() const;
         void ReverseK(Queue& q, int k) const;
         int SlidingWindowMaximum(int arr[], int n, int k, int out[]);
-        
+        void generateBinary(int n);
+        void Interleave();
+        int GetLength() const;
        // void generateBinary(int n);
 };
 template <typename T>

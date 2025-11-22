@@ -16,4 +16,6 @@ public:
     bool IsPalindrome(const char* s);
     void PrintReverse(CircularQueue& q);
     bool Remove(int x);
+    int CircularTour( int petrol[], int dist[], int n);
+    void PrintQueue();
 };

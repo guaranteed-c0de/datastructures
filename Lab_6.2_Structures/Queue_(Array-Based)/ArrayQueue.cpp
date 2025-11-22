@@ -29,6 +29,10 @@ T Queue<T>::GetFront() const{
 return arr[front];
 }
 template <typename T>
+int Queue<T>::GetLength() const {
+    return rear - front + 1;
+}
+template <typename T>
 bool Queue<T>::IsEmpty() const {
     return front > rear;
 }
@@ -93,4 +97,25 @@ void Queue<T>::generateBinary(int n) {
         M.Enqueue(binary1);
         M.Enqueue(binary2);
     } 
-}*/
+}
+
+template <typename T>
+void Queue<T>::Interleave() {
+    int size = GetLength();
+    int half = size/2;
+    Queue AuxQueue;
+
+    for (int i = 1; i <= half; i++)
+    {
+        AuxQueue.Enqueue(Dequeue());
+    }
+    while (!AuxQueue.IsEmpty())
+    {
+        int val1 = AuxQueue.Dequeue();
+        Enqueue(val1);
+        int val2 = Dequeue();
+        Enqueue(val2);
+    }
+    
+
+}

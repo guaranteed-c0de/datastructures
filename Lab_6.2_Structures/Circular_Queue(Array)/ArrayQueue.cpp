@@ -1,13 +1,35 @@
 #include "ArrayQueue.h"
 #include <iostream>
+#include <stdexcept>
 using namespace std;
-
 
 void CircularQueue::Enqueue(int value) {
     if (IsFull())
     {
-        cout << "List is full, no items can be added";
+        throw std::overflow_error("List is full, no items can be added\n");
     }
+    else {
+        rear = (rear + 1)%MAX;
+        arr[rear] = value;
+        size++;
+    }
+}
+int CircularQueue::Dequeue() {
+    if (IsEmpty())
+    {
+        throw std::underflow_error("List is empty, no items can be removed.");
+    }
+    else {
+        front = (front+1)%MAX;
+        size--;
+    }
+}
+int CircularQueue::GetFront() const{
+    if (IsEmpty())
+    {
+        throw std::underflow_error("List is empty, no items can be removed.");
+    }
+    return arr[front];
 }
 
 bool CircularQueue::IsEmpty() const {
@@ -32,7 +54,91 @@ bool CircularQueue:: Remove(int x) {
         }
     }
 }
-void PrintQueue() {
+void CircularQueue::firstNegative(int parr[], int n, int k)
+{
+    CircularQueue CQ;
+    int result[n - k + 1];
+
+    for (int i = 0; i < k; i++)
+    {
+        if (parr[i] < 0)
+        {
+            CQ.Enqueue(i);
+        }
+    }
+    if (!CQ.IsEmpty())
+    {
+        result[0] = parr[CQ.GetFront()];
+    }
+    else {
+        result[0] = 0;
+    }
+    int outIndex = 1;
+    for (int i = k; i<n; i++)
+    {
+        while (!CQ.IsEmpty() && CQ.GetFront() <= i - k)
+        {
+            CQ.Dequeue();
+        }
+        if (parr[i] < 0)
+        {
+            CQ.Enqueue(i);
+        }
+        if (!CQ.IsEmpty())
+        {
+            result[outIndex] = parr[CQ.GetFront()];
+        }
+        else {
+            result[outIndex] = 0;
+        }
+        outIndex++;
+    }
+    cout << "Okay. These are the first negatives in every window of size " << k << endl;
+    for (int i = 0; i < n - k + 1; i++)
+    {
+        cout << "Window " << i + 1 << ": " << result[i] << endl;
+    }
+
+}
+int CircularQueue::CircularTour(int petrol[], int dist[], int n)
+{
+    CircularQueue CQ;
+    int start = 0;
+    int currentFuel = 0;
+    int visited = 0;
+
+    int i = 0;
+
+    while (visited <2*n)
+    {
+        currentFuel += petrol[i] - dist[i];
+        CQ.Enqueue(i);
+        while (currentFuel < 0 && !CQ.IsEmpty())
+        {
+            int removedStation = CQ.Dequeue();
+
+            start = removedStation + 1;
+            currentFuel = 0;
+            for (int i = CQ.front; ; i = (i + 1)%MAX )
+            {
+                 int j = CQ.arr[i];
+                 currentFuel += petrol[j] - dist[j];
+
+                if (i == CQ.rear)
+                 break;
+            }
+        
+        }
+        if (CQ.size == n)
+        {
+            return start;
+        }
+        i = (i + 1) % n;
+        visited = visited + 1;
+    }
+    return -1;
+}
+void CircularQueue:: PrintQueue() {
 
     if(IsEmpty()) {
         cout << "Empty Queue" << endl;
@@ -40,8 +146,8 @@ void PrintQueue() {
     }
     int i = front;
     for (int count = 0; count < size; count++) { //Counter will be related to the number of times we enqueue.
-        cout << data[i] << " ";
-        i = (i + 1) % capacity;
+        cout << arr[i] << " ";
+        i = (i + 1) % MAX;
     }
 }
 
