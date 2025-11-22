@@ -64,7 +64,7 @@ Queue Q;
 
 for (int i = 0; i < k; i++)
 {
-    while (!Q.IsEmpty() && )
+    while (!Q.IsEmpty())
     {
         Q.Enqueue(arr[i]);
     }
@@ -77,7 +77,8 @@ for (int i = k; i<n; i++)
     outIndex++;
 }
 }
-/*void Queue::generateBinary(int n) {
+template <typename T>
+void Queue<T>::generateBinary(int n) {
     Queue M;
 
     M.Enqueue("1");
