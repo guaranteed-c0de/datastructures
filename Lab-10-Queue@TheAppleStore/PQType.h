@@ -1,7 +1,7 @@
 // Definition of class PQType, which represents the Priority Queue ADT
 class FullPQ{};
 class EmptyPQ{};
-#include "heap.h"
+#include "Heap.h"
 template<class ItemType>
 class PQType
 {
