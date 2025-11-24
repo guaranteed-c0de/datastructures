@@ -183,7 +183,7 @@ bool Stack<T>::BalancedHelper(Stack& openStack) {
             return false;
         }
     }
-}
+//comment
 
 bool isMatching(char open, char close) {
     return (open == '(' && close == ')') || (open == '{' && close == '}' || (open == '[' && close == ']'));
