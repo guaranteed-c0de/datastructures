@@ -1,30 +1,34 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 #include <iostream>
+#include <stdexcept>
 using namespace std;
+template <typename T>
 struct Node {
-    int data;
+    T data;
     Node* next;
-    Node(int val) : data(val), next(nullptr) {}
+    Node(T val) : data(val), next(nullptr) {}
 };
-
+template <typename T>
 class Queue {
 public:
     Node* front;
     Node* rear;
-    Queue() : front(nullptr), rear(nullptr) {}
-    void enqueue(int val);
-    int dequeue();
+    int length;
+    Queue() : front(nullptr), rear(nullptr), length(0) {}
+    void enqueue(T val);
+    T dequeue();
     bool isEmpty();
     void reverseQueue();
     int GetLength();
-    Node* interleaveQueue(Queue& q);
-     
+    Node<T>* interleaveQueue(Queue<T>& Q);
+    void OneToN(int n);
+    
 
 };
-int Queue::GetLength() {
+template <typename T>
+int Queue<T>::GetLength() {
     Node* loc = rear;
-    int length = 0;
     while (loc)
     {
         loc = loc->next;
@@ -32,7 +36,9 @@ int Queue::GetLength() {
     }
     return length;
 }
-void Queue::enqueue(int val) {
+template <typename T>
+
+void Queue<T>::enqueue(T val) {
      Node* newNode = new Node(val);
     if (!front && !rear){
         front = newNode;
@@ -42,9 +48,16 @@ void Queue::enqueue(int val) {
     rear->next = newNode;
     rear = newNode;
    }
+   length++;
 }
 
-int Queue::dequeue() {
+template <typename T>
+T Queue<T>::dequeue() {
+
+    if (isEmpty())
+    {
+        throw std:: underflow_error("The list is empty.\n");
+    }
     int value = front->data;
     Node* temp = front;
     front = front->next;
@@ -56,11 +69,12 @@ int Queue::dequeue() {
     return value;
 }
 
-bool Queue::isEmpty() {
+template <typename T>
+bool Queue<T>::isEmpty() {
     return front == nullptr;
 }
-
-void Queue::reverseQueue() {
+template <typename T>
+void Queue<T>::reverseQueue() {
     if (front == nullptr || front == rear)
     {
         return;
@@ -70,7 +84,9 @@ void Queue::reverseQueue() {
 
     enqueue(temp);
 } //O(n) time complexity... //Comment.
-Node* Queue::interleaveQueue(Queue& Q) {
+
+template <typename T>
+Node<T>* Queue<T>::interleaveQueue(Queue<T>& Q) {
     if (Q.isEmpty())
     {
         return nullptr;
@@ -81,7 +97,7 @@ Node* Queue::interleaveQueue(Queue& Q) {
         cout << "Invalid queue. There must be an even number of elements.";
         return nullptr;
     }
-    Queue temp;
+    Queue<T> temp;
 
     for (int i = 1; i <= Nnodes/2; i++)
     {
@@ -90,8 +106,8 @@ Node* Queue::interleaveQueue(Queue& Q) {
     interleaveHelper(temp, Q);
     return Q.rear;
 }
-
-void interleaveHelper(Queue FirstHalf, Queue SecondHalf)
+template <typename T>
+void interleaveHelper(Queue<T> FirstHalf, Queue<T> SecondHalf)
 {
     if (FirstHalf.isEmpty())
     {
@@ -105,6 +121,24 @@ void interleaveHelper(Queue FirstHalf, Queue SecondHalf)
    SecondHalf.enqueue(a);
    SecondHalf.enqueue(b);
 }
+template <typename T>
+void Queue<T>::OneToN(int n) {
+Queue Q;
+Q.enqueue("1");
 
+RecursiveHelper(Q, n);
+}
+template <typename T>
+void RecursiveHelper(Queue<T>& Q, int n)
+{
+    if (n == 0)
+    return;
+    string s = Q.dequeue();
+    cout << s << endl;
+    Q.enqueue(s"0");
+    Q.enqueue(s"1");
+    RecursiveHelper(Q, n - 1);
+
+}
 
 #endif //QUEUE_H
