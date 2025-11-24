@@ -11,10 +11,10 @@ class Customer {
         string name;
         int arrivalNumber;
         int priority;
-        int waitTime;
+        int waitTime
 
         Customer(): name(""), arrivalNumber(0), priority(0), waitTime(0) {}
-
+s
         Customer(string name, int arrivalNumber)
             :name(name), arrivalNumber(arrivalNumber), priority(0), waitTime(0) {
 
@@ -22,8 +22,15 @@ class Customer {
             tmp.erase(remove(tmp.begin(), tmp.end(), ' '), tmp.end());
             priority = tmp.length();
             waitTime = 0;
-            }
-    bool operator<(const)
+        }
+
+        bool Customer operator >(const Customer& C) const{
+            return priority > c.priority;
+        }
+
+        bool Customer operator < ( const Customer& C ) const{
+            return priority < c.priority;
+        }
 
 };
 void loadNames(string names[], int maxName) {
