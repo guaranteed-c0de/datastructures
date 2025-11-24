@@ -82,8 +82,9 @@ void Stack::SortHelper(int value) {
     if (isEmpty() || top->data <= value)
     {
         push(value);
+        return;
     }
-    return;
+    
 
     int temp = pop();
     SortHelper(value);
