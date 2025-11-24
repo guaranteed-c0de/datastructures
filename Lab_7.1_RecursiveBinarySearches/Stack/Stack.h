@@ -28,6 +28,8 @@ public:
     void insertAtBottom(int value);
     int EvaluatePostfix();
     int EvaluateHelper();
+    bool isBalanced();
+    bool BalancedHelper(Stack& openStack);
 };
 template <typename T>
 void Stack<T>::push(T val) {
@@ -150,5 +152,40 @@ int Operate(int a, int b, char op)
     if (op == '-') return a - b;
     if (op == '*') return a * b;
     if (op == '/') return a / b;
+}
+template <typename T>
+bool Stack<T>::isBalanced() {
+Stack openStack;
+
+return BalancedHelper(openStack);
+}
+
+template <typename T>
+bool Stack<T>::BalancedHelper(Stack& openStack) {
+    if (isEmpty()) {
+        return true;
+    }
+    char ch = pop();
+    if (ch == '(' || ch == '[' || ch == '{')
+    {
+        openStack.push(ch);
+    }
+    else if (ch == ']' || ch == '}' || ch== ')')
+    {
+        if (openStack.isEmpty())
+        {
+            return false;
+        }
+        top = openStack.pop();
+
+        if (!isMatching(top, ch))
+        {
+            return false;
+        }
+    }
+}
+
+bool isMatching(char open, char close) {
+    return (open == '(' && close == ')') || (open == '{' && close == '}' || (open == '[' && close == ']'));
 }
 #endif //STACK_H 
