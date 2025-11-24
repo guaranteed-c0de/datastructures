@@ -1,8 +1,8 @@
 #include "Stack.h"
 #include <iostream>
-
+template <typename T>
 int main() {
-    Stack Ventus;
+    Stack<T> Ventus;
     Ventus.push(5);
     Ventus.push(10);
     Ventus.push(3);

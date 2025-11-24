@@ -3,27 +3,34 @@
 #include <iostream>
 using namespace std;
 #include <stdexcept>
-struct Node {
-int data;
+#include <string>
+#include <cctype>
+template <typename T>
+struct Node{
+T val;
 Node* next;
-Node(int val) : data(val), next(nullptr) {}
+Node(T val) : data(val), next(nullptr) {}
 };
-
+template <typename T>
 class Stack{
 public:
     Node* top;
     int length;
     Stack() : top(nullptr), length(0) {}
-    void push(int val);
-    int pop();
-    int peek();
+    void push(T val);
+    T pop();
+    T peek();
     bool isEmpty();
     void Print();
     void sortStack();
     void SortHelper(int value);
+    void Reverse();
+    void insertAtBottom(int value);
+    int EvaluatePostfix();
+    int EvaluateHelper();
 };
-
-void Stack::push(int val) {
+template <typename T>
+void Stack<T>::push(T val) {
     Node* newNode = new Node(val);
     if (isEmpty())
     {
@@ -35,7 +42,8 @@ void Stack::push(int val) {
     }
     length++;
 }
-int Stack::pop() {
+template <typename T>
+T Stack<T>::pop() {
     if (isEmpty())
     throw std::underflow_error("List is empty.");
     int x = top->data;
@@ -45,16 +53,19 @@ int Stack::pop() {
     length--;
     return x;
 }
-bool Stack::isEmpty() {
+template <typename T>
+bool Stack<T>::isEmpty() {
     return top == nullptr;
 }
-int Stack::peek() {
+template <typename T>
+T Stack<T>::peek() {
 
     if (isEmpty())
      throw std::underflow_error("List is empty.");
     return top->data;
 }
-void Stack::Print() {
+template <typename T>
+void Stack<T>::Print() {
     if (isEmpty())
     {
         throw std::underflow_error("List is empty.");
@@ -67,7 +78,8 @@ void Stack::Print() {
         loc = loc->next;
     }
 }
-void Stack::sortStack() {
+template <typename T>
+void Stack<T>::sortStack() {
     if (isEmpty())
     {
         return;
@@ -77,8 +89,8 @@ void Stack::sortStack() {
     sortStack();
     SortHelper(temp);
 }
-
-void Stack::SortHelper(int value) {
+template <typename T>
+void Stack<T>::SortHelper(int value) {
     if (isEmpty() || top->data <= value)
     {
         push(value);
@@ -91,6 +103,52 @@ void Stack::SortHelper(int value) {
 
     push(temp);
 }
+template <typename T>
+void Stack<T>::Reverse() {
+    if (isEmpty())
+    {
+        return;
+    }
+    int temp = pop();
+    Reverse();
+
+    insertAtBottom(temp);
+}
+template <typename T>
+void Stack<T>::insertAtBottom(int value) {
+    if (isEmpty()) {
+        push(value);
+        return;
+    }
+    int temp = pop();
+    insertAtBottom(temp);
+
+}
+
+template <typename T>
+int Stack<T>::EvaluatePostfix() {
+return EvaluateHelper(); 
+}
+template <typename T>
+int Stack<T>::EvaluateHelper() {
+char token = pop();
+if (isdigit(static_cast<unsigned char>)(token));
+{
+    return (token - '0');
+}
 
 
+int rightValue = EvaluateHelper();
+int leftValue = EvaluateHelper();
+
+return Operate(leftValue, rightValue, token);
+}
+
+int Operate(int a, int b, char op)
+{
+    if (op == '+') return a + b;
+    if (op == '-') return a - b;
+    if (op == '*') return a * b;
+    if (op == '/') return a / b;
+}
 #endif //STACK_H 
