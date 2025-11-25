@@ -4,6 +4,7 @@
 #include "PQType.h"
 #include <ctime>
 #include <algorithm>
+#include <fstream>
 using namespace std;
 
 class Customer {
@@ -11,10 +12,10 @@ class Customer {
         string name;
         int arrivalNumber;
         int priority;
-        int waitTime
+        int waitTime; 
 
         Customer(): name(""), arrivalNumber(0), priority(0), waitTime(0) {}
-s
+
         Customer(string name, int arrivalNumber)
             :name(name), arrivalNumber(arrivalNumber), priority(0), waitTime(0) {
 
@@ -24,12 +25,12 @@ s
             waitTime = 0;
         }
 
-        bool Customer operator >(const Customer& C) const{
-            return priority > c.priority;
+        bool operator > (const Customer& C) const{
+            return priority > C.priority;
         }
 
-        bool Customer operator < ( const Customer& C ) const{
-            return priority < c.priority;
+        bool operator < ( const Customer& C ) const{
+            return priority < C.priority;
         }
 
 };
