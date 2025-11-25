@@ -121,6 +121,7 @@ int main() {
             }
         }
         Customer nextCustomer;
+        appleStore.Enqueue(nextCustomer);
        
     }
     outputfile.close();
