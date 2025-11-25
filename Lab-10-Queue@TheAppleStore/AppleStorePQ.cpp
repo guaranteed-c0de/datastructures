@@ -25,14 +25,27 @@ class Customer {
             waitTime = 0;
         }
 
-        bool operator > (const Customer& C) const{
-            return priority > C.priority;
-        }
+       bool operator<(const Customer& other) const {
+    if (priority != other.priority)
+        return priority < other.priority;
 
-        bool operator <= ( const Customer& C ) const{
-            return priority <= C.priority;
-        }
+    return arrivalNumber > other.arrivalNumber; 
+}
 
+bool operator>(const Customer& other) const {
+    if (priority != other.priority)
+        return priority > other.priority;
+
+    return arrivalNumber < other.arrivalNumber;
+}
+
+bool operator<=(const Customer& other) const {
+    return !(*this > other);
+}
+
+bool operator>=(const Customer& other) const {
+    return !(*this < other);
+}
 };
 void loadNames(string names[], int maxName) {
 ifstream infile("roster.txt");
