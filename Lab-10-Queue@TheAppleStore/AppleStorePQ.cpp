@@ -90,7 +90,8 @@ int main() {
         arrivalNumber++;
         string customerName = randomName(names, NAME_COUNT);
         Customer c(customerName, arrivalNumber);
-        appleStore.Enqueue(c);
+        if (!appleStore.IsFull())
+        {appleStore.Enqueue(c);}
 
     }
 
