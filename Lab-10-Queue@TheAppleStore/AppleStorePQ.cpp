@@ -120,8 +120,6 @@ int main() {
                 servedCount++;
             }
         }
-        Customer nextCustomer;
-        appleStore.Enqueue(nextCustomer);
        
     }
     outputfile.close();
