@@ -51,12 +51,13 @@ void loadNames(string names[], int maxName) {
 ifstream infile("roster.txt");
 if (!infile) {
     cerr<< "Could not open roster.txt.\n";
-}
-
-for (int i = 0; i < maxName; ++i) {
+    for (int i = 0; i < maxName; ++i) {
     names[i] = "Default Name " + to_string(i+1);
     return;
 } 
+}
+
+
 string line;
 int index = 0;
 
@@ -67,7 +68,7 @@ while (index < maxName && getline(infile, line)) {
 }
 
 while (index < maxName) {
-    names[index++] = "Default Name " + to_string(index);
+    names[index] = "Default Name " + to_string(index + 1);
 }
 infile.close();
 }
