@@ -35,7 +35,28 @@ class Customer {
 
 };
 void loadNames(string names[], int maxName) {
+ifstream infile("roster.txt");
+if (!infile) {
+    cerr<< "Could not open roster.txt.\n";
+}
 
+for (int i = 0; i < maxName; ++i) {
+    names[i] = "Default Name " + to_string(i+1);
+    return;
+} 
+string line;
+int index = 0;
+
+while (index < maxName && getline(infile, line)) {
+    if (!line.empty()) {
+        names[index++] = line;
+    }
+}
+
+while (index < maxName) {
+    names[index++] = "Default Name " + to_string(index);
+}
+infile.close();
 }
 
 string randomName(string names[], int count) {
@@ -62,7 +83,7 @@ int main() {
     //The store opens. We need to serve up to 200 customers.
     const int GOAL_SERVICES = 200;
     int servedCount = 0;
-
+    ofstream outputfile("Wait_times");
     //open a file for output log.
 
     while (servedCount < GOAL_SERVICES && !appleStore.IsEmpty())
@@ -71,21 +92,22 @@ int main() {
         if (action<60) {
 
             arrivalNumber++;
-            //get a random name
-            //create a customer.
-            //Enqueue
+            string customerName = randomName(names, NAME_COUNT);
+            Customer c(customerName, arrivalNumber);
+            appleStore.Enqueue(c);
         }
         else {
             //service
             if (!appleStore.IsEmpty())
             {
-                //Dequeue
-                //Calculate the wait time.
-                //log the wait time.
+                Customer served;
+                appleStore.Dequeue(served);
+                served.waitTime = arrivalNumber - served.arrivalNumber;
+                outputfile << served.name << '\t' << served.waitTime << '\n';
                 servedCount++;
             }
         }
         Customer nextCustomer;
-        appleStore.Dequeue(nextCustomer);
+       
     }
 }
