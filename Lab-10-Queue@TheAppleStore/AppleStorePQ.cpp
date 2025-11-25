@@ -123,4 +123,6 @@ int main() {
         Customer nextCustomer;
        
     }
+    outputfile.close();
+    return 0;
 }
