@@ -29,8 +29,8 @@ class Customer {
             return priority > C.priority;
         }
 
-        bool operator < ( const Customer& C ) const{
-            return priority < C.priority;
+        bool operator <= ( const Customer& C ) const{
+            return priority <= C.priority;
         }
 
 };
