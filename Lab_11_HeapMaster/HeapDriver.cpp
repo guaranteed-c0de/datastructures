@@ -3,18 +3,18 @@
 int main() {
     HeapMaster<int, 100005, std::greater<int>> Face;
 
-    for (int i = 1; i <= 20; i++)
+    for (int i = 1; i <= 10; i++)
     {
         Face.push(i);
     }
     Face.printArray();
 
-    Face.top();
-    int x = 0;
+   cout << "The top of the heap is " <<  Face.top();
+   /* int x = 0;
     while (x < 10)
     {
         Face.pop();
         x++;
     }
-    Face.printArray();
+    Face.printArray(); */
 }
