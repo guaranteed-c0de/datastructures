@@ -72,10 +72,10 @@ DNode* DoublyLinkedList:: sortedInsert(DNode* head, int value) {
     DNode* newNode = new DNode(value);
     if (head == nullptr)
     {
-        head = newNode;
+        return = newNode;
     }
 
-    if (newNode->data <= head->data) {
+    if (value <= head->data) {
         newNode->next = head;
         head->prev = newNode;
         return newNode;
@@ -85,8 +85,10 @@ DNode* DoublyLinkedList:: sortedInsert(DNode* head, int value) {
 
     head->next = result;
 
-    result->prev = head;
-
+    if (result != nullptr)
+    {
+        result->prev = head;
+    }
     return head;
 
 
@@ -96,7 +98,7 @@ if (head == nullptr) {
 return nullptr;
 }
 
-if (head->data = value)
+if (head->data == value)
 {
     DNode* nextNode = head->next;
 

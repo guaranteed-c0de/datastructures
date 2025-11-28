@@ -110,7 +110,7 @@ Node* LinkedList::MergeSortedLists(Node* headn1, Node* headn2)
 {
     Node* mergedHead;
     if (!headn1 && !headn2) {
-
+    throw std::underflow_error("Both lists are empty.");
     }
     if (!headn1)
     {
