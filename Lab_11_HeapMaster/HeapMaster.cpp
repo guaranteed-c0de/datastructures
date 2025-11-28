@@ -7,8 +7,9 @@ template <typename T, int MAX_SIZE, typename Compare>
 const T& HeapMaster<T, MAX_SIZE, Compare>::top() const {
     if (Isempty())
     {
-        throw std::underflow_error("List is empty,");
+        throw std::underflow_error("List is empty.\n");
     }
+    
     return data[0];
 }
 
