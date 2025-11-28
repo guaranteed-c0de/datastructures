@@ -13,10 +13,6 @@ const T& HeapMaster<T, MAX_SIZE, Compare>::top() const {
 }
 
 template <typename T, int MAX_SIZE, typename Compare>
-bool HeapMaster<T, MAX_SIZE, Compare>::Isempty() const {
-return current_size == 0;
-}
-template <typename T, int MAX_SIZE, typename Compare>
 void HeapMaster<T, MAX_SIZE, Compare>::push(const T& val) {
      if (current_size >= MAX_SIZE)
         throw std::overflow_error("Heap is full.\n");

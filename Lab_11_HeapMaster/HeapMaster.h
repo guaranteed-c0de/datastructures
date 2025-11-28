@@ -38,7 +38,7 @@ class HeapMaster {
     public:
         HeapMaster() : current_size(0) {}
 
-        bool Isempty() const {return current_size = 0;}
+        bool Isempty() const {return current_size == 0;}
         int Getsize() const {return current_size;}
         const T& top() const;
 
