@@ -18,7 +18,7 @@ int main() {
       //  cout << "No, this linked list does not have a cycle.\n";
    // }
    // Sora.Print();
-   Sora.DeleteHead();
+   Sora.DeleteTail();
    Sora.Print();
    return 0;
 }
