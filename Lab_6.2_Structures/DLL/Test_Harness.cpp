@@ -10,7 +10,7 @@ int main() {
     Sora.insertTail(13);
     Sora.insertTail(23);
     Sora.Print();
-    Sora.Reverse();
+    
    //cout << "\nThe middle value in the linked list is " << Sora.Middle()->val << endl;
     //if (Sora.HasCycle()) {
       //  cout << "This linked list does have a cycle.\n";
@@ -19,7 +19,7 @@ int main() {
       //  cout << "No, this linked list does not have a cycle.\n";
    // }
    // Sora.Print();
-   Sora.Print();
+   cout << "The middle value of the linked list is " << Sora.Middle()->val << endl;
    return 0;
 }
 
