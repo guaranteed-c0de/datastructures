@@ -37,6 +37,7 @@ void DLL::insertTail(int val)
         head = tail;
     }  
     else {
+        tail->next = newNode;
         newNode->prev = tail;
         tail = newNode;
     }
