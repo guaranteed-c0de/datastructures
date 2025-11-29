@@ -22,9 +22,16 @@ struct Task {
 };
 struct TaskCompare {
     bool operator()(const Task& a, const Task& b) const {
-        return a.priority < b.priority;
+        return a.priority > b.priority;
     }
+
 };
+struct TaskCompare2 {
+    bool operator() (const Task& a, const Task& b) const {
+        return a.deadline < b.priority;
+    } 
+};
+
 template <typename T, int MAX_SIZE = 100005, typename Compare = std::greater<T>>
 class HeapMaster {
     private:
