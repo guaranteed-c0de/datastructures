@@ -79,11 +79,11 @@ void HeapMaster<T, MAX_SIZE, Compare>::printHeap() const {
     }
 
     int depth = GetDepth();
-    int maxWidth = (2 ** (depth)); // number of nodes on last level
+    int maxWidth = pow(2, depth); // number of nodes on last level
     int index = 0;
 
-    for (int level = 0; level =< depth; ++level) {
-        int nodesOnLevel = (2 ** level);     // 2^level
+    for (int level = 0; level <= depth; ++level) {
+        int nodesOnLevel = pow(2, level);     // 2^level
         int spacesBetween = maxWidth / nodesOnLevel;
 
         // Print leading spaces
