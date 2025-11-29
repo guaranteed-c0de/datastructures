@@ -9,12 +9,8 @@ int main() {
     }
     Face.printArray();
 
-   cout << "The top of the heap is " <<  Face.top();
-   /* int x = 0;
-    while (x < 10)
-    {
-        Face.pop();
-        x++;
-    }
-    Face.printArray(); */
+   cout << "The top of the heap is " <<  Face.top() << endl;
+  
+
+   Face.printHeap();
 }
