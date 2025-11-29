@@ -32,7 +32,7 @@ int main() {
     x.burstTime = Three(gen);
     x.deadline = Four(gen);
 
-    Priority.push(x);
+    Deadline.push(x);
    }
    cout << "This is the heap, in priority.\n";
 for (int i = 0; i<Deadline.Getsize(); i++)
