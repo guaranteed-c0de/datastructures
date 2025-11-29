@@ -69,7 +69,54 @@ cout << "This is the (raw array) heap.\n";
 cout << "End of array.\n";
 }
 
+template <typename T, int MAX_SIZE, typename Compare>
+void HeapMaster<T, MAX_SIZE, Compare>::printHeap() const {
+    cout << "This is the array, in heap form.\n";
 
+    if (size == 0) {
+        std::cout << "[empty heap]\n";
+        return;
+    }
+
+    int depth = GetDepth();
+    int maxWidth = (1 << (depth - 1)); // number of nodes on last level
+    int index = 0;
+
+    for (int level = 0; level < depth; ++level) {
+        int nodesOnLevel = (1 << level);     // 2^level
+        int spacesBetween = maxWidth / nodesOnLevel;
+
+        // Print leading spaces
+        std::cout << std::string(spacesBetween * 2, ' ');
+
+        // Print all nodes on this level
+        for (int i = 0; i < nodesOnLevel && index < size; ++i) {
+            std::cout << arr[index++];
+
+            // Spacing between siblings
+            std::cout << std::string(spacesBetween * 4, ' ');
+        }
+
+        std::cout << "\n\n"; // extra line for visual separation
+    }
+}
+
+template <typename T, int MAX_SIZE, typename Compare>
+void HeapMaster<T, MAX_SIZE, Compare>::sortHeap() {
+    for (int i = current_size/2 - 1; i >= 0; --i;)
+    {
+        heapifyDown(i);
+    }
+    int originalsize = Getsize();
+
+    for (int i = current_size - 1; i > 0; --i)
+    {
+        swap(data[0], data[i]);
+        current_size--;
+        heapifyDown(0);
+    }
+    current_size = originalsize;
+}
 
 
 

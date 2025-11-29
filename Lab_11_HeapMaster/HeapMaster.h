@@ -4,7 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstring>
-
+#include <cmath>
 struct Task {
     int id;
     int priority;
@@ -45,11 +45,12 @@ class HeapMaster {
         void push(const T& val);
         void pop();
         void clear() {current_size = 0;}
-
+        int GetDepth() const {return std::log2(Getsize());}
         bool decreaseKey(int index, const T& newVal);
         bool increaseKey(int index, const T& newVal);
         void printHeap() const;
         void printArray() const;
+        void sortHeap();
 };
 #include "HeapMaster.cpp"
 #endif //HEAPMASTER_H
