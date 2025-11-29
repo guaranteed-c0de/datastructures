@@ -7,7 +7,6 @@ int main() {
     DLL Sora;
     Sora.insertHead(7);
     Sora.insertHead(8);
-    Sora.insertTail(6);
     Sora.insertHead(9);
     Sora.insertHead(5);
     Sora.Print();
