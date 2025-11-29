@@ -5,10 +5,10 @@ using namespace std;
 
 int main() {
     DLL Sora;
-    Sora.insertHead(7);
-    Sora.insertHead(8);
-    Sora.insertHead(9);
-    Sora.insertHead(5);
+    Sora.insertTail(10);
+    Sora.insertTail(7);
+    Sora.insertTail(13);
+    Sora.insertTail(23);
     Sora.Print();
    //cout << "\nThe middle value in the linked list is " << Sora.Middle()->val << endl;
     //if (Sora.HasCycle()) {
