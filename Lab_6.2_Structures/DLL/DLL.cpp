@@ -25,15 +25,21 @@ length++;
 }
 void DLL::insertTail(int val)
 {
-    DLLNode* temp = tail; 
+   
     DLLNode* newNode = new DLLNode(val);
-    tail = newNode;
+    
+    /*tail = newNode;
     tail-> prev = temp;
-    temp->next = newNode; 
+    temp->next = newNode; */
     if (IsEmpty())
     {
+        tail = newNode;
         head = tail;
     }  
+    else {
+        newNode->prev = tail;
+        tail = newNode;
+    }
     length++;
  }
 bool DLL:: IsEmpty()
