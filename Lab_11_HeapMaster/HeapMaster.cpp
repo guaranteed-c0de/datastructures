@@ -83,7 +83,7 @@ void HeapMaster<T, MAX_SIZE, Compare>::printHeap() const {
     int index = 0;
 
     for (int level = 0; level < depth; ++level) {
-        int nodesOnLevel = (1 << level);     // 2^level
+        int nodesOnLevel = (2 ** level);     // 2^level
         int spacesBetween = maxWidth / nodesOnLevel;
 
         // Print leading spaces
@@ -91,7 +91,7 @@ void HeapMaster<T, MAX_SIZE, Compare>::printHeap() const {
 
         // Print all nodes on this level
         for (int i = 0; i < nodesOnLevel && index < size; ++i) {
-            std::cout << arr[index++];
+            std::cout << data[index++];
 
             // Spacing between siblings
             std::cout << std::string(spacesBetween * 4, ' ');
@@ -103,7 +103,7 @@ void HeapMaster<T, MAX_SIZE, Compare>::printHeap() const {
 
 template <typename T, int MAX_SIZE, typename Compare>
 void HeapMaster<T, MAX_SIZE, Compare>::sortHeap() {
-    for (int i = current_size/2 - 1; i >= 0; --i;)
+    for (int i = current_size/2 - 1; i >= 0; --i)
     {
         heapifyDown(i);
     }
