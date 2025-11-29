@@ -73,16 +73,16 @@ template <typename T, int MAX_SIZE, typename Compare>
 void HeapMaster<T, MAX_SIZE, Compare>::printHeap() const {
     cout << "This is the array, in heap form.\n";
 
-    if (size == 0) {
-        std::cout << "[empty heap]\n";
+    if (current_size == 0) {
+        std::cout << "Heap is empty.\n";
         return;
     }
 
     int depth = GetDepth();
-    int maxWidth = (1 << (depth - 1)); // number of nodes on last level
+    int maxWidth = (2 ** (depth)); // number of nodes on last level
     int index = 0;
 
-    for (int level = 0; level < depth; ++level) {
+    for (int level = 0; level =< depth; ++level) {
         int nodesOnLevel = (2 ** level);     // 2^level
         int spacesBetween = maxWidth / nodesOnLevel;
 
@@ -90,7 +90,7 @@ void HeapMaster<T, MAX_SIZE, Compare>::printHeap() const {
         std::cout << std::string(spacesBetween * 2, ' ');
 
         // Print all nodes on this level
-        for (int i = 0; i < nodesOnLevel && index < size; ++i) {
+        for (int i = 0; i < nodesOnLevel && index < current_size; ++i) {
             std::cout << data[index++];
 
             // Spacing between siblings
