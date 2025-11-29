@@ -89,14 +89,10 @@ void DLL::DeleteNode(DLLNode* node) {
         throw std::out_of_range("Cannot be deleted from this function call.\n");
     }
     else {
-       DLLNode* loc = head;
-       while (loc != node) {
-        loc = loc->next;
-       }
-       DLLNode* temp = loc;
+    
+       DLLNode* temp = node;
        node->prev->next = node->next;
-       node = node->next;
-       node->prev = node->prev->prev;
+      node ->next->prev = node->prev;
        
        delete temp;
     }
