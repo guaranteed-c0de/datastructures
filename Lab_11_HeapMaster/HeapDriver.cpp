@@ -17,6 +17,7 @@ int main() {
 
    Face.printHeap(); */
    HeapMaster<Task, 10005, TaskCompare> Priority;
+   HeapMaster<Task, 10005, TaskCompare2> Deadline;
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> One(1, 100);
@@ -34,10 +35,10 @@ int main() {
     Priority.push(x);
    }
    cout << "This is the heap, in priority.\n";
-for (int i = 0; i<Priority.Getsize(); i++)
+for (int i = 0; i<Deadline.Getsize(); i++)
 {
-    Priority.top().print();
-    Priority.pop();
+    Deadline.top().print();
+    Deadline.pop();
     cout << "\n";
 }
 }

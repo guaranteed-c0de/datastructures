@@ -28,7 +28,7 @@ struct TaskCompare {
 };
 struct TaskCompare2 {
     bool operator() (const Task& a, const Task& b) const {
-        return a.deadline < b.priority;
+        return a.deadline < b.deadline;
     } 
 };
 
