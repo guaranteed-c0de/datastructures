@@ -1,5 +1,8 @@
 #include "HeapMaster.h"
-
+#include <random>
+#include <chrono>
+#include <cstdlib>
+#include <ctime>
 int main() {
   /*  HeapMaster<int, 100005, std::greater<int>> Face;
 
@@ -14,14 +17,19 @@ int main() {
 
    Face.printHeap(); */
    HeapMaster<Task, 10005, TaskCompare> Priority;
-
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> One(1, 100);
+    std::uniform_int_distribution<> Two(1, 80);
+    std::uniform_int_distribution<> Three(1, 60);
+    std::uniform_int_distribution<> Four(1, 40);
    for (int i = 1; i<= 100; i++) {
     Task x;
     x.id = i;
-    x.priority = rand() % 100 + 1;
-    x.arrivalTime = rand() % 80 + 1;
-    x.burstTime = rand() % 60 + 1;
-    x.deadline = rand() % 40 + 1;
+    x.priority = One(gen);
+    x.arrivalTime = Two(gen);
+    x.burstTime = Three(gen);
+    x.deadline = Four(gen);
 
     Priority.push(x);
    }
