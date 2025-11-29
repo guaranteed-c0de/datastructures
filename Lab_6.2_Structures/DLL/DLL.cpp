@@ -76,7 +76,9 @@ delete temp;
 void DLL::InsertAfter(DLLNode* node, int val) {
     DLLNode* newNode = new DLLNode(val);
     newNode->next = node->next;
+    newNode->prev = node;
     node->next = newNode;
+    newNode->next->prev = newNode;
     length++;
 }
 void DLL::DeleteNode(DLLNode* node) {
