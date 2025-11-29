@@ -33,10 +33,11 @@ int main() {
 
     Priority.push(x);
    }
-   cout << "This is the heap, in priority.";
+   cout << "This is the heap, in priority.\n";
 for (int i = 0; i<Priority.Getsize(); i++)
 {
     Priority.top().print();
+    Priority.pop();
     cout << "\n";
 }
 }
