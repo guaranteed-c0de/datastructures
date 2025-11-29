@@ -12,12 +12,12 @@ int main() {
     Sora.insertHead(5);
     Sora.Print();
    //cout << "\nThe middle value in the linked list is " << Sora.Middle()->val << endl;
-    if (Sora.HasCycle()) {
-        cout << "This linked list does have a cycle.\n";
-    }
-    else {
-        cout << "No, this linked list does not have a cycle.\n";
-    }
+    //if (Sora.HasCycle()) {
+      //  cout << "This linked list does have a cycle.\n";
+    //}
+    //else {
+      //  cout << "No, this linked list does not have a cycle.\n";
+   // }
    // Sora.Print();
    return 0;
 }
