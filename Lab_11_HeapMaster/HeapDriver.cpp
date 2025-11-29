@@ -1,7 +1,7 @@
 #include "HeapMaster.h"
 
 int main() {
-    HeapMaster<int, 100005, std::greater<int>> Face;
+  /*  HeapMaster<int, 100005, std::greater<int>> Face;
 
     for (int i = 1; i <= 10; i++)
     {
@@ -12,7 +12,7 @@ int main() {
    cout << "The top of the heap is " <<  Face.top() << endl;
   
 
-   Face.printHeap();
+   Face.printHeap(); */
    HeapMaster<Task, 10005, TaskCompare> Priority;
 
    for (int i = 1; i<= 100; i++) {
