@@ -18,11 +18,14 @@ struct Task {
         std::cout << "Arrival Time: " << arrivalTime << std::endl;
         std::cout << "Burst Time: " << burstTime << std::endl;
         std::cout << "Deadline: " << deadline << std::endl;
-      
     }
 };
-
-template <typename T, int MAX_SIZE = 100005, typename Compare = std::less<T>>
+struct TaskCompare {
+    bool operator()(const Task& a, const Task& b) const {
+        return a.priority < b.priority;
+    }
+};
+template <typename T, int MAX_SIZE = 100005, typename Compare = std::greater<T>>
 class HeapMaster {
     private:
         T data[MAX_SIZE];
