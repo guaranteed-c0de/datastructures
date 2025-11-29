@@ -17,6 +17,11 @@ head->prev = nullptr;
 head->next = nullptr;
 tail = newNode;
 }
+else {
+    newNode->next = head;
+    head = newNode;
+}
+length++;
 }
 void DLL::insertTail(int val)
 {
