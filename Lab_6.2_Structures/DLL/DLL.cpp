@@ -171,5 +171,6 @@ void DLL::Print() {
         cout << loc->val << endl;
         loc = loc->next;
     }
+    cout << endl;
 }
 
