@@ -5,9 +5,11 @@ using namespace std;
 int main() {
     SCLL Riku;
     
-    Riku.SortedInsert(4);
-    Riku.SortedInsert(3);
+    Riku.InsertHead(4);
+    Riku.InsertHead(3);
+    Riku.InsertHead(25);
+    Riku.InsertHead(32);
 
     Riku.Print();
-   cout << "The length of the list is " << Riku.DetectLoopLength() << endl;
+   
 }
