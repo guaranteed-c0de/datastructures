@@ -61,6 +61,7 @@ class HeapMaster {
         void printHeap() const;
         void printArray() const;
         void sortHeap();
+        void BuildHeap(T arr[], int n);
 };
 #include "HeapMaster.cpp"
 #endif //HEAPMASTER_H

@@ -164,4 +164,15 @@ bool HeapMaster <T, MAX_SIZE, Compare>::increaseKey(int idx, const T& newVal) {
         heapifyDown(idx);           //sink down because it got worse
         return true;
 } //SRTF means Shortest Remaining Time First.
-#endif //HEAPMASTER_H
+template <typename T, int MAX_SIZE, typename Compare>
+void HeapMaster<T, MAX_SIZE, Compare>::BuildHeap(T arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        data[i] = arr[i];
+    }
+    current_size = n;
+
+    for (int i = parent(n - 1); i >0; i--) {
+        heapifyDown(i);
+    }
+}
+#endif //HEAPMASTER_CPP
