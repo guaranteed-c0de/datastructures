@@ -3,6 +3,14 @@
 #include <chrono>
 #include <cstdlib>
 #include <ctime>
+struct SRTFTask {
+  int id;
+  int remaining_time;
+  int arrival_time;
+  bool operator<(const SRTFTask& other) const {
+  return remaining_time < other.remaining_time; //min-heap
+}
+};
 int main() {
   /*  HeapMaster<int, 100005, std::greater<int>> Face;
 
@@ -16,7 +24,31 @@ int main() {
   
 
    Face.printHeap(); */
-   HeapMaster<Task, 10005, TaskCompare> Priority;
+   HeapMaster<SRTFTask, 1000, std::less<SRTFTask>> SRTF;
+
+   //Insert tasks
+   SRTF.push({1, 10, 0});
+   SRTF.push({2, 3, 1});
+   SRTF.push({3, 5, 2});
+
+   //Simulate time
+   int time = 0;
+   while (!SRTF.Isempty()) {
+    auto task = SRTF.top(); SRTF.pop();
+    cout << "Time " << time << ": Running Task " << task.id
+    << " (rem=" << task.remaining_time << ")\n";
+
+    task.remaining_time -=1;
+    time++;
+
+    if (task.remaining_time > 0) {
+      //Put back with decreased reamining time-> higher priority!
+      SRTF.push(task); //Or better: Use decreaseKey if you keep index.
+    }
+   }
+
+
+  /* HeapMaster<Task, 10005, TaskCompare> Priority;
    HeapMaster<Task, 10005, TaskCompare2> Deadline;
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -40,5 +72,5 @@ for (int i = 0; i<Deadline.Getsize(); i++)
     Deadline.top().print();
     Deadline.pop();
     cout << "\n";
-}
+} */
 }

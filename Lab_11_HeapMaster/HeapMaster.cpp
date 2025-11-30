@@ -118,6 +118,50 @@ void HeapMaster<T, MAX_SIZE, Compare>::sortHeap() {
     current_size = originalsize;
 }
 
+template<typename T, int MAX_SIZE, typename Compare>
+bool HeapMaster<T, MAX_SIZE, Compare>::decreaseKey(int index, const T& newVal) {
+    if (index < 0 || index >= current_size)
+        return false;
+        //For min-heap: New value must be SMALER (higher priority)
+        //For max-heap: we interpret "decreaseKey" as making it worse -> use increaseKey instead
+    if constexpr (std::is_same_v<Compare, std::less<T>>) {
+        if (comp(newVal, data[index])) { //newVal < old -> not allowed in min-heap decreaseKey
+            return false;
+        }
+    } else {//In max-heap, decreaseKey means making it smaller (worse priority)
+            //We'll allow it, but most scheduling uses min-heap on remaining time.
+            if (comp(data[index], newVal)) {//Old > new -> making it worse
+                //This is actually increaseKey in max-heap terms->use increaseKey logic.
+                data[index] = newVal;
+                heapifyDown(index);
+                return true;
+            }
+    }
 
+    //Standard decreaseKey (improving priority)
+    data[index] = newVal;
+    heapifyUp(index);
+    return true; //Bubble up because it got better.
+}
 
+//increaseKey: Make element at index 'idx' worse (lower priority)
+//Used in max-heap when priority drops, or in SRTF when remaining time increases.
+template <typename T, int MAX_SIZE, typename Compare>
+bool HeapMaster <T, MAX_SIZE, Compare>::increaseKey(int idx, const T& newVal) {
+        if (idx < 0 || idx >= current_size)
+        return false;
+
+        if constexpr (std::is_same_v<Compare, std::less<T>>) {
+            //min-heap: increaseKey = make value larger (worse priority)
+            if (comp(newVal, data[idx])) return false; //newVal < old ->not increase
+        }
+        else {
+            //max-heap: increaseKey = make value smaller (worse)
+            if (comp(data[idx], newVal)) return false; //old > new->not increase
+        }
+
+        data[idx] = newVal;
+        heapifyDown(idx);           //sink down because it got worse
+        return true;
+} //SRTF means Shortest Remaining Time First.
 #endif //HEAPMASTER_H
