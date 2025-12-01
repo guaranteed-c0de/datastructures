@@ -14,16 +14,16 @@ class CircularLinkedList {
     public:
         CNode* head;
         CircularLinkedList() : head(nullptr){}
-        void insert(int val);
+        void insert(int val); //O(n)
         void print(CNode* head);
-        int CalculateCycle(CNode* head);
+        int CalculateCycle(CNode* head); //O(n)
         int LengthHelper(CNode* node, CNode* head);
-        void SortedInsert(int val);
-        void InsertHelper(CNode* node, int val);
-        void DeleteNode(CNode* node, CNode* original);
-        std::pair<CNode*, CNode*> SplitCircularList(CNode* head);
+        void SortedInsert(int val); //O(n)
+        void InsertHelper(CNode* node, int val); //O(n)
+        void DeleteNode(CNode* node, CNode* original); //O(n)
+        std::pair<CNode*, CNode*> SplitCircularList(CNode* head); //O(n)
         std::pair<CNode*, CNode*> SplitHelper(CNode* head, CNode* slow, CNode* fast);
-        int Josephus(CNode* head, int k);
+        int Josephus(CNode* head, int k); //O(n)
         int JosephusHelper(CNode* node, int k);
        
 };

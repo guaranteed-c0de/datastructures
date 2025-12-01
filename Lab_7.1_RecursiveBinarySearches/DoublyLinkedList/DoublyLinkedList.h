@@ -18,13 +18,13 @@ class DoublyLinkedList{
         DoublyLinkedList() : head(nullptr) {}
         void insert(int val);
         void print(DNode* head);
-        DNode* RecursivelyReverse(DNode* head);
-        DNode* sortedInsert(DNode* head, int value);
-        DNode* DeletebyValue(DNode* head, int value);
-        pair <int, int> FindPair(DNode* head, int target);
+        DNode* RecursivelyReverse(DNode* head); //O(n)
+        DNode* sortedInsert(DNode* head, int value); //O(n)
+        DNode* DeletebyValue(DNode* head, int value); //O(n)
+        pair <int, int> FindPair(DNode* head, int target); //O(2^n)
         pair <int, int> FindPairHelper(DNode*, DNode*, int);
-        DNode* Flatten(DNode* head);
-        DNode* RotatebyK(DNode* head, int k);
+        DNode* Flatten(DNode* head); //O(n)
+        DNode* RotatebyK(DNode* head, int k); //O(n*k)
 };
 
 void DoublyLinkedList:: insert(int val) {
@@ -72,7 +72,7 @@ DNode* DoublyLinkedList:: sortedInsert(DNode* head, int value) {
     DNode* newNode = new DNode(value);
     if (head == nullptr)
     {
-        return = newNode;
+         newNode;
     }
 
     if (value <= head->data) {
@@ -192,7 +192,7 @@ DNode* FlattenHelper(DNode* node) {
     return last;
 
 }
-DNode* RotatebyK(DNode* head, int k) {
+DNode* DoublyLinkedList:: RotatebyK(DNode* head, int k) {
 
     if (k == 0 || head == nullptr || head->next == nullptr)
     {

@@ -15,16 +15,16 @@ class LinkedList {
         LinkedList() : head(nullptr) {}
         void insert(int val); 
         void print(Node* head);
-        Node* RecursivelyReverse(Node* head);
-        Node* findMiddle(Node* head);
+        Node* RecursivelyReverse(Node* head); //O(n)
+        Node* findMiddle(Node* head); //O(n)
         Node* DetectMiddle(Node* head1, Node* head2);
-        bool FindCycle(Node* head2);
+        bool FindCycle(Node* head2); //O(n)
         bool DetectCycle (Node* head1, Node* head2);
-        Node* MergeSortedLists(Node* headn1, Node* headn2);
-        Node* RemoveDuplicate(Node* headplh);
+        Node* MergeSortedLists(Node* headn1, Node* headn2); //O(n)
+        Node* RemoveDuplicate(Node* headplh); //O(n^2)
         Node* DetectDuplicate(Node* headplh);
         bool DuplicateExists(Node* nodeplh, int value);
-        std::pair<Node*, Node*> partitionList(Node* head, int x);
+        std::pair<Node*, Node*> partitionList(Node* head, int x); //O(n)
         std::pair<Node*, Node*> partitionHelper(Node* node, int x);
         
     };

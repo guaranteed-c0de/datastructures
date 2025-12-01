@@ -19,10 +19,10 @@ public:
     void enqueue(T val);
     T dequeue();
     bool isEmpty();
-    void reverseQueue();
-    int GetLength();
-    Node<T>* interleaveQueue(Queue<T>& Q);
-    void OneToN(int n);
+    void reverseQueue(); //O(n)
+    int GetLength(); //O(n)
+    Node<T>* interleaveQueue(Queue<T>& Q); //O(n)
+    void OneToN(int n); //O(n)
     
 
 };
@@ -74,7 +74,7 @@ bool Queue<T>::isEmpty() {
     return front == nullptr;
 }
 template <typename T>
-void Queue<T>::reverseQueue() {
+void Queue<T>::reverseQueue() { 
     if (front == nullptr || front == rear)
     {
         return;

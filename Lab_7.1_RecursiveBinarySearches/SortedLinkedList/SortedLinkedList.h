@@ -15,11 +15,11 @@ class SortedLinkedList {
         SortedLinkedList() : head(nullptr) {}
         void insert(int val);
         void print(Node* head);
-        bool BinarySearch(Node* head, int target);
-        Node* QuickSort(Node* head);
-        Node* MergeSort(Node* head);
-        Node* HeapSort(Node* head);
-        Node* insertionSort(Node* head);
+        bool BinarySearch(Node* head, int target); //O(n*log(n))
+        Node* QuickSort(Node* head); //O(n^2)
+        Node* MergeSort(Node* head); //O(n)
+        Node* HeapSort(Node* head); //O(n^2log(n))
+        Node* insertionSort(Node* head); //O(n^2)
 };
 
 void SortedLinkedList:: insert(int val) {

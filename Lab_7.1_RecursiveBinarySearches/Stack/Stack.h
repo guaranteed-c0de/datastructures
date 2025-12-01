@@ -22,13 +22,13 @@ public:
     T peek();
     bool isEmpty();
     void Print();
-    void sortStack();
+    void sortStack(); //O(n^2)
     void SortHelper(int value);
-    void Reverse();
-    void insertAtBottom(int value);
-    int EvaluatePostfix();
+    void Reverse(); //O(n)
+    void insertAtBottom(int value); //O(n)
+    int EvaluatePostfix(); //O(n)
     int EvaluateHelper();
-    bool isBalanced();
+    bool isBalanced(); //O(n)
     bool BalancedHelper(Stack& openStack);
 };
 template <typename T>
@@ -183,6 +183,7 @@ bool Stack<T>::BalancedHelper(Stack& openStack) {
             return false;
         }
     }
+}
 //comment
 
 bool isMatching(char open, char close) {
