@@ -204,12 +204,12 @@ void CircularQueue::PrintReverse() {
         cout << S.pop() << endl;
     }
 }
-class LRUCache: public CircularQueue {
+class LRUCache: public CircularQueue {  
     private:
+    int size, front, rear;
     CircularQueue queue;
     static const int capacity = 100;
     static const int Lsize = 10;
-
     bool present[capacity];
     public:
     LRUCache() {
@@ -219,7 +219,7 @@ class LRUCache: public CircularQueue {
     }
     void reference(int x) {
         if (x < 0 || x>= capacity) {
-            std::cout << "Value out of range.";
+            std::cout << "Value out of range.\n";
             return;
         }
         if (!present[x]) {

@@ -3,7 +3,10 @@
 #include <chrono>
 #include <cstdlib>
 #include <ctime>
-
+#include <iostream>
+#include <vector>
+#include <climits>   // for INT_MAX
+#include <algorithm>
 struct SRTFTask {
   int id;
   int remaining_time;
@@ -27,6 +30,11 @@ int main() {
    Face.printHeap(); */
    HeapMaster<SRTFTask, 1000, std::less<SRTFTask>> SRTF;
   const int NUMBER_OF_TASKS = 1000;
+int PriorityarrivalTime[NUMBER_OF_TASKS];
+int PriorityburstTime[NUMBER_OF_TASKS];
+int Prioritydeadline[NUMBER_OF_TASKS];     
+int Prioritypriority[NUMBER_OF_TASKS];     
+bool Prioritydone[NUMBER_OF_TASKS];
    //Insert tasks
    SRTF.push({1, 10, 0});
    SRTF.push({2, 3, 1});
@@ -68,64 +76,66 @@ int main() {
     Deadline.push(x);
     Priority.push(x);
    }
-int EDFmissed = 0;
-int WaitTime;
-int TotalWaitTime = 0;
-for (int i = 0; i < NUMBER_OF_TASKS; i++)
-{
-  WaitTime = Deadline.top().arrivalTime;
-  TotalWaitTime += WaitTime;
-  
+for (int i = 0; i < NUMBER_OF_TASKS; i++) {
+PriorityarrivalTime[i] = Priority.top().arrivalTime;
+PriorityburstTime[i] = Priority.top().burstTime;
+Prioritydeadline[i] = Priority.top().deadline;
+Prioritypriority[i] = Priority.top().priority;
+Prioritydone[i] = false;
+Priority.pop();
 }
-template <typename Comparator>
-TaskStats runScheduler(std::vector<Task> tasks, Comparator comp) {
-    TaskStats stats;
-    int N = tasks.size();
 
-    // sort by arrival time
-    std::sort(tasks.begin(), tasks.end(),
-              [](const Task& a, const Task& b) { return a.arrivalTime < b.arrivalTime; });
+}
+void runFixedPriority(std::vector<Task> tasks) {
+    int n = (int)tasks.size();
+    std::vector<bool> done(n, false);
+    int finished = 0;
+    int currentTime = 0;
 
-    // ready queue
-    std::priority_queue<Task, std::vector<Task>, Comparator> ready(comp);
+    long long totalWait = 0;
+    long long totalTurnaround = 0;
+    int missedDeadlines = 0;
 
-    int time = 0;
-    int index = 0;  // next arrival
-
-    while (index < N || !ready.empty()) {
-
-        // Add any newly arrived tasks
-        while (index < N && tasks[index].arrivalTime <= time) {
-            ready.push(tasks[index]);
-            index++;
+    while (finished < n) {
+        // find best task among arrived tasks (higher priority value = better)
+        int next = -1;
+        int bestPriority = INT_MIN;
+        for (int i = 0; i < n; ++i) {
+            if (done[i]) continue;
+            if (tasks[i].arrivalTime <= currentTime) {
+                if (tasks[i].priority > bestPriority) {
+                    bestPriority = tasks[i].priority;
+                    next = i;
+                }
+            }
         }
 
-        if (ready.empty()) {
-            time++; // advance idle time
+        // if none available, jump to next arrival
+        if (next == -1) {
+            int soonest = INT_MAX;
+            for (int i = 0; i < n; ++i) if (!done[i] && tasks[i].arrivalTime < soonest) soonest = tasks[i].arrivalTime;
+            currentTime = soonest;
             continue;
         }
 
-        // Run highest-priority task
-        Task cur = ready.top();
-        ready.pop();
+        // schedule next
+        int startTime = currentTime;
+        int finishTime = startTime + tasks[next].burstTime;
+        int waitTime = startTime - tasks[next].arrivalTime;
+        int turnaround = finishTime - tasks[next].arrivalTime;
 
-        int startTime = time;
-        int finishTime = time + cur.burstTime;
+        totalWait += waitTime;
+        totalTurnaround += turnaround;
+        if (finishTime > tasks[next].deadline) ++missedDeadlines;
 
-        // update stats
-        int waitTime = startTime - cur.arrivalTime;
-        int turnaround = finishTime - cur.arrivalTime;
-
-        stats.totalWait += waitTime;
-        stats.totalTurnaround += turnaround;
-        stats.completed++;
-
-        if (finishTime > cur.deadline)
-            stats.missedDeadlines++;
-
-        time = finishTime;
+        // advance time and mark done
+        currentTime = finishTime;
+        done[next] = true;
+        ++finished;
     }
 
-    return stats;
-}
+    std::cout << "Fixed Priority results: \n";
+    std::cout << "Missed deadlines: " << missedDeadlines << "\n";
+    std::cout << "Average wait: " << (double)totalWait / n << "\n";
+    std::cout << "Average turnaround: " << (double)totalTurnaround / n << "\n";
 }
