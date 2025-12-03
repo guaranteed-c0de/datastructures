@@ -19,7 +19,7 @@ class TreeType {
         void operator = (TreeType& originalTree);
         void MakeEmpty();
         bool IsEmpty() const;
-        int SearchKey(const std::string& name) const;
+        int SearchKey() const;
         void InsertKeyValue(const std::string& key, int value);
         void InsertHelper(TreeNode*& loc, const std::string& key, int value);
         int GetLength() const;

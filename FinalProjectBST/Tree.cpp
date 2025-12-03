@@ -22,7 +22,10 @@ void TreeType::EmptyHelper(TreeNode* node) {
         delete node;                // Delete current node
     }
 }
-int TreeType::SearchKey(const string& name) const {
+int TreeType::SearchKey() const {
+    string name;
+    cout << "Please enter the key identifier.\n";
+    cin >> name;
 TreeNode* location = root;
     while (location && location->key != name)
     {
@@ -37,6 +40,8 @@ TreeNode* location = root;
     }
     if (location)
         {
+            cout << "The current value with the name " << name << endl;
+            cout << "is " << location->value;
             return location->value;
         }
         else {

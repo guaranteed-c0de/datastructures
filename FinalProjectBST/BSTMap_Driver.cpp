@@ -13,5 +13,7 @@ int main() {
     Test.InsertKeyValue("Morgan State", 1867);
     Test.InsertKeyValue("Dillard", 1869);
     Test.AddKeyValue();
+    Test.GetLength();
+    
     return 0;
 }
