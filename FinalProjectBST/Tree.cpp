@@ -1,6 +1,27 @@
 #include "Tree.h"
 #include <stdexcept>
 using namespace std;
+TreeType::TreeType() {
+    length = 0;
+    root = nullptr;
+}
+TreeType::~TreeType() {
+    MakeEmpty();
+}
+
+void TreeType::MakeEmpty() {
+    EmptyHelper(root);
+    root = nullptr;
+    length = 0;
+}
+
+void TreeType::EmptyHelper(TreeNode* node) {
+    if (node != nullptr) {
+        EmptyHelper(node->left);   // Destroy left subtree
+       EmptyHelper(node->right);  // Destroy right subtree
+        delete node;                // Delete current node
+    }
+}
 int TreeType::SearchKey(const string& name) const {
 TreeNode* location = root;
     while (location && location->key != name)

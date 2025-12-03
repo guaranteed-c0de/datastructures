@@ -14,6 +14,7 @@ class TreeType {
     public:
         TreeType();
         ~TreeType();
+        void EmptyHelper(TreeNode* root);
         TreeType(const TreeType& originalTree);
         void operator = (TreeType& originalTree);
         void MakeEmpty();
