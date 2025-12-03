@@ -14,6 +14,8 @@ int main() {
     Test.InsertKeyValue("Dillard", 1869);
     Test.AddKeyValue();
     Test.GetLength();
-    
+    Test.SearchKey();
+    Test.DeleteNode();
+    Test.GetLength();
     return 0;
 }

@@ -82,12 +82,15 @@ else {
 }
 }
 
-void TreeType:: DeleteNode(const string& name) {
+void TreeType:: DeleteNode() {
     if (IsEmpty())
     {
+        throw std::underflow_error("Tree is empty. No nodes can be deleted.\n");
         return;
     }
-
+string name;
+cout << "Type the key you would like to delete.\n";
+cin >>name;
     DeleteHelper(root, name);
 }
 

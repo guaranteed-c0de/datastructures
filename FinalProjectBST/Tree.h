@@ -23,7 +23,7 @@ class TreeType {
         void InsertKeyValue(const std::string& key, int value);
         void InsertHelper(TreeNode*& loc, const std::string& key, int value);
         int GetLength() const;
-        void DeleteNode(const std::string& name);
+        void DeleteNode();
         void DeleteHelper(TreeNode*& loc, const std::string& name);
         void AddKeyValue();
         TreeNode* FindMin(TreeNode* node);
