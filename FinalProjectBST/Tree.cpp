@@ -1,7 +1,7 @@
 #include "Tree.h"
 #include <stdexcept>
 using namespace std;
-int TreeType::SearchKey(string name) const {
+int TreeType::SearchKey(const string& name) const {
 TreeNode* location = root;
     while (location && location->key != name)
     {
@@ -22,11 +22,11 @@ TreeNode* location = root;
     }
 }
 
-void TreeType::InsertKeyValue(string& key, int value) {
+void TreeType::InsertKeyValue(const string& key, int value) {
     InsertHelper(root, key, value);
 }
 
-void TreeType::InsertHelper(TreeNode*& loc, string& key, int value) {
+void TreeType::InsertHelper(TreeNode*& loc, const string& key, int value) {
 if (loc == nullptr)
 {
     loc = new TreeNode(key, value);
@@ -55,7 +55,7 @@ else {
 }
 }
 
-void TreeType:: DeleteNode(string name) {
+void TreeType:: DeleteNode(const string& name) {
     if (IsEmpty())
     {
         return;
@@ -64,7 +64,7 @@ void TreeType:: DeleteNode(string name) {
     DeleteHelper(root, name);
 }
 
-void TreeType:: DeleteHelper(TreeNode*& loc, string name) {
+void TreeType:: DeleteHelper(TreeNode*& loc, const string& name) {
     if (loc == nullptr)
     {
         throw std::out_of_range("Key does not match any saved name.\n");
@@ -103,18 +103,31 @@ else {
         return;
     }
     else {
-         TreeNode* successor = FindMin(loc->right);
+         TreeNode*& successor = FindMin(loc->right);
 
             
-            loc->key = successor->key;
-            loc->value = successor->value;
+            string tempKey = successor->key;
+            int tempValue = successor->value;
 
             DeleteHelper(loc->right, successor->key);
+            delete loc;
+            loc = new TreeNode(tempKey, tempValue);
     }
 }
 }
-TreeNode* FindMin(TreeNode* node) {
+TreeNode*& FindMin(TreeNode* node) {
     while (node->left != nullptr)
         node = node->left;
     return node;
+}
+
+void TreeType::AddKeyValue() {
+     string newName;
+     int newValue;
+    cout << "\nPlease enter the key identifier and integer value\n."; 
+    cout <<  "Use only 1 word for the key identifer and a whole number value.\n";
+    cin >> newName;
+    cin >> newValue;
+    InsertKeyValue(newName, newValue);
+
 }
