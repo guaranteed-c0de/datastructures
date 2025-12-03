@@ -17,9 +17,9 @@ void TreeType::MakeEmpty() {
 
 void TreeType::EmptyHelper(TreeNode* node) {
     if (node != nullptr) {
-        EmptyHelper(node->left);   // Destroy left subtree
-       EmptyHelper(node->right);  // Destroy right subtree
-        delete node;                // Delete current node
+        EmptyHelper(node->left);   
+       EmptyHelper(node->right);  
+        delete node;               
     }
 }
 int TreeType::SearchKey() const {
@@ -41,7 +41,7 @@ TreeNode* location = root;
     if (location)
         {
             cout << "The current value with the name " << name << endl;
-            cout << "is " << location->value;
+            cout << "is " << location->value << "." << endl;
             return location->value;
         }
         else {
@@ -166,5 +166,6 @@ bool TreeType::IsEmpty() const {
 return length == 0;
 }
 int TreeType::GetLength() const {
+    cout << "The current number of elements in the tree is " << length << endl;
     return length;
 }
