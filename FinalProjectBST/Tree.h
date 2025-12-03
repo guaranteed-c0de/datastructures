@@ -25,6 +25,7 @@ class TreeType {
         void DeleteNode(const std::string& name);
         void DeleteHelper(TreeNode*& loc, const std::string& name);
         void AddKeyValue();
+        TreeNode* FindMin(TreeNode* node);
     private:
         TreeNode* root;
         int length;

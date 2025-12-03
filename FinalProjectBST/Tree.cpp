@@ -12,14 +12,15 @@ TreeNode* location = root;
         else {
             location = location->right;
         }
-        if (location)
+        
+    }
+    if (location)
         {
             return location->value;
         }
         else {
             throw std:: out_of_range("Name does not match any key.\n");
         }
-    }
 }
 
 void TreeType::InsertKeyValue(const string& key, int value) {
@@ -103,7 +104,7 @@ else {
         return;
     }
     else {
-         TreeNode*& successor = FindMin(loc->right);
+         TreeNode* successor = FindMin(loc->right);
 
             
             string tempKey = successor->key;
@@ -115,7 +116,7 @@ else {
     }
 }
 }
-TreeNode*& FindMin(TreeNode* node) {
+TreeNode* TreeType::FindMin(TreeNode* node) {
     while (node->left != nullptr)
         node = node->left;
     return node;
