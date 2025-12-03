@@ -153,3 +153,10 @@ void TreeType::AddKeyValue() {
     InsertKeyValue(newName, newValue);
 
 }
+
+bool TreeType::IsEmpty() const {
+return length == 0;
+}
+int TreeType::GetLength() const {
+    return length;
+}

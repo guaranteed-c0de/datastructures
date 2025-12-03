@@ -12,5 +12,6 @@ int main() {
     Test.InsertKeyValue("Xavier", 1831);
     Test.InsertKeyValue("Morgan State", 1867);
     Test.InsertKeyValue("Dillard", 1869);
+    Test.AddKeyValue();
     return 0;
 }
