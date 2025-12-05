@@ -24,7 +24,7 @@ int main() {
     Test.SearchKey();
     Test.DeleteNode();
     Test.GetLength();
-      int string_length = 4;
+      int string_length = 5;
     string sample="";
     for (int i = 0; i < 100; i++)
     {
@@ -35,12 +35,12 @@ int main() {
         Test.InsertKeyValue(sample, 1023);
     }
     Test.GetLength();
-   /* auto start = high_resolution_clock::now();
-    Test.DeleteNode2("Morehouse");
+   auto start = high_resolution_clock::now();
+    Test.InsertKeyValue("Alcorn", 1879);
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Delete took " << duration.count() << " microseconds.\n"; */
+    cout << "Delete took " << duration.count() << " microseconds.\n"; 
     return 0;
 }
 
