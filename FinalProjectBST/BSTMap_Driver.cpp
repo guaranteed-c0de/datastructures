@@ -34,10 +34,11 @@ int main() {
         }
         Test.InsertKeyValue(sample, 1023);
     } 
-    
+        Test.InsertKeyValue("HAPPEN", 2341);
+
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.InsertKeyValue("HAPPEN", 34);
+    Test.DeleteNode2("HAPPEN");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
