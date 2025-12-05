@@ -169,3 +169,37 @@ int TreeType::GetLength() const {
     cout << "The current number of elements in the tree is " << length << endl;
     return length;
 }
+
+int TreeType::SearchKey2(const std::string& key) {
+    string name = key;
+TreeNode* location = root;
+    while (location && location->key != name)
+    {
+        if (location->key > name)
+        {
+            location = location->left;
+        }
+        else {
+            location = location->right;
+        }
+        
+    }
+    if (location)
+        {
+            cout << "The current value with the name " << name << endl;
+            cout << "is " << location->value << "." << endl;
+            return location->value;
+        }
+        else {
+            throw std:: out_of_range("Name does not match any key.\n");
+        }
+}
+void TreeType::DeleteNode2(const std::string& key) {
+        if (IsEmpty())
+    {
+        throw std::underflow_error("Tree is empty. No nodes can be deleted.\n");
+        return;
+    }
+    string name = key;
+    DeleteHelper(root, name);
+}

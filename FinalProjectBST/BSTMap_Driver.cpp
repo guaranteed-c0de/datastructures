@@ -26,6 +26,6 @@ int main() {
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Insert took " << duration.count() << " microseconds.";
+    cout << "Insert took " << duration.count() << " microseconds.\n";
     return 0;
 }
