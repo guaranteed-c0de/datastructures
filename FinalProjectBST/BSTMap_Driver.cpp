@@ -36,11 +36,11 @@ int main() {
     }*/ 
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.DeleteNode2("Howard");
+    Test.DeleteNode2("Clark");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Search took " << duration.count() << " microseconds.\n"; 
+    cout << "Delete took " << duration.count() << " microseconds.\n"; 
     return 0;
 }
 
