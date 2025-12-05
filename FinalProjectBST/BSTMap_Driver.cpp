@@ -9,40 +9,25 @@ char RandomlyGenerateLetter();
 int main() {
   
     TreeType Test;
-    Test.InsertKeyValue("Morehouse", 1867);
-    Test.InsertKeyValue("Spelman", 1881);
-    Test.InsertKeyValue("Clark", 1988);
-    Test.InsertKeyValue("Howard", 1867);
-    Test.InsertKeyValue("Hampton", 1868);
-    Test.InsertKeyValue("Tuskegee", 1881);
-    Test.InsertKeyValue("Florida A&M", 1887);
-    Test.InsertKeyValue("Xavier", 1831);
-    Test.InsertKeyValue("Morgan State", 1867);
-    Test.InsertKeyValue("Dillard", 1869);
-    Test.AddKeyValue();
-    Test.GetLength();
-    Test.SearchKey();
-    Test.DeleteNode();
-    Test.GetLength();
       int string_length = 5;
     string sample="";
-    for (int i = 0; i < 10000; i++)
+   /* for (int i = 0; i < 10000; i++)
     {
         for (int j = 0; j < string_length; j++)
         {
             sample+= RandomlyGenerateLetter();
         }
         Test.InsertKeyValue(sample, 1023);
-    } 
+    } */
         Test.InsertKeyValue("TASASD", 2341);
 
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.DeleteNode2("TASASD");
+    Test.InsertKeyValue("Morehouse", 1867);
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Delete took " << duration.count() << " microseconds.\n"; 
+    cout << "Insert took " << duration.count() << " microseconds.\n"; 
     return 0;
 }
 
