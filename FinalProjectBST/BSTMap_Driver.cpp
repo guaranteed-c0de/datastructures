@@ -36,11 +36,11 @@ int main() {
     } 
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.InsertKeyValue("Plain", 1868);
+    Test.DeleteNode2("Dillard");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Insert took " << duration.count() << " microseconds.\n"; 
+    cout << "Delete took " << duration.count() << " microseconds.\n"; 
     return 0;
 }
 
