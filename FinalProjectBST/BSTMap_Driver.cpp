@@ -34,10 +34,10 @@ int main() {
         }
         Test.InsertKeyValue(sample, 1023);
     } 
-    Test.InsertKeyValue("TVBDAF", 34);
+    Test.InsertKeyValue("FZZZZZ", 34);
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.SearchKey2("TVBDAF");
+    Test.SearchKey2("FZZZZZ");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
