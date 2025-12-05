@@ -34,14 +34,14 @@ int main() {
         }
         Test.InsertKeyValue(sample, 1023);
     } 
-    Test.InsertKeyValue("SDSNXS", 34);
+    Test.InsertKeyValue("TVBDAF", 34);
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.SearchKey2("SDSNXS");
+    Test.SearchKey2("TVBDAF");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Delete took " << duration.count() << " microseconds.\n"; 
+    cout << "Search took " << duration.count() << " microseconds.\n"; 
     return 0;
 }
 
