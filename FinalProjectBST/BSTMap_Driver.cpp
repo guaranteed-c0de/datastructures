@@ -1,6 +1,10 @@
 #include "Tree.h"
+#include <chrono>
+using namespace std;
+using namespace std::chrono;
 
 int main() {
+
     TreeType Test;
     Test.InsertKeyValue("Morehouse", 1867);
     Test.InsertKeyValue("Spelman", 1881);
@@ -12,10 +16,10 @@ int main() {
     Test.InsertKeyValue("Xavier", 1831);
     Test.InsertKeyValue("Morgan State", 1867);
     Test.InsertKeyValue("Dillard", 1869);
-    Test.AddKeyValue();
-    Test.GetLength();
-    Test.SearchKey();
-    Test.DeleteNode();
-    Test.GetLength();
+auto start = high_resolution_clock::now();
+Test.InsertKeyValue("Harvard", 1636);   
+auto end = high_resolution_clock::now();
+auto duration = duration_cast<microseconds>(end - start);
+cout << "Insertion took " << duration.count() << " microseconds.\n";
     return 0;
 }
