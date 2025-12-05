@@ -26,17 +26,17 @@ int main() {
     Test.GetLength();
       int string_length = 5;
     string sample="";
-   /* for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 100; i++)
     {
         for (int j = 0; j < string_length; j++)
         {
             sample+= RandomlyGenerateLetter();
         }
         Test.InsertKeyValue(sample, 1023);
-    }*/ 
+    } 
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.DeleteNode2("Clark");
+    Test.SearchKey2("Xavier");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 

@@ -20,7 +20,7 @@ class TreeType {
         void MakeEmpty();
         bool IsEmpty() const;
         int SearchKey() const;
-        int SearchKey2( std::string& key);
+        int SearchKey2(const std::string& key);
         void InsertKeyValue(const std::string& key, int value);
         void InsertHelper(TreeNode*& loc, const std::string& key, int value);
         int GetLength() const;
