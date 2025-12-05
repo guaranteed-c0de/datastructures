@@ -154,7 +154,7 @@ TreeNode* TreeType::FindMin(TreeNode* node) {
 void TreeType::AddKeyValue() {
      string newName;
      int newValue;
-    cout << "\nPlease enter the key identifier and integer value\n."; 
+    cout << "\nPlease enter the key identifier and integer value.\n"; 
     cout <<  "Use only 1 word for the key identifer and a whole number value.\n";
     cin >> newName;
     cin >> newValue;
