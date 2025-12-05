@@ -36,7 +36,7 @@ int main() {
     } 
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.InsertKeyValue("Desktop", 5467);
+    Test.InsertKeyValue("Universe", 3201);
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
