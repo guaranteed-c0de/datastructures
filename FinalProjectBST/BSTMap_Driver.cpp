@@ -36,7 +36,7 @@ int main() {
     } 
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.SearchKey2("Tuskegee");
+    Test.InsertKeyValue("Morehoead", 1787);
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
