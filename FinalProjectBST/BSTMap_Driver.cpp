@@ -34,11 +34,11 @@ int main() {
         }
         Test.InsertKeyValue(sample, 1023);
     } 
-        Test.InsertKeyValue("NegativeX", 2341);
+        Test.InsertKeyValue("TASASD", 2341);
 
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.DeleteNode2("NegativeX");
+    Test.DeleteNode2("TASASD");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
