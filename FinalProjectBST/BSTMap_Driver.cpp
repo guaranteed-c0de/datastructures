@@ -25,9 +25,9 @@ int main() {
    auto start = high_resolution_clock::now();
     Test.InsertKeyValue("Morehouse", 1867);
     auto end = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(end - start);
+    auto duration = duration_cast<nanoseconds>(end - start);
 
-    cout << "Insert took " << duration.count() << " microseconds.\n"; 
+    cout << "Insert took " << duration.count() << " nanoseconds.\n"; 
     return 0;
 }
 
