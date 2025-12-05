@@ -1,6 +1,10 @@
 #include "Tree.h"
+#include <chrono>
+using namespace std;
+using namespace std::chrono;
 
 int main() {
+
     TreeType Test;
     Test.InsertKeyValue("Morehouse", 1867);
     Test.InsertKeyValue("Spelman", 1881);
@@ -17,5 +21,5 @@ int main() {
     Test.SearchKey();
     Test.DeleteNode();
     Test.GetLength();
-    return 0; //comment
+    return 0;
 }
