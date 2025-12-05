@@ -168,7 +168,7 @@ int TreeType::GetLength() const {
     return length;
 }
 
-int TreeType::SearchKey2(std::string& key) {
+int TreeType::SearchKey2(const std::string& key) {
     string name = key;
 TreeNode* location = root;
     while (location && location->key != name)
