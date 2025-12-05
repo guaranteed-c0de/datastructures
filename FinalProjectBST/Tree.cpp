@@ -49,11 +49,11 @@ TreeNode* location = root;
         }
 }
 
-void TreeType::InsertKeyValue(string& key, int value) {
+void TreeType::InsertKeyValue(const string& key, int value) {
     InsertHelper(root, key, value);
 }
 
-void TreeType::InsertHelper(TreeNode*& loc, string& key, int value) {
+void TreeType::InsertHelper(TreeNode*& loc, const string& key, int value) {
 if (loc == nullptr)
 {
     loc = new TreeNode(key, value);
@@ -192,7 +192,7 @@ TreeNode* location = root;
             throw std:: out_of_range("Name does not match any key.\n");
         }
 }
-void TreeType::DeleteNode2(std::string& key) {
+void TreeType::DeleteNode2(const std::string& key) {
         if (IsEmpty())
     {
         throw std::underflow_error("Tree is empty. No nodes can be deleted.\n");

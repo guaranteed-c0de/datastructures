@@ -21,11 +21,11 @@ class TreeType {
         bool IsEmpty() const;
         int SearchKey() const;
         int SearchKey2( std::string& key);
-        void InsertKeyValue( std::string& key, int value);
-        void InsertHelper(TreeNode*& loc,  std::string& key, int value);
+        void InsertKeyValue(const std::string& key, int value);
+        void InsertHelper(TreeNode*& loc, const std::string& key, int value);
         int GetLength() const;
         void DeleteNode();
-        void DeleteNode2( std::string& key);
+        void DeleteNode2(const std::string& key);
         void DeleteHelper(TreeNode*& loc, std::string& name);
         void AddKeyValue();
         TreeNode* FindMin(TreeNode* node);
