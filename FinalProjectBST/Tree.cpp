@@ -138,12 +138,12 @@ else {
             
             loc->key = successor->key;
             loc->value = successor->value;
-
+            
             DeleteHelper(loc->right, successor->key);
     }
 }
 }
-TreeNode*& TreeType::FindMin(TreeNode* node) {
+TreeNode* TreeType::FindMin(TreeNode* node) {
     while (node->left != nullptr)
         node = node->left;
     return node;
