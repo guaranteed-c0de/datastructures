@@ -34,13 +34,14 @@ int main() {
         }
         Test.InsertKeyValue(sample, 1023);
     } 
+    Test.InsertKeyValue("FEEEFEEF", 1903);
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.DeleteNode2("Clark");
+    Test.DeleteNode2("FEEEFEEF");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Insert took " << duration.count() << " microseconds.\n"; 
+    cout << "Delete took " << duration.count() << " microseconds.\n"; 
     return 0;
 }
 
