@@ -136,16 +136,14 @@ else {
          TreeNode* successor = FindMin(loc->right);
 
             
-            string tempKey = successor->key;
-            int tempValue = successor->value;
+            loc->key = successor->key;
+            loc->value = successor->value;
 
             DeleteHelper(loc->right, successor->key);
-            delete loc;
-            loc = new TreeNode(tempKey, tempValue);
     }
 }
 }
-TreeNode* TreeType::FindMin(TreeNode* node) {
+TreeNode*& TreeType::FindMin(TreeNode* node) {
     while (node->left != nullptr)
         node = node->left;
     return node;
