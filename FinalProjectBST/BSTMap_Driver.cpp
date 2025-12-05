@@ -36,11 +36,11 @@ int main() {
     } 
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.SearchKey2("Dillard");
+    Test.InsertKeyValue("Desktop", 5467);
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Search took " << duration.count() << " microseconds.\n"; 
+    cout << "Insert took " << duration.count() << " microseconds.\n"; 
     return 0;
 }
 
