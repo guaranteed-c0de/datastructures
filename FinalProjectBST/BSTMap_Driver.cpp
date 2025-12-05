@@ -37,7 +37,7 @@ int main() {
     
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.InsertKeyValue("POPOP", 34);
+    Test.InsertKeyValue("HAPPEN", 34);
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
