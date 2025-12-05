@@ -34,15 +34,15 @@ int main() {
         }
         Test.InsertKeyValue(sample, 1023);
     } 
-        Test.InsertKeyValue("HAPPEN", 2341);
+        Test.InsertKeyValue("NegativeX", 2341);
 
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.DeleteNode2("HAPPEN");
+    Test.DeleteNode2("NegativeX");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Insert took " << duration.count() << " microseconds.\n"; 
+    cout << "Delete took " << duration.count() << " microseconds.\n"; 
     return 0;
 }
 
