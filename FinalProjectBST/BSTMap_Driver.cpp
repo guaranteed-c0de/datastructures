@@ -21,8 +21,9 @@ int main() {
     Test.SearchKey();
     Test.DeleteNode();
     Test.GetLength();
+    
     auto start = high_resolution_clock::now();
-    Test.InsertKeyValue("Harvard", 1636);
+    Test.SearchKey2("Spelman");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
