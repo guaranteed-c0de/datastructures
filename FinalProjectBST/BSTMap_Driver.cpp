@@ -26,7 +26,7 @@ int main() {
     Test.GetLength();
       int string_length = 5;
     string sample="";
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 1000; i++)
     {
         for (int j = 0; j < string_length; j++)
         {
@@ -36,11 +36,11 @@ int main() {
     } 
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.DeleteNode2("Hampton");
+    Test.SearchKey2("Tuskegee");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Delete took " << duration.count() << " microseconds.\n"; 
+    cout << "Search took " << duration.count() << " microseconds.\n"; 
     return 0;
 }
 
