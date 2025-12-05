@@ -36,7 +36,7 @@ int main() {
     } 
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.DeleteNode2("Dillard");
+    Test.DeleteNode2("Hampton");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
