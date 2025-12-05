@@ -26,7 +26,7 @@ int main() {
     Test.GetLength();
       int string_length = 5;
     string sample="";
-    for (int i = 0; i < 1000; i++)
+    for (int i = 0; i < 10000; i++)
     {
         for (int j = 0; j < string_length; j++)
         {
@@ -34,10 +34,10 @@ int main() {
         }
         Test.InsertKeyValue(sample, 1023);
     } 
-    Test.InsertKeyValue("FEEEFEEF", 1903);
+    Test.InsertKeyValue("SDSNXS", 34);
     Test.GetLength();
    auto start = high_resolution_clock::now();
-    Test.DeleteNode2("FEEEFEEF");
+    Test.SearchKey2("SDSNXS");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
