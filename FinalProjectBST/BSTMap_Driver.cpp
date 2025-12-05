@@ -26,21 +26,21 @@ int main() {
     Test.GetLength();
       int string_length = 5;
     string sample="";
-    for (int i = 0; i < 100; i++)
+   /* for (int i = 0; i < 100; i++)
     {
         for (int j = 0; j < string_length; j++)
         {
             sample+= RandomlyGenerateLetter();
         }
         Test.InsertKeyValue(sample, 1023);
-    }
+    }*/ 
     Test.GetLength();
    auto start = high_resolution_clock::now();
     Test.InsertKeyValue("Alcorn", 1879);
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Delete took " << duration.count() << " microseconds.\n"; 
+    cout << "Insert took " << duration.count() << " microseconds.\n"; 
     return 0;
 }
 
