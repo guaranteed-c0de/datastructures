@@ -21,12 +21,12 @@ int main() {
     Test.SearchKey();
     Test.DeleteNode();
     Test.GetLength();
-    
+
     auto start = high_resolution_clock::now();
-    Test.SearchKey2("Spelman");
+    Test.DeleteNode2("Morehouse");
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Insert took " << duration.count() << " microseconds.\n";
+    cout << "Delete took " << duration.count() << " microseconds.\n";
     return 0;
 }
