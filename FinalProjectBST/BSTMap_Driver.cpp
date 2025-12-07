@@ -20,14 +20,14 @@ int main() {
         Test.InsertKeyValue(sample, 1023);
     } */
         Test.InsertKeyValue("TASASD", 2341);
-
+         Test.InsertKeyValue("Morehouse", 1867);
     Test.GetLength();
-   auto start = high_resolution_clock::now();
-    Test.InsertKeyValue("Morehouse", 1867);
-    auto end = high_resolution_clock::now();
-    auto duration = duration_cast<nanoseconds>(end - start);
+ //  auto start = high_resolution_clock::now();
+   
+  //  auto end = high_resolution_clock::now();
+  //  auto duration = duration_cast<nanoseconds>(end - start);
 
-    cout << "Insert took " << duration.count() << " nanoseconds.\n"; 
+ //   cout << "Insert took " << duration.count() << " nanoseconds.\n"; 
     return 0;
 }
 

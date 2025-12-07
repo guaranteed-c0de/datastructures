@@ -165,7 +165,7 @@ return length == 0;
 }
 int TreeType::GetLength() const {
     cout << "The current number of elements in the tree is " << length << endl;
-    return length;
+    return length; 
 }
 
 int TreeType::SearchKey2(const std::string& key) {
