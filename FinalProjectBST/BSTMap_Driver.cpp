@@ -28,7 +28,7 @@ int main() {
   //  auto duration = duration_cast<nanoseconds>(end - start);
 
  //   cout << "Insert took " << duration.count() << " nanoseconds.\n"; 
-    return 0;
+    return 0; //comment
 }
 
 char RandomlyGenerateLetter() {
