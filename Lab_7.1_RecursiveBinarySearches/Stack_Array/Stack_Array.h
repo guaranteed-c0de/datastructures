@@ -57,7 +57,8 @@ void Stack::SortStack() {
     if (IsEmpty()) {
         return;
     }
-  int current_top_of_stack = pop();
+  int current_top_of_stack = peek();
+  pop();
   SortStack();
   sortedInsert(current_top_of_stack);  
 }
@@ -67,8 +68,10 @@ void Stack::sortedInsert(int value) {
         push(value); //This is the base case of insertion.
         return;
     }
-    int temp = pop();
+    int temp = peek();
+    pop();
     sortedInsert(value);
+    push(temp);
 }
 void Stack::Print() {
     if (IsEmpty())
