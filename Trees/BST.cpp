@@ -91,7 +91,7 @@ bool BST::isEmpty() {
     return size == 0;
 }
 
-Node* BST::findMin(Node* loc) {
+BST::Node* BST::findMin(Node* loc) {
     while (loc->left != nullptr) {
         loc = loc->left;
     }
