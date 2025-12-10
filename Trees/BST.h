@@ -12,8 +12,10 @@ int size;
 Node* root;
 public:
 void insert(int val);
-void insertHelper(int val, Node* root);
-void remove(int val);
+void insertHelper(int val, Node*& root);
+void remove(int val, Node* root);
+Node* findMin(Node* loc);
+bool isEmpty();
 bool search(int val);
 bool searchHelper(int val, Node* root);
 int GetSize();
