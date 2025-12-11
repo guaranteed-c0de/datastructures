@@ -10,7 +10,7 @@ int main() {
   
     TreeType Test;
       int string_length = 5;
-    string sample=" ";
+    string sample="Z";
     for (int i = 0; i < 10000; i++)
     {
         for (int j = 0; j < string_length; j++)
@@ -20,14 +20,13 @@ int main() {
         Test.InsertKeyValue(sample, 1023);
     } 
         Test.InsertKeyValue("TASASD", 2341);
-         Test.InsertKeyValue("Morehouse", 1867);
     Test.GetLength();
    auto start = high_resolution_clock::now();
-   
+   Test.InsertKeyValue("ZZZZZZZ", 9013);
     auto end = high_resolution_clock::now();
-    auto duration = duration_cast<nanoseconds>(end - start);
+    auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Insert took " << duration.count() << " nanoseconds.\n"; 
+    cout << "Insert took " << duration.count() << " microseconds.\n"; 
     return 0; //comment
 }
 
