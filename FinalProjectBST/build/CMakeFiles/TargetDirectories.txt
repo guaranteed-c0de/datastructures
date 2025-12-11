@@ -1,0 +1,3 @@
+/workspaces/DataStructures/FinalProjectBST/build/CMakeFiles/FinalBST.dir
+/workspaces/DataStructures/FinalProjectBST/build/CMakeFiles/edit_cache.dir
+/workspaces/DataStructures/FinalProjectBST/build/CMakeFiles/rebuild_cache.dir

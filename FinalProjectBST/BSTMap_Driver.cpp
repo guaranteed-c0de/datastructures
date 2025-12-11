@@ -10,24 +10,24 @@ int main() {
   
     TreeType Test;
       int string_length = 5;
-    string sample="";
-   /* for (int i = 0; i < 10000; i++)
+    string sample=" ";
+    for (int i = 0; i < 10000; i++)
     {
         for (int j = 0; j < string_length; j++)
         {
             sample+= RandomlyGenerateLetter();
         }
         Test.InsertKeyValue(sample, 1023);
-    } */
+    } 
         Test.InsertKeyValue("TASASD", 2341);
          Test.InsertKeyValue("Morehouse", 1867);
     Test.GetLength();
- //  auto start = high_resolution_clock::now();
+   auto start = high_resolution_clock::now();
    
-  //  auto end = high_resolution_clock::now();
-  //  auto duration = duration_cast<nanoseconds>(end - start);
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<nanoseconds>(end - start);
 
- //   cout << "Insert took " << duration.count() << " nanoseconds.\n"; 
+    cout << "Insert took " << duration.count() << " nanoseconds.\n"; 
     return 0; //comment
 }
 
