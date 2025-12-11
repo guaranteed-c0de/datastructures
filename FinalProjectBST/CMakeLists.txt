@@ -5,9 +5,7 @@ project(FinalBST VERSION 1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_executable(FinalBST 
-FinalProjectBST/BSTMap_Driver.cpp 
-FinalBST/Tree.cpp
+add_executable(FinalBST
+    BSTMap_Driver.cpp
+    Tree.cpp
 )
-
-target_include_directories(FinalBST PUBLIC include)

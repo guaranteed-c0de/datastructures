@@ -19,9 +19,12 @@ int AVLTree::getBalance(Node* node) {
     return 0;
 }
 
-BST::Node* AVLTree::rotateLeft(Node* y) {
-    // TODO
-    return y;
+BST::Node* AVLTree::rotateLeft(Node* T) {
+    Node* S = T->right;
+    Node* B = S->left;
+    S->left = T;
+    T->right = B;
+    return S;
 }
 
 BST::Node* AVLTree::rotateRight(Node* T) {
@@ -30,4 +33,23 @@ BST::Node* AVLTree::rotateRight(Node* T) {
     S->right = T;
     T->left = B;
     return S;
+}
+
+BST::Node* AVLTree::RotateLeftRight(Node* T) {
+    Node* S = T->right;
+    T->right = rotateRight(S);
+    return rotateLeft(T);
+}
+
+BST::Node* AVLTree::RotateLeftRight(Node* T) {
+    Node* S = T->left;
+    T->left = rotateLeft(S);
+    return rotateRight(T);
+}
+
+void AVLTree::InOrder(Node* tree) {
+    if (tree)
+    {
+        
+    }
 }
