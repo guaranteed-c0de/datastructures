@@ -12,19 +12,26 @@ int main() {
     TreeType Test;
       int string_length = 5;
     string sample="Z";
-    for (int i = 0; i < 10000; i++)
+    Test.InsertKeyValue("Morehouse", 1867);
+    Test.InsertKeyValue("Florida", 2222);
+    Test.InsertKeyValue("Spelman", 1881);
+
+   /* for (int i = 0; i < 10000; i++)
     {
         int m = 10000 - i;
         Test.InsertKeyValue("A" + to_string(m), 1000);
-    } 
+    } */
         Test.InsertKeyValue("TASASD", 2341);
     Test.GetLength();
-   auto start = high_resolution_clock::now();
-   Test.InsertKeyValue("ZZZZZZZ", 9013);
-    auto end = high_resolution_clock::now();
-    auto duration = duration_cast<nanoseconds>(end - start);
+    Test.DeleteNode2("Morehouse");
+    Test.DeleteNode2("Florida");
+    Test.GetLength();
+  // auto start = high_resolution_clock::now();
+   //Test.InsertKeyValue("ZZZZZZZ", 9013);
+  //  auto end = high_resolution_clock::now();
+   // auto duration = duration_cast<nanoseconds>(end - start);
 
-    cout << "Insert took " << duration.count() << " nanoseconds.\n"; 
+  //  cout << "Insert took " << duration.count() << " nanoseconds.\n"; 
     return 0; //comment
 }
 

@@ -45,7 +45,7 @@ TreeNode* location = root;
             return location->value;
         }
         else {
-            throw std:: out_of_range("Name does not match any key.\n");
+            throw std:: out_of_range("Match not found.\n");
         }
 }
 
@@ -97,7 +97,7 @@ cin >>name;
 void TreeType:: DeleteHelper(TreeNode*& loc, string& name) {
     if (loc == nullptr)
     {
-        throw std::out_of_range("Key does not match any saved name.\n");
+        throw std::out_of_range("Match not found.\n");
         return;
     }
     if (name < loc->key)
