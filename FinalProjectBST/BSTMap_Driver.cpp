@@ -14,20 +14,17 @@ int main() {
     string sample="Z";
     for (int i = 0; i < 10000; i++)
     {
-        for (int j = 0; j < string_length; j++)
-        {
-            sample+= RandomlyGenerateLetter();
-        }
-        Test.InsertKeyValue(sample, 1023);
+        int m = 10000 - i;
+        Test.InsertKeyValue("A" + to_string(m), 1000);
     } 
         Test.InsertKeyValue("TASASD", 2341);
     Test.GetLength();
    auto start = high_resolution_clock::now();
    Test.InsertKeyValue("ZZZZZZZ", 9013);
     auto end = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(end - start);
+    auto duration = duration_cast<nanoseconds>(end - start);
 
-    cout << "Insert took " << duration.count() << " microseconds.\n"; 
+    cout << "Insert took " << duration.count() << " nanoseconds.\n"; 
     return 0; //comment
 }
 
