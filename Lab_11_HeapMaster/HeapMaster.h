@@ -5,7 +5,7 @@
 #include <iomanip>
 #include <cstring>
 #include <cmath>
-struct Task {
+struct Task { //This is the item that sits in the heap and the scheduler processes.
     int id;
     int priority;
     int arrivalTime;
@@ -20,13 +20,13 @@ struct Task {
         std::cout << "Deadline: " << deadline << std::endl;
     }
 };
-struct TaskCompare {
+struct PriorityCompare {
     bool operator()(const Task& a, const Task& b) const {
         return a.priority > b.priority;
     }
 
 };
-struct TaskCompare2 {
+struct EDFCompare {
     bool operator() (const Task& a, const Task& b) const {
         return a.deadline < b.deadline;
     } 
