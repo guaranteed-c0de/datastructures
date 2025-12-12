@@ -17,7 +17,7 @@ struct SRTFTask {
 };
 void scheduler(HeapMaster<Task,10005, PriorityCompare> Deadline);
 int main() {
-  /*  HeapMaster<int, 100005, std::greater<int>> Face;
+    HeapMaster<int, 100005, std::greater<int>> Face;
 
     for (int i = 1; i <= 10; i++)
     {
@@ -28,7 +28,7 @@ int main() {
    cout << "The top of the heap is " <<  Face.top() << endl;
   
 
-   Face.printHeap(); */
+   Face.printHeap(); 
    HeapMaster<int, 1000000, std::greater<int>> TestPush;
    HeapMaster<int, 1000000, std::greater<int>> TestBuild;
    HeapMaster<SRTFTask, 1000, std::less<SRTFTask>> SRTF;
@@ -38,14 +38,15 @@ int PriorityburstTime[NUMBER_OF_TASKS];
 int Prioritydeadline[NUMBER_OF_TASKS];     
 int Prioritypriority[NUMBER_OF_TASKS];     
 bool Prioritydone[NUMBER_OF_TASKS];
-   //Insert tasks
+return 0;
+ /*  //Insert tasks
    SRTF.push({1, 10, 0});
    SRTF.push({2, 3, 1});
    SRTF.push({3, 5, 2});
 
    //Simulate time
    int time = 0;
-  /* while (!SRTF.Isempty()) {
+   while (!SRTF.Isempty()) {
     auto task = SRTF.top(); SRTF.pop();
     cout << "Time " << time << ": Running Task " << task.id
     << " (rem=" << task.remaining_time << ")\n";
@@ -68,7 +69,7 @@ bool Prioritydone[NUMBER_OF_TASKS];
     std::uniform_int_distribution<> Two(1, 100);
     std::uniform_int_distribution<> Three(1, 10);
     std::uniform_int_distribution<> Four(1, 10000);
-    for (int i = 1; i<= NUMBER_OF_TASKS; i++) {
+   /* for (int i = 1; i<= NUMBER_OF_TASKS; i++) {
     Task x;
     x.id = i;
     x.priority = One(gen);
@@ -78,8 +79,8 @@ bool Prioritydone[NUMBER_OF_TASKS];
 
     EDF.push(x);
     Priority.push(x);
-   }
-scheduler(Priority);
+   } */
+//scheduler(Priority);
 }
 void scheduler(HeapMaster<Task,10005, PriorityCompare> priority)
 {
@@ -185,4 +186,4 @@ void scheduler(HeapMaster<Task,10005, PriorityCompare> priority)
     std::cout << "Average waiting time: " << avgWaiting << "\n";
     std::cout << "Average turnaround time: " << avgTurnaround << "\n";
     std::cout << "Missed deadlines: " << missedCount << "\n\n";
-}
+} 
