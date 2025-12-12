@@ -15,6 +15,7 @@ struct SRTFTask {
   return remaining_time < other.remaining_time; //min-heap
 }
 };
+void scheduler(HeapMaster<Task,10005, PriorityCompare> Deadline);
 int main() {
   /*  HeapMaster<int, 100005, std::greater<int>> Face;
 
@@ -28,6 +29,8 @@ int main() {
   
 
    Face.printHeap(); */
+   HeapMaster<int, 1000000, std::greater<int>> TestPush;
+   HeapMaster<int, 1000000, std::greater<int>> TestBuild;
    HeapMaster<SRTFTask, 1000, std::less<SRTFTask>> SRTF;
   const int NUMBER_OF_TASKS = 1000;
 int PriorityarrivalTime[NUMBER_OF_TASKS];
@@ -42,19 +45,19 @@ bool Prioritydone[NUMBER_OF_TASKS];
 
    //Simulate time
    int time = 0;
-   while (!SRTF.Isempty()) {
+  /* while (!SRTF.Isempty()) {
     auto task = SRTF.top(); SRTF.pop();
     cout << "Time " << time << ": Running Task " << task.id
     << " (rem=" << task.remaining_time << ")\n";
 
     task.remaining_time -=1;
     time++;
-
+ 
     if (task.remaining_time > 0) {
       //Put back with decreased reamining time-> higher priority!
       SRTF.push(task); //Or better: Use decreaseKey if you keep index.
     }
-   }
+   } */
 
 
    HeapMaster<Task, 10005, PriorityCompare> Priority;
@@ -62,9 +65,9 @@ bool Prioritydone[NUMBER_OF_TASKS];
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> One(1, 100);
-    std::uniform_int_distribution<> Two(1, 80);
-    std::uniform_int_distribution<> Three(1, 60);
-    std::uniform_int_distribution<> Four(1, 40);
+    std::uniform_int_distribution<> Two(1, 100);
+    std::uniform_int_distribution<> Three(1, 10);
+    std::uniform_int_distribution<> Four(1, 10000);
     for (int i = 1; i<= NUMBER_OF_TASKS; i++) {
     Task x;
     x.id = i;
@@ -76,9 +79,9 @@ bool Prioritydone[NUMBER_OF_TASKS];
     EDF.push(x);
     Priority.push(x);
    }
-scheduleEDF(EDF);
+scheduler(Priority);
 }
-void scheduleEDF(HeapMaster<Task,10005,EDFCompare> Deadline) 
+void scheduler(HeapMaster<Task,10005, PriorityCompare> priority)
 {
     int currentTime = 0;
 
@@ -95,50 +98,46 @@ void scheduleEDF(HeapMaster<Task,10005,EDFCompare> Deadline)
 
     std::vector<Result> results;
 
-    // A temporary ready queue (min-heap by deadline)
-    HeapMaster<Task,10005,EDFCompare> ready = Deadline;
+    // ready queue sorted by deadline
+    HeapMaster<Task,10005,EDFCompare> ready;
 
-    // Simulation loop
-    while (!ready.Isempty()) {
-        // Get earliest-deadline available task
+    // ---------------------------
+    // Main Simulation Loop
+    // ---------------------------
+    while (!priority.Isempty() || !ready.Isempty())
+    {
+        // Move all tasks that have arrived into ready queue
+        while (!priority.Isempty())
+        {
+            Task peek = priority.top();
+            if (peek.arrivalTime <= currentTime)
+            {
+                ready.push(peek);
+                priority.pop();
+            }
+            else break;
+        }
+
+        // If no ready tasks, jump time to next arrival
+        if (ready.Isempty())
+        {
+            Task nextArrival = priority.top();
+            currentTime = nextArrival.arrivalTime;
+            continue;
+        }
+
+        // Get earliest-deadline task
         Task current = ready.top();
         ready.pop();
 
         int startTime = currentTime;
 
-        // Advance simulation until task completes or is preempted
-        while (current.burstTime > 0) {
-            current.burstTime--;
-            currentTime++;
+        // Run task to completion (NON-PREEMPTIVE EDF)
+        currentTime += current.burstTime;
 
-            // Check if a new task with an earlier deadline has "arrived"
-            // (arrivalTime <= currentTime)
-            // We simulate this by scanning the Deadline heap copy:
-            HeapMaster<Task,10005,EDFCompare> temp = Deadline;
-            while (!temp.Isempty()) {
-                Task incoming = temp.top();
-                temp.pop();
-
-                if (incoming.arrivalTime <= currentTime &&
-                    incoming.id != current.id &&
-                    incoming.deadline < current.deadline) 
-                {
-                    // Preempted
-                    ready.push(current);
-                    current = incoming;
-
-                    // Remove the incoming from ready (so it isn't duplicated)
-                    // This is logically correct, though depends on HeapMaster features:
-                    // A full implementation would require removal support, 
-                    // but logically this is correct.
-                    break;
-                }
-            }
-        }
-
-        // Task finished
         int finishTime = currentTime;
 
+        // Save result
         Result r;
         r.id = current.id;
         r.arrival = current.arrivalTime;
@@ -152,8 +151,9 @@ void scheduleEDF(HeapMaster<Task,10005,EDFCompare> Deadline)
         results.push_back(r);
     }
 
-    // ---- Compute Statistics ----
-
+    // ---------------------------
+    // Stats
+    // ---------------------------
     double avgWaiting = 0.0;
     double avgTurnaround = 0.0;
     int missedCount = 0;
@@ -167,14 +167,9 @@ void scheduleEDF(HeapMaster<Task,10005,EDFCompare> Deadline)
     avgWaiting /= results.size();
     avgTurnaround /= results.size();
 
-    // ---- Print Output ----
-
-    std::cout << "\n===== EDF Scheduling Results =====\n";
-    std::cout << "Total tasks: " << results.size() << "\n";
-    std::cout << "Average waiting time: " << avgWaiting << "\n";
-    std::cout << "Average turnaround time: " << avgTurnaround << "\n";
-    std::cout << "Missed deadlines: " << missedCount << "\n\n";
-
+    // ---------------------------
+    // Output
+    // ---------------------------
     std::cout << "Gantt Chart (ID over time):\n";
     for (auto &r : results) {
         std::cout << "Task " << r.id 
@@ -184,4 +179,10 @@ void scheduleEDF(HeapMaster<Task,10005,EDFCompare> Deadline)
         if (r.missed) std::cout << "  **MISSED**";
         std::cout << "\n";
     }
+
+    std::cout << "\n===== Priority Scheduling Results =====\n";
+    std::cout << "Total tasks: " << results.size() << "\n";
+    std::cout << "Average waiting time: " << avgWaiting << "\n";
+    std::cout << "Average turnaround time: " << avgTurnaround << "\n";
+    std::cout << "Missed deadlines: " << missedCount << "\n\n";
 }

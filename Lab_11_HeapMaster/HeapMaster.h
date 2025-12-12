@@ -32,7 +32,7 @@ struct EDFCompare {
     } 
 };
 
-template <typename T, int MAX_SIZE = 100005, typename Compare = std::greater<T>>
+template <typename T, int MAX_SIZE = 10000000, typename Compare = std::greater<T>>
 class HeapMaster {
     private:
         T data[MAX_SIZE];
