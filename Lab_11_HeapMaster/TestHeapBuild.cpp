@@ -24,9 +24,9 @@ int main() {
   
     auto duration = duration_cast<nanoseconds>(end - start);
 
-    cout << "Insert took " << duration.count() << " nanoseconds.\n"; 
+    cout << "Inserts took " << duration.count() << " nanoseconds.\n"; 
     
-      auto end = high_resolution_clock::now();
+     
     int arr[1000000];
 
     for (int i = 0; i<1000000; i++)
